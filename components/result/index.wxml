@@ -1,0 +1,13 @@
+<!--components/result/index.wxml-->
+<view>
+  <view class="box">
+    <view class="top">
+      <image src="../../image/member/fail.png"></image>
+      <text>支付失败</text>
+    </view>
+    <view class="btn">
+      <view class="jilu" bindtap="onrecord" wx:if="{{fail == 0}}">充值记录</view>
+      <view class="zhifu" bindtap="onback">重新支付</view>
+    </view>
+  </view>
+</view>

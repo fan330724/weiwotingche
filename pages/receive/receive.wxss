@@ -1,0 +1,17 @@
+/* pages/receive/receive.wxss */
+.contin{
+  position: relative;
+  width: 750rpx;
+  height: 2338rpx;
+}
+image{
+  width: 100%;
+  height: 100%;
+}
+.succ{
+  position: absolute;
+  bottom: 85rpx;
+  left: 67rpx;
+  width: 605rpx;
+  height: 116rpx;
+}

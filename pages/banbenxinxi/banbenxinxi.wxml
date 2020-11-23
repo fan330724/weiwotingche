@@ -1,0 +1,12 @@
+<!--pages/banbenxinxi/banbenxinxi.wxml-->
+<view class="bigBox">
+  <view class="content">
+    <view class="photo">
+      <image src="../../image/home/banben.jpg"></image>
+    </view>
+    <text class="title">帷幄停车 {{version}}</text>
+    <view class="connt">
+      <text>帷幄智能停车以实地数据+APP结合方式，打造新型智能停车平台，实现停车场和用户的直接对接</text>
+    </view>
+  </view>
+</view>

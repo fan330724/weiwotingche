@@ -1,0 +1,119 @@
+<view class='coupon'>
+  <view class='couponL'>
+    <text class='money'>{{couponval}}</text>
+    <text class='address'>{{couponaddress}}</text>
+    <text class='shop'>{{couponsh}}</text>
+  </view>
+  <view class="section section_gap">
+    <radio-group name="radio-group" bindchange="radioChange">
+      <label>
+        <radio value="0" checked="true" />新车辆</label>
+        <label hidden='{{!ifcar}}'>
+          <radio value="1" />已有车辆</label>
+    </radio-group>
+  </view>
+  <view class='newcar' wx:if="{{tab==0?true:false}}">
+    <!--输入框默认样式-->
+    <block wx:if="{{!isFocus}}">
+      <view class="text text_con" bindtap="showKeyboard">
+        <text class="placeholder">{{placeholder}}</text>
+      </view>
+    </block>
+    <!--输入框打开键盘样式-->
+    <block wx:else="{{isFocus}}">
+      <view class="text text_con_focus" bindtap="bindFocus">
+        {{textValue}}
+        <view animation="{{animationData}}">|</view>
+      </view>
+    </block>
+
+    <!--键盘-->
+    <block wx:if="{{isKeyboard}}">
+      <view class="keyboard">
+
+        <!--省份简写键盘-->
+        <view class="td td_nor" wx:for="{{keyboardValue}}" wx:for-index="idx" wx:for-item="itemName" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}" hover-class="board_bg" hover-start-time="0" hover-stay-time="80">
+          {{itemName}}
+        </view>
+
+        <!--数字键盘不可点击-->
+        <view wx:if="{{specialBtn && !tapNum}}" class="td td_num board_bg" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName">
+          {{itemName}}
+        </view>
+
+        <!--数字键盘可点击-->
+        <view wx:if="{{specialBtn && tapNum}}" class="td td_num" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}" hover-class="board_bg" hover-start-time="0" hover-stay-time="80">
+          {{itemName}}
+        </view>
+
+        <!--字母键盘-->
+        <view wx:if="{{specialBtn}}" class="td td_num" wx:for="{{keyboardAlph}}" wx:for-index="idx" wx:for-item="itemName" hover-class="board_bg" hover-start-time="0" hover-stay-time="80">
+          <view class="del_icon" wx:if="{{idx == 29}}" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}">
+            <!--<image src="/images/icon_del.png" mode="aspectFit" class="del_icon"></image>-->
+          </view>
+          <view wx:elif="{{idx != 29}}" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}">
+            {{itemName}}
+          </view>
+        </view>
+
+        <!--完成按钮 start-->
+        <view class="td td_spec_fin" wx:for="{{keyboard2For}}" wx:for-index="idx" wx:for-item="itemName" bindtap="tapSpecBtn" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{specialBtn}}" hover-class="board_bg_spec" hover-start-time="0" hover-stay-time="80">
+          {{itemName}}
+        </view>
+        <!--完成按钮 end-->
+      </view>
+    </block>
+    <view class="newcar carn">
+      <text>新能源车牌</text>
+      <switch bindchange="switch2Change" />
+    </view>
+  </view>
+  <view class='oldcar' wx:if="{{tab==1?true:false}}">
+    <view class="section1">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          选择车辆：{{array[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class='btn' bindtap='oldkey'>
+      绑定
+    </view>
+
+  </view>
+
+</view>
+<text class='message'>
+      ----请绑定使用该优惠券的车辆----
+</text>
+<text class='message'>
+    友情提示：帷幄停车用户可在已有车辆直接选择
+</text>
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">输入密码</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <input placeholder-class="input-holder" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入领取密码"></input>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+  </view>
+</view>
+
+
+<!-- 提示手机号弹窗 -->
+
+<view class='modu' hidden='{{havePhone}}'>
+    <view class='modu_box'>
+      <!-- <view class='box_header'>一键登录</view> -->
+      <view class='phonebant'>您未登录，请先登录再使用</view>
+      <view class='box_btn'>
+        <!-- <view bindtap='noName'>取消</view> -->
+       <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindtap="ss"><view bindtap='userName'>一键登录</view></button> 
+      </view>
+    </view>
+</view>

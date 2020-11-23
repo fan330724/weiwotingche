@@ -1,0 +1,44 @@
+/* components/result/index.wxss */
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90rpx;
+}
+.box .top{
+  display: flex;
+  flex-direction: column;
+}
+.box image{
+  width: 132rpx;
+  height: 132rpx;
+}
+.box text{
+  margin-top: 24rpx;
+  color: #666;
+  font-size: 32rpx;
+  letter-spacing: 2px;
+}
+
+.box .btn{
+  display: flex;
+  align-items: center;
+  margin-top: 80rpx;
+}
+.box .btn view{
+  width: 268rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 30px;
+  color: #30C77E;
+}
+.box .btn .jilu{
+  border: 1px solid #30C77E;
+  margin-right: 60rpx;
+}
+.box .btn .zhifu{
+  background: #30C77E;
+  color: white;
+}

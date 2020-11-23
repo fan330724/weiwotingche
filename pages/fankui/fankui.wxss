@@ -1,0 +1,31 @@
+/* pages/fankui/fankui.wxss */
+.section{
+  background: #E5E5E5;
+  border:1px solid #E5E5E5;
+  border-radius: 10rpx;
+  width: 660rpx;
+  height: 361rpx;
+  margin: 0 auto;
+  margin-top: 70rpx;
+  padding: 20rpx;
+  font-size: 14px;
+  position: relative;
+}
+.TL{
+  position: absolute;
+  right: 40rpx;
+  bottom: 40rpx;
+  color: #D3D3D3
+}
+.btn{
+  width: 60%;
+  margin: 0 auto;
+  background: #30C77E;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-top: 60rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 14px;
+  color: #fff
+}

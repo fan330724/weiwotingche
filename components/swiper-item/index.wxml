@@ -1,0 +1,42 @@
+<!--components/swiper-item/index.wxml-->
+<!-- 轮播图 -->
+<view class="swiper">
+  <swiper circular
+  previous-margin="16rpx"
+  next-margin="16rpx"
+  current="{{idx}}">
+    <swiper-item wx:for="{{dataList}}" wx:key="index">
+      <view class="box">
+        <view class="topNav" bindtap="markertap" data-id="{{item}}">
+          <view class="name_nav">
+            <view class="name_top">
+              <view style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:260rpx;">{{item.NAME}}</view>
+              <view class="weiwo" wx:if='{{item.IS_WEIWOPARK==0?false:true}}'> 帷幄支付 </view>
+            </view>
+            <view class="name_top xin">
+              <view style='width:70px;color:#545454'>{{item.distance}}公里
+                <text style='margin-left:10px;color:#c0c0c0'>|</text>
+              </view>
+              <view style='width:250rpx;overflow:hidden;height:30rpx;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;line-height:32rpx;color:#545454'>{{item.ADDRESS}}</view>
+            </view>
+            <!-- 帷幄停车小标 -->
+            <view class='name_top xin border' hidden='{{active==1?fasle:true}}'>
+              <view class='price' hidden='{{item.PRICE==""|| item.PRICE==undefined?true:false}}' style='font-size:20rpx;'>{{item.PRICE}}</view>
+              <!-- <view class='space'  style='font-size:20rpx;'>空余车位：{{item.EMPTY_SPACE==0?'暂未上传':(item.EMPTY_SPACE)+"个"}}</view> -->
+              <view class='space'  style='font-size:20rpx;'>总车位：{{item.SPACE}}个</view>
+            </view>
+          </view>
+          <view class="park_img">
+            <image src="http://124.70.23.12:8084/gameIcon/image/6262.png" mode="aspectFit"></image>
+          </view>
+        </view>
+        <view class="gongneng">
+          <view class='daohang xiangq' bindtap='dh' data-LON="{{item.LON}}" data-LAT="{{item.LAT}}" data-NAME="{{item.NAME}}" data-ADDRESS="{{item.ADDRESS}}">
+            <image src="../../image/home/daohang.png"></image>
+            <text>导航</text>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

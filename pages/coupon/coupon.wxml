@@ -1,0 +1,86 @@
+<!--pages/coupon/coupon.wxml-->
+<view class="continue">
+  <view class="tab">
+    <view class="{{active == 0?'active':''}}" data-id="0" bindtap="tab">可使用
+      <view class="cur" wx:if="{{active == 0}}"></view>
+    </view>
+    <view class="{{active == 2?'active':''}}" data-id="2" bindtap="tab">已使用
+    <view class="cur" wx:if="{{active == 2}}"></view></view>
+    <view class="{{active == 1?'active':''}}" data-id="1" bindtap="tab">已过期
+    <view class="cur" wx:if="{{active == 1}}"></view></view>
+  </view> 
+  <view class="mt">
+    <view class="fail" wx:if="{{show}}">
+      <image src="../../image/home/null.png"></image>
+      <text>暂无优惠券</text>
+    </view>
+    <block wx:if="{{active == 0 && show == false}}">
+      <view>
+        <view class="main" wx:for="{{list}}" wx:key="index">
+          <image src="../../image/home/ka.png" wx:if="{{item.CARD_TYPE == 'GAS-S'}}"></image>
+          <image src="../../image/home/tingche.png" wx:if="{{item.CARD_TYPE == 'PARKWW' || item.CARD_TYPE == 'PARK-TLW' || item.CARD_TYPE == 'PARK-TCL'}}"></image>
+          <image src="../../image/home/xiche.png" wx:if="{{item.CARD_TYPE == 'WASH-CXJ'}}"></image>
+          <view class="txt">
+            会员{{item.text}}
+          </view>
+          <view class="lis">
+            <view class="top">
+              <view class="left">
+                <view>{{item.CARD_NAME}}</view>
+                <text>有效期{{item.startDate}}-{{item.endDate}}</text>              
+              </view>
+              <view class="btn" bindtap="touse" data-item="{{item}}">
+                立即使用
+              </view>
+            </view>
+            <view class="text">{{item.INTRODUCTION}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{active == 2 && show == false}}">
+      <view>
+        <view class="main" wx:for="{{list}}" wx:key="index">
+          <image src="../../image/home/yijiayou.png" wx:if="{{item.CARD_TYPE == 'GAS-S'}}"></image>
+          <image src="../../image/home/yitingche.png" wx:if="{{item.CARD_TYPE == 'PARKWW' || item.CARD_TYPE == 'PARK-TLW' || item.CARD_TYPE == 'PARK-TCL'}}"></image>
+          <image src="../../image/home/yixiche.png" wx:if="{{item.CARD_TYPE == 'WASH-CXJ'}}"></image>
+          <view class="txt txt1">
+            会员{{item.text}}
+          </view>
+          <view class="lis">
+            <view class="top">
+              <view class="left left1">
+                <view>{{item.CARD_NAME}}</view>
+                <text>有效期{{item.startDate}}-{{item.endDate}}</text>              
+              </view>
+              <image src="../../image/home/yishiyong.png" class="btn1"></image>
+            </view>
+            <view class="text text1">{{item.INTRODUCTION}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{active == 1 && show == false}}">
+      <view>
+        <view class="main" wx:for="{{list}}" wx:key="index">
+          <image src="../../image/home/yijiayou.png" wx:if="{{item.CARD_TYPE == 'GAS-S'}}"></image>
+          <image src="../../image/home/yitingche.png" wx:if="{{item.CARD_TYPE == 'PARKWW' || item.CARD_TYPE == 'PARK-TLW' || item.CARD_TYPE == 'PARK-TCL'}}"></image>
+          <image src="../../image/home/yixiche.png" wx:if="{{item.CARD_TYPE == 'WASH-CXJ'}}"></image>
+          <view class="txt txt1">
+            会员{{item.text}}
+          </view>
+          <view class="lis lis1">
+            <view class="top">
+              <view class="left left1">
+                <view>{{item.CARD_NAME}}</view>
+                <text>有效期{{item.startDate}}-{{item.endDate}}</text>              
+              </view>
+              <image src="../../image/home/yiguoqi.png" class="btn1"></image>
+            </view>
+            <view class="text text1">{{item.INTRODUCTION}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

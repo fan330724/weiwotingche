@@ -1,0 +1,85 @@
+<!--pages/Luckydraw/Luckydraw.wxml-->
+<view class="main">
+  <view class="rule" bindtap="torule"></view>
+  <view class="position">
+    <view class="top">
+      <text class="txt">活动时间：2020.11.21——2020.12.31</text>
+      <view class="top-bg">
+        <swiper autoplay circular vertical>
+          <swiper-item wx:for="{{lotj}}" wx:key="index">
+            <view class="list">
+              <image src="http://124.70.23.12:8084/gameIcon/image/tou.png"></image>
+              <text>{{item.CELLPHONE}}抽中{{item.LOTTERY}}</text>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+    <view class="center">
+      <view class="posa">
+        <view class="tet">
+          <view class="text">
+            您有
+            <text>{{num}}</text>
+            次抽奖机会
+          </view>
+          <view class="ti">开通月卡/年卡得1次抽奖机会</view>
+        </view>
+        <view class="butt" bindtap="tomember"></view>
+      </view>
+      <view class='frame_view'>
+        <view class='frame_row'>
+          <image class='frame_item' style='opacity:{{color[0]}}' src='{{images[0]}}'></image>
+          <image class='frame_item' style='opacity:{{color[1]}}' src='{{images[1]}}'></image>
+          <image class='frame_item' style='opacity:{{color[2]}}' src='{{images[2]}}'></image>
+        </view>
+
+        <view class='frame_row'>
+          <image class='frame_item' style='opacity:{{color[7]}}' src='{{images[7]}}'></image>
+          <image class='frame_item' src='{{btnconfirm}}' bindtap='{{clickLuck}}'></image>
+          <image class='frame_item' style='opacity:{{color[3]}}' src='{{images[3]}}'></image>
+        </view>
+
+        <view class='frame_row'>
+          <image class='frame_item' style='opacity:{{color[6]}}' src='{{images[6]}}'></image>
+          <image class='frame_item' style='opacity:{{color[5]}}' src='{{images[5]}}'></image>
+          <image class='frame_item' style='opacity:{{color[4]}}' src='{{images[4]}}'></image>
+        </view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="noyet" wx:if="{{lot.length == 0}}"></view>
+      <view class="listarr" wx:else>
+        <swiper circular vertical autoplay display-multiple-items="{{inx}}">
+          <swiper-item wx:for="{{lot}}" wx:key="index">
+            <view class="list">
+              <image src="http://124.70.23.12:8084/gameIcon/image/tou.png"></image>
+              <text>{{item.LOTTERY}}</text>
+              <view class="list-r">
+                {{item.date}}
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 弹出框 -->
+<view class="pop" catchtouchmove="ture" wx:if="{{showModal}}">
+  <view class="alert-mask" wx:if="{{showModal}}"></view>
+  <view class="modalDlg">
+    <view class="receive" wx:if="{{luckPosition == 6}}">
+      <view class="top">恭喜您获得</view>
+      <view class="price">{{price}}元</view>
+      <image src="http://124.70.23.12:8084/gameIcon/image/bt-know.png" class="butt" catchtap="hideMask"></image>
+    </view>
+
+    <view class="card" wx:if="{{luckPosition == 1}}">
+      <image src="http://124.70.23.12:8084/gameIcon/jiugongge/win-btn.png" bindtap="tomember"></image>
+    </view>
+
+    <image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
+  </view>
+</view>

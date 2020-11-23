@@ -1,0 +1,80 @@
+/* components/index-list/index.wxss */
+.box {
+  background: #fff;
+  padding: 10rpx 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  /* height: 200rpx; */
+  /* margin-bottom: 10rpx; */
+  border-bottom: 1px dashed #999;
+}
+
+.box .topNav {
+  font-size: 32rpx;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.box .name_nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 16rpx;
+}
+
+.box .name_top {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.box .name_top .weiwo {
+  padding: 8rpx;
+  color: #fff;
+  background-color: #30C77E;
+  font-size: 20rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  margin-left: 20rpx;
+}
+.box .name_top .hongbao{
+  width: 30rpx;
+  height: 38rpx;
+  margin-left: 10rpx;
+}
+.box .xin {
+  font-size: 24rpx;
+  font-weight: 400;
+  margin-top: 15rpx;
+}
+.box .border{
+  margin: 15rpx 0;
+}
+.box .border view {
+  border-radius: 8rpx;
+  font-size: 20rpx;
+}
+.box .price,
+.box .space {
+  margin-right: 20rpx;
+}
+
+.daohang{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30rpx;
+}
+.daohang image{
+  width: 76rpx;
+  height: 76rpx;
+}
+.daohang text{
+  color: #666;
+  font-size: 20rpx;
+  margin-top: 10rpx;
+}

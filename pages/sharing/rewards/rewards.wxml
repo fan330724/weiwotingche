@@ -1,0 +1,32 @@
+<!--pages/sharing/rewards/rewards.wxml-->
+<view class="bg">
+  <image src="http://124.70.23.12:8084/gameIcon/image/lingqu.png"></image>
+  <view class="main">
+    <view class="title">
+      恭喜您！
+      <view >有{{num}}位小伙伴通过您的邀请加入帷幄！</view>
+    </view>
+    <view class="text">
+      帷幄为您准备了{{num1}}升中石化加油卡一张，填写地址信息，
+      我们将邮寄给您哦~
+    </view>
+    <view class="form">
+      <form bindsubmit="toSubmit">
+        <view class="inp">
+          <input type="text" placeholder="姓名" class="pl {{disabled?'active':''}}" disabled="{{disabled}}" value="{{name}}" name="text"></input>
+        </view>
+        <view class="inp">
+          <input type="number" placeholder="电话" class="pl {{disabled?'active':''}}" value="{{cellphone}}" disabled="{{disabled}}" name="number" ></input>
+        </view>
+        <view class="inp">
+          <textarea placeholder="详细地址" class="pl {{disabled?'active':''}} p2" auto-height disabled="{{disabled}}" value="{{dizhi}}" name="textarea"></textarea>
+        </view>
+        <view class="zhuyi">
+          注意：请输入正确地址，已经提交不可更改
+          <view class="">客服电话</view>
+        </view>
+        <button class="sub" hover-class="none" formType="submit" plain wx:if="{{show}}"></button>
+      </form>
+    </view>
+  </view>
+</view>

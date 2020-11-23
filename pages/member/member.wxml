@@ -1,0 +1,270 @@
+<!--pages/member/member.wxml-->
+<view>
+  <view class="back">
+    <view class="tab">
+      <view class='border {{active==1?"plus":""}}' data-id='1' bindtap="select">
+        PLUS会员
+      </view>
+      <view class='border {{active==2?"chuzhi":""}}' data-id="2" bindtap="select">
+        储值会员
+      </view>
+      <view class="jilu" bindtap="torecord">
+        <image src="../../image/member/jilu.png"></image>
+      </view>
+    </view>
+    <block wx:if="{{active == 1}}">
+      <view class="bg">
+        <!-- <view class="quanyi" bindtap="toquanyi" data-title="PLUS会员">
+          <image src="../../image/member/quanyi.png"></image>
+          <text>会员权益</text>
+        </view> -->
+        <view class="weiwo">
+          <view class="wt">
+            帷幄停车
+          </view>
+          <view class="date" wx:if="{{btn == '立即续费'}}">PLUS会员有效期至
+            {{enddate}}
+          </view>
+          <view class="date" wx:if="{{btn == '立即开通'}}">未开通</view>
+        </view>
+      </view>
+      <view class="color"></view>
+      <!-- <view class="list">
+        <text class="tequan">VIP会员特权</text>
+        <view class="item">
+          <view class="item-i" wx:for="{{list}}" wx:key="index">
+            <image src="{{item.image}}"></image>
+            <text>{{item.text}}</text>
+          </view>
+        </view>
+      </view> -->
+      <view class="jiayou">
+        <image src="http://124.70.23.12:8084/gameIcon/image/bt-jiayou.png"></image>
+      </view>
+      <view class="tequan">
+        <image src="http://124.70.23.12:8084/gameIcon/image/bt-tag.png"></image>
+      </view>
+      <view class="liquan plusBg" >
+        <!-- <view class="img">
+          <image src="http://124.70.23.12:8084/gameIcon/image/bt-p.png" class="textimg" mode="aspectFit"></image>
+        </view> -->
+        <view class="main" >
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+              <!-- <view class="top">1.活动规则：</view> -->
+              <view class="text">
+               一、帷幄30元plus月卡权益：
+              </view>
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+              <!-- <view class="top">2.活动优惠 </view> -->
+              <view class="text">
+                <!-- <text>加油活动：</text> -->
+                1、停车礼金：会员每月可领取4次停车礼金，每次可随机领取停车礼金2-5元；
+              </view>
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+              <!-- <text>停车活动：</text> -->
+              2、定向红包：会员每月8号帷幄会员日前往指定商圈停车，可领取定向现金红包，现金红包金额10-20元；（活动商圈包含：长风商圈、柳巷商圈、下元商圈、朝阳街商圈）；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+              <!-- <text>洗车活动：</text> -->
+              3、加油9折起：会员每月可获赠20元中石化加油券，加油券在每月开通会员卡日自动发放，当月加油券需当月使用，逾期未用视为用户自动放弃该项权益，不予补发；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+              4、洗车超值4折：会员每月可享受车速洁指定门店8元高端全自动洗车不限次（原价20元）；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+            5、本产品为会员权益类产品，用户成功支付开通视为认可产品会员权益，原则上不予退款，请大家酌情购买；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+             6、卡券类优惠可前往会员中心“我的卡券”页面查看，优惠券不可兑换现金；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+             7、停车礼金及定向现金红包直接返至微信零钱，请及时查收；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+             8、本活动在法律允许范围内，最终解释权归山西帷幄智能科技有限公司所有；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+             9、如您对本次活动规则有任何疑问，可咨询帷幄停车客服热线0351-2526206或人工客服。
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+              <!-- <view class="top">1.活动规则：</view> -->
+              <view class="text">
+              二、帷幄280元plus年卡权益：
+              </view>
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+              <!-- <view class="top">2.活动优惠 </view> -->
+              <view class="text">
+                <!-- <text>加油活动：</text> -->
+               1、停车礼金：会员每月可领取4次停车礼金，每次可随机领取停车礼金2-5元；
+              </view>
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+              <!-- <text>停车活动：</text> -->
+              2、定向红包：会员每月8号帷幄会员日前往指定商圈停车，可领取定向现金红包，现金红包金额10-20元；（活动商圈包含：长风商圈、柳巷商圈、下元商圈、朝阳街商圈）；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+              <!-- <text>洗车活动：</text> -->
+              3、加油9折起：会员每月可获赠20元中石化加油券，加油券在每月开通会员卡日自动发放，当月加油券需当月使用，逾期未用视为用户自动放弃该项权益，不予补发；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+             4、洗车超值4折：会员每月可享受车速洁指定门店8元高端全自动洗车不限次（原价20元）；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+            5、本产品为会员权益类产品，用户成功支付开通视为认可产品会员权益，原则上不予退款，请大家酌情购买；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+             6、卡券类优惠可前往会员中心“我的卡券”页面查看，优惠券不可兑换现金；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+             7、停车礼金及定向现金红包直接返至微信零钱，请及时查收；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+            8、本活动在法律允许范围内，最终解释权归山西帷幄智能科技有限公司所有；
+            </view>
+          </view>
+          <view class="flex">
+            <!-- <view class="yu"></view> -->
+            <view class="right">
+             9、如您对本次活动规则有任何疑问，可咨询帷幄停车客服热线0351-2526206或人工客服。
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="background">
+        <view class="btn" bindtap="torecharge" data-text="{{btn}}">
+          {{btn}}
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{active == 2}}">
+      <view class="bg bg1">
+        <!-- <view class="quanyi" bindtap="toquanyi" data-title="储值会员">
+          <image src="../../image/member/quanyi1.png"></image>
+          <text>会员权益</text>
+        </view> -->
+        <view class="left">
+          <image src="../../image/member/54.png"></image>
+          <text>{{nickName}}</text>
+        </view>
+        <view class="bottom">
+          <view class="yue">
+            余额：{{total}}元
+          </view>
+          <view class="bttn" bindtap="onrecharge">立即充值</view>
+        </view>
+      </view>
+       <view class="color"></view>
+        <view class="liquan chuBg" style="height:{{height}}">
+          <view class="img">
+            <image src="http://124.70.23.12:8084/gameIcon/image/bt-l.png" class="textimg" mode="aspectFit"></image>
+          </view>
+          <view class="main" style="height:{{mainH}}">
+            <view class="flex">
+              <view class="yu"></view>
+              <view class="right">
+                <view class="text">
+                  本会员为帷幄停车无感支付功能储值会员
+                </view>
+              </view>
+            </view>
+            <view class="flex">
+              <view class="yu"></view>
+              <view class="right">
+                储值会员可享受在已开通帷幄支付的停车场停车，离场时无感支付自动扣费服务;
+              </view>
+            </view>
+            <view class="flex">
+              <view class="yu"></view>
+              <view class="right">
+                储值会员余额,可用于购买低价洗车优惠券；
+              </view>
+            </view>
+            <view class="flex">
+              <view class="yu"></view>
+              <view class="right">
+                储值会员余额,暂不可用于升级成为PLUS会员；
+              </view>
+            </view>
+            <view class="flex">
+              <view class="yu"></view>
+              <view class="right">
+                最终解释权归山西帷幄智能科技有限公司所有
+              </view>
+            </view>
+            <view class="flex">
+              <view class="yu"></view>
+              <view class="right">
+                帷幄停车客服热线0351-2526206。
+              </view>
+            </view>
+          </view>
+        </view>
+      <view class="btn" bindtap="torecharge" data-text="立即开通" wx:if="{{btn !== '立即续费'}}">
+        升级PLUS会员
+      </view>
+      <view class="btn" bindtap="torecharge" data-text="立即开通" wx:if="{{btn == '立即续费'}}">
+        续费PLUS会员
+      </view>
+    </block>
+  </view>
+</view>
+

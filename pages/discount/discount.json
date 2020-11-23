@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "discount-list":"../../components/discount-list/index"
+  },
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark",
+  "backgroundColor":"#e6e6e6"
+}

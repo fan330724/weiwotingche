@@ -1,0 +1,29 @@
+.bigBox .list{
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
+  padding-left: 40rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 1px solid #eee;
+  line-height: 40rpx;
+}
+.bigBox .list .photo{
+  width: 80rpx;
+  height: 80rpx;
+}
+.bigBox .list .photo image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.bigBox .list .title{
+  padding-left: 20rpx;
+}
+.bigBox .list .title text{
+  font-weight: 700;
+  font-size: 30rpx;
+}
+.bigBox .list .title view{
+  font-size: 24rpx;
+  color: #999;
+}

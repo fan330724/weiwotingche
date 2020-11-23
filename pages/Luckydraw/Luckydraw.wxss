@@ -1,0 +1,254 @@
+.main{
+	background: url('http://124.70.23.12:8084/gameIcon/jiugongge/page-bg.png') no-repeat;
+	background-size: 100% 100%;
+	height: 2140rpx;
+	position: relative;
+}
+.rule{
+	background: url('http://124.70.23.12:8084/gameIcon/jiugongge/rule.png') no-repeat;
+	background-size: 100% 100%;
+	width: 90rpx;
+	height: 35rpx;
+	position: absolute;
+	top: 16.5%;
+	right: -5rpx;
+}
+.position{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	/* width: 100%; */
+}
+.top text{
+	color: #F7030A;
+	font-size: 24rpx;
+}
+.top .txt{
+	margin-top: 10rpx;
+}
+.top .top-bg{
+	width: 600rpx;
+	height: 80rpx;
+	background: url('http://124.70.23.12:8084/gameIcon/jiugongge/bg.png') no-repeat;
+	background-size: 100% 100%;
+	margin: 0 auto;
+	margin-top: 15rpx;
+	margin-bottom: 21rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.top .top-bg swiper{
+	width: 100%;
+	height: 60rpx !important;
+}
+.top .top-bg .list{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.top .top-bg .list text{
+	color: white;
+	font-size: 28rpx;
+}
+.top .top-bg image{
+	width: 60rpx;
+	height: 60rpx;
+	margin-right: 30rpx;
+}
+
+.center{
+	background: url('http://124.70.23.12:8084/gameIcon/jiugongge/jiugongge-bg.png') no-repeat;
+	background-size: 100% 100%;
+	width: 690rpx;
+	height: 720rpx;
+	position: relative;
+}
+.center .posa{
+	position: absolute;
+	top: 4.3%;
+	left: 57%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 400rpx;
+}
+.center .tet{
+	text-align: left;
+}
+.center .text{
+	font-size: 26rpx;
+	color: white;
+}
+.center .ti{
+	font-size: 20rpx;
+	color: #FFE828;
+	margin-top: 5rpx;
+}
+.center .text text{
+	font-size: 32rpx;
+	color: #FFE610;
+}
+.center .butt{
+	background: url('http://124.70.23.12:8084/gameIcon/jiugongge/openPlus.png') no-repeat;
+	background-size: 100% 100%;
+	width: 105rpx;
+	height: 50rpx;
+	margin-top: 13rpx;
+}
+.frame_view{
+	position: absolute;
+	top: 23.5%;
+	left: 50%;
+	transform: translateX(-50%);
+  width:578rpx;
+}
+.frame_row{
+  width:575rpx;
+  height:162rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+} 
+.frame_item{
+  width:188rpx;
+  height:154rpx;
+}
+
+.bottom{
+	background: url('http://124.70.23.12:8084/gameIcon/jiugongge/jilu-bg.png') no-repeat;
+	background-size: 100% 100%;
+	width: 685rpx;
+	height: 505rpx;
+	margin-top: 28rpx;
+	position: relative;
+}
+.bottom .noyet{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+	transform: translate(-50%,-50%);
+	background: url('http://124.70.23.12:8084/gameIcon/image/null.png') no-repeat;
+	background-size: 100% 100%;
+	width: 300rpx;
+	height: 300rpx;
+}
+.bottom .listarr{
+	overflow: hidden;
+	padding-top: 12%;
+}
+.bottom .listarr swiper{
+  height: 400rpx !important;
+}
+.bottom .listarr swiper-item{
+	height: 100rpx !important;
+}
+.bottom .list{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #2e2e2e;
+}
+
+.bottom .list image{
+  width: 80rpx;
+	height: 80rpx;
+	margin-left: 40rpx;
+}
+.bottom .list text,.bottom .list .list-r{
+	font-size: 32rpx;
+}
+
+.bottom .list text{
+	flex: 2;
+}
+.bottom .list .list-r{
+	flex: 2;
+}
+
+
+/* 弹出框 */
+.pop{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+}
+.pop .alert-mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.3;
+}
+
+.pop .modalDlg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-60%);
+  z-index: 9999;
+}
+.pop .receive{
+  background: url('http://124.70.23.12:8084/gameIcon/image/bt-success.png') no-repeat;
+  background-size: 100% 100%;
+  width: 552rpx;
+  height: 658rpx;
+  position: relative;
+}
+.pop .receive .top,.pop .receive .price{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+.pop .receive .top{
+  top: 200rpx;
+  font-size: 46rpx;
+}
+.pop .receive .price{
+  top: 290rpx;
+  font-size: 85rpx;
+}
+.pop .butt{
+  position: absolute;
+  bottom: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340rpx;
+  height: 76rpx;
+}
+
+.pop .card{
+	background: url('http://124.70.23.12:8084/gameIcon/jiugongge/win.png') no-repeat;
+  background-size: 100% 100%;
+  width: 552rpx;
+  height: 658rpx;
+  position: relative;
+}
+.pop .card image{
+	width: 400rpx;
+	height: 78rpx;
+	position: absolute;
+	bottom: 60rpx;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.pop .close{
+	width: 60rpx;
+	height: 60rpx;
+	position: absolute;
+	bottom: -100rpx;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
