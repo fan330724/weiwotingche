@@ -24,8 +24,8 @@ Page({
     textArr: [],
     textValue: '', //输入框的值
     CODE: '',
-    placeholder:"请填写车牌号",
-    isShow:"true"
+    placeholder: "请填写车牌号",
+    isShow: "true"
   },
 
   /**
@@ -67,14 +67,15 @@ Page({
         responseType: "arraybuffer",
         method: 'get',
         success: (res) => {
-          // console.log(res)
+          wx.hideLoading()
+          console.log(res)
           setTimeout(() => {
             var imgUrl = wx.arrayBufferToBase64(res.data)
             this.setData({
               imgUrl
             })
           }, 300)
-          wx.hideLoading()
+
         }
       })
     }, 300)
@@ -136,9 +137,9 @@ Page({
                     title: '停车券兑换成功，出场自动减免',
                     icon: "none",
                   })
-                  setTimeout(()=>{
+                  setTimeout(() => {
                     wx.navigateBack()
-                  },1500) 
+                  }, 1500)
                 } else {
                   wx.showToast({
                     title: err,
@@ -179,7 +180,7 @@ Page({
   showKeyboard: function () {
     this.setData({
       isKeyboard: true,
-      isShow:false
+      isShow: false
     })
     console.log(111)
   },
@@ -279,24 +280,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    switch (this.data.list.CARD_TYPE) {
+    // this.request('/api/gas/qrcode.shtml');
+    let cardType = this.data.list.CARD_TYPE
+    let cardName = this.data.list.CARD_NAME
+    switch (cardType) {
       case 'GAS-S':
-        this.request('/api/gas/qrcode.shtml')
-        break;
-      case 'PARK-TLW':
-        wx.request({
-          url: app.data.url + '/api/parkCoupon/tlwCoupon.shtml',
-          data: {
-            CARD_ID: this.data.list.ID
-          },
-          method: "post",
-          success: (res) => {
-            this.setData({
-              CODE: res.data.data.CODE
+      case 'WASH-CXJ':
+        switch(cardName){
+          case '车速洁':{
+            wx.request({
+              url: app.data.url + '/api/parkCoupon/tlwCoupon.shtml',
+              data: {
+                CARD_ID: this.data.list.ID
+              },
+              method: "post",
+              success: (res) => {
+                this.setData({
+                  CODE: res.data.data.CODE
+                })
+              }
             })
+            break;
           }
-        })
-        break;
+          default :{
+            this.request('/api/carwash/qrcode.shtml')
+            break;
+          }
+        }
+      case 'PARK-TLW':
       case 'PARK-TCL':
         wx.request({
           url: app.data.url + '/api/parkCoupon/tlwCoupon.shtml',
@@ -310,9 +321,6 @@ Page({
             })
           }
         })
-        break;
-      case 'WASH-CXJ':
-        this.request('/api/carwash/qrcode.shtml')
         break;
     }
   },

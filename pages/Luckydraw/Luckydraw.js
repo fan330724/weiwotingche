@@ -266,7 +266,7 @@ Page({
           showModal:false,
           clickLuck:'clickLuck'
         })
-        this.loadAnimation(1000);
+        // this.loadAnimation(1000);
       }
     })
   },

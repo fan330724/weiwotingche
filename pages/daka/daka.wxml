@@ -1,0 +1,22 @@
+<!--pages/daka/daka.wxml-->
+<view class="box">
+  <image src="http://124.70.23.12:8084/gameIcon/image/12.12btn.png" bindtap="todaka"></image>
+  <!-- <image src="http://124.70.23.12:8084/gameIcon/image/12.12btn1.png"></image> -->
+</view>
+
+<!-- 弹出框 -->
+<view class="pop">
+  <view class="alert-mask" wx:if="{{showModal}}"></view>
+  <view class="modalDlg" wx:if="{{showModal}}">
+    <view class="receive" wx:if="{{rank!=1}}">
+      <image src="http://124.70.23.12:8084/gameIcon/image/open-plus.png"></image>
+      <button class="accbtn" hover-class='none' catchtap="tomember"></button>
+      <image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
+    </view>
+    <view class="receive" wx:else>
+      <image src="http://124.70.23.12:8084/gameIcon/image/isplus.png"></image>
+      <button class="accbtn1" hover-class='none' catchtap="hideMask"></button>
+      <image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
+    </view>
+  </view>
+</view>

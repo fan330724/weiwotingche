@@ -66,7 +66,8 @@
     "pages/weiworecord/weiworecord",
     "pages/exchangeOrder/exchangeOrder",
     "pages/sharing/agree/agree",
-    "pages/Luckydraw/Luckydraw"
+    "pages/Luckydraw/Luckydraw",
+    "pages/daka/daka"
   ],
   "tabBar": {
     "color": "#282828",

@@ -496,6 +496,18 @@ Page({
       })
     }
   },
+  //跳转打卡页
+  todaka(){
+    if (this.data.havePhone == 1) {
+      wx.navigateTo({
+        url: '../daka/daka',
+      })
+    } else {
+      this.setData({
+        havePhone: 0
+      })
+    }
+  },
   // 跳转浦发
   // topufa() {
   //   if (this.data.havePhone == 1) {

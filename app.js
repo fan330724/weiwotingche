@@ -8,7 +8,7 @@ App({
     bcurl: 'https://bc.weiwopark.com',
     // bcurl: 'http://test.weiwopark.com:8081',    //优惠券接口 测试环境与正式环境切换
     // url: 'http://139.9.133.242:8080/',      
-    // url: 'http://182.92.208.123:8080/',
+    // url: 'http://121.36.83.143:8080/',
     // url: 'https://test.weiwopark.com/',
     //大接口测试环境与生产环境切换
     url: 'https://park.weiwopark.com/',

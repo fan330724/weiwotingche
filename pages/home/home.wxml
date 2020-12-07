@@ -70,6 +70,9 @@
 			<!-- <swiper-item bindtap="toreceive">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-2.png"></image>
 			</swiper-item> -->
+			<swiper-item bindtap="todaka">
+				<image src="http://124.70.23.12:8084/gameIcon/image/daka.png"></image>
+			</swiper-item>
 			<swiper-item bindtap="toyueka">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-yueka.png"></image>
 			</swiper-item>
