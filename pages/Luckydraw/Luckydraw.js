@@ -193,9 +193,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.memberInfo()
-    this.getLotteryRecordList()
-    this.getProbabiByOrder()
+    if(wx.getStorageSync('CELLPHONE')){
+      this.memberInfo()
+      this.getLotteryRecordList()
+      this.getProbabiByOrder()
+    }else{
+      wx.redirectTo({
+        url: '../login/login?type=Luckydraw',
+      })
+    }
+    
   },
   //获取次数
   memberInfo() {

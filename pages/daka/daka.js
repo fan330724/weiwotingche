@@ -15,13 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    http.memberInfo(wx.getStorageSync('CELLPHONE')).then(res => {
-      console.log(res.data.data.data)
-      var rank = res.data.data.data.VIP_RANK
-      this.setData({
-        rank
-      })
-    })
+    
   },
   //点击打卡
   todaka(){
@@ -32,6 +26,41 @@ Page({
       if(res.data.errcode == 0){
         this.setData({
           showModal:true,
+          showCard: false
+        })
+      }else{
+        wx.showToast({
+          title: res.data.errmsg,
+          icon: 'none',
+          mask: true,
+        })
+      }
+    })
+  },
+
+  //获取用户信息
+  onmember(){
+    http.memberInfo(wx.getStorageSync('CELLPHONE')).then(res => {
+      console.log(res.data.data.data)
+      var rank = res.data.data.data.VIP_RANK
+      this.setData({
+        rank
+      })
+    })
+  },
+
+  //获取打卡状态
+  ongetSignCount(){
+    http.getSignCount({
+      CELLPHONE: wx.getStorageSync("CELLPHONE")
+    }).then(res => {
+      console.log(res.data.errmsg)
+      if(res.data.errmsg == ' OK'){
+        this.setData({
+          showCard: true
+        })
+      }else{
+        this.setData({
           showCard: false
         })
       }
@@ -60,22 +89,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    http.getSignCount({
-      CELLPHONE: wx.getStorageSync("CELLPHONE")
-    }).then(res => {
-      console.log(res.data.errmsg)
-      if(res.data.errmsg == ' OK'){
-        this.setData({
-          showCard: true
-        })
-      }else{
-        this.setData({
-          showCard: false
-        })
-      }
-    })
+    if(wx.getStorageSync('CELLPHONE')){
+      this.onmember()
+      this.ongetSignCount()
+    }else{
+      wx.redirectTo({
+        url: '../login/login?type=daka',
+      })
+    }
+    
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */

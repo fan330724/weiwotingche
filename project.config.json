@@ -101,6 +101,13 @@
 					"id": -1,
 					"name": "pages/sharing/agree/agree",
 					"pathName": "pages/sharing/agree/agree",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Luckydraw/Luckydraw",
+					"pathName": "pages/Luckydraw/Luckydraw",
 					"scene": null
 				}
 			]

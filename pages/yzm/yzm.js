@@ -147,6 +147,14 @@ Page({
             wx.reLaunch({
               url: '../sharing/huodong/huodong',
             })
+          }else if(that.data.type == 'Luckydraw'){
+            wx.redirectTo({
+              url: '../Luckydraw/Luckydraw',
+            })
+          }else if(that.data.type == 'daka'){
+            wx.redirectTo({
+              url: '../daka/daka',
+            })
           }else{
             wx.reLaunch({
               url: '../home/home',
