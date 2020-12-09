@@ -32,13 +32,13 @@ Page({
     let index = e.detail.current;
     if (index == 0) {
       this.setData({
-        nPay: "30",
+        nPay: "0.01",
         CARD_TYPE: 2,
         // btnColor:true
       })
     } else if (index == 1) {
       this.setData({
-        nPay: "280",
+        nPay: "0.01",
         CARD_TYPE: 4,
         // btnColor:false
       })

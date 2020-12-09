@@ -95,7 +95,7 @@ Page({
     this.gethui()
     this.getheight()
     console.log(options)
-    if (options.cell != 'undefined' || options.cell != '' && options.openid != 'undefined' || options.openid != '') {
+    if (options.cell != 'undefined' && options.openid != 'undefined' && options.cell && options.openid) {
       http.memberBound({
         INVITER: options.cell,
         CELLPHONE: wx.getStorageSync('CELLPHONE'),

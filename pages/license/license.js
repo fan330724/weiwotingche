@@ -1,5 +1,6 @@
 // keyboard.js
 var checkNetWork = require("../../utils/CheckNetWork.js")
+import http from '../../request/http.js'
 var app = getApp()
 Page({
 
@@ -30,13 +31,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
 
   },
   /**
    * 输入框显示键盘状态
    */
-  showKeyboard: function() {
+  showKeyboard: function () {
     var self = this;
     self.setData({
       isFocus: true,
@@ -46,7 +47,7 @@ Page({
   /**
    * 点击页面隐藏键盘事件
    */
-  hideKeyboard: function() {
+  hideKeyboard: function () {
     var self = this;
     if (self.data.isKeyboard) {
       //说明键盘是显示的，再次点击要隐藏键盘
@@ -66,7 +67,7 @@ Page({
   /**
    * 输入框聚焦触发，显示键盘
    */
-  bindFocus: function() {
+  bindFocus: function () {
     var self = this;
     if (self.data.isKeyboard) {
       //说明键盘是显示的，再次点击要隐藏键盘
@@ -85,7 +86,7 @@ Page({
   /**
    * 键盘事件
    */
-  tapKeyboard: function(e) {
+  tapKeyboard: function (e) {
     var self = this;
     //获取键盘点击的内容，并将内容赋值到textarea框中
     var tapIndex = e.target.dataset.index;
@@ -140,7 +141,7 @@ Page({
   /**
    * 特殊键盘事件（删除和完成）
    */
-  tapSpecBtn: function(e) {
+  tapSpecBtn: function (e) {
     var self = this;
     if (self.data.flag) {
       return false
@@ -175,7 +176,7 @@ Page({
     }
   },
   // 新能源车牌
-  switch2Change: function() {
+  switch2Change: function () {
     var _this = this;
     let newval = _this.data.newval;
     if (newval == 0) {
@@ -212,7 +213,7 @@ Page({
   /*
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
     var self = this;
     //将keyboard1和keyboard2中的所有字符串拆分成一个一个字组成的数组
     self.data.keyboard1 = self.data.keyboard1.split('')
@@ -225,7 +226,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     var self = this;
     self.setData({
       flag: false
@@ -234,11 +235,11 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     wx.stopPullDownRefresh()
   },
   //  车牌绑定
-  bCar: function() {
+  bCar: function () {
     let self = this
     if (self.data.textArr.length < self.data.newcar) {
       wx.showToast({
@@ -251,34 +252,27 @@ Page({
     }
     wx.getStorage({
       key: 'CELLPHONE',
-      success: function(e) {
-        wx.request({
-          url: app.data.url + '/api/member/bindingPlateNumber.shtml',
-          data: {
-            CELLPHONE: e.data,
-            PLATENUMBER: self.data.textValue,
-          },
-          method: 'POST',
-          success: function(res) {
-            console.log(res)
-            if (res.data.errcode == 15) {
-              wx.showModal({
-                title: '提示',
-                content: '车牌已存在，请核对后输入',
-                showCancel: false
-              })
-              self.setData({
-                flag: false
-              })
-            } else {
-              wx.showToast({
-                title: '绑定成功',
-                icon:"none"
-              })
-              wx.reLaunch({
-                url: '../home/home',
-              })
-            }
+      success: function (e) {
+        http.bindingPlateNumber({
+          CELLPHONE: e.data,
+          PLATENUMBER: self.data.textValue,
+        }).then(res => {
+          console.log(res)
+          if (res.data.errcode == 15) {
+            wx.showModal({
+              title: '提示',
+              content: '车牌已存在，请核对后输入',
+              showCancel: false
+            })
+            self.setData({
+              flag: false
+            })
+          } else {
+            wx.showToast({
+              title: '绑定成功',
+              icon: "none"
+            })
+            wx.navigateBack()
           }
         })
       },

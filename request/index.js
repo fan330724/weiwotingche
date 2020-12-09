@@ -37,6 +37,8 @@ export const request = (proms)=>{
         ajaxTime--
         if(ajaxTime === 0){
           wx.hideLoading()
+          wx.stopPullDownRefresh()
+          wx.hideNavigationBarLoading()
         }
       }
     })

@@ -94,6 +94,13 @@
 					"id": -1,
 					"name": "pages/daka/daka",
 					"pathName": "pages/daka/daka",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/sharing/agree/agree",
+					"pathName": "pages/sharing/agree/agree",
 					"scene": null
 				}
 			]

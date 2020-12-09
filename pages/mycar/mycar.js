@@ -1,5 +1,8 @@
 // pages/mycar/mycar.js
-var checkNetWork = require("../../utils/CheckNetWork.js")
+var checkNetWork = require("../../utils/CheckNetWork.js");
+const {
+  default: http
+} = require("../../request/http.js");
 var app = getApp()
 Page({
   /**
@@ -29,16 +32,11 @@ Page({
           wx.getStorage({
             key: 'CELLPHONE',
             success: function (res) {
-              wx.request({
-                url: app.data.url+'/api/member/unBindingPlateNumber.shtml',
-                data: {
-                  CELLPHONE: res.data,
-                  PLATENUMBER: event.currentTarget.dataset.name
-                },
-                method: 'POST',
-                success(res1) {
-                  that.onShow()
-                }
+              http.unBindingPlateNumber({
+                CELLPHONE: res.data,
+                PLATENUMBER: event.currentTarget.dataset.name
+              }).then(res => {
+                that.onShow()
               })
             },
           })
@@ -70,27 +68,17 @@ Page({
    */
   onShow: function () {
     var that = this
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    })
     wx.getStorage({
       key: 'CELLPHONE',
       success: function (e) {
-        wx.request({
-          url: app.data.url+'/api/member/memberPlateNumber.shtml',
-          data: {
-            CELLPHONE: e.data
-          },
-          method: 'POST',
-          success: function (res) {
-            console.log(res)
-            var arr = res.data.data;
-            that.setData({
-              arr
-            })
-            wx.hideLoading()
-          }
+        http.memberPlateNumber({
+          CELLPHONE: e.data
+        }).then(res => {
+          console.log(res)
+          var arr = res.data.data;
+          that.setData({
+            arr
+          })
         })
       },
     });

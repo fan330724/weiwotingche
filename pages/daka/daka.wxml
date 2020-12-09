@@ -1,7 +1,7 @@
 <!--pages/daka/daka.wxml-->
 <view class="box">
-  <image src="http://124.70.23.12:8084/gameIcon/image/12.12btn.png" bindtap="todaka"></image>
-  <!-- <image src="http://124.70.23.12:8084/gameIcon/image/12.12btn1.png"></image> -->
+  <image src="http://124.70.23.12:8084/gameIcon/image/12.12btn.png" bindtap="todaka" wx:if="{{showCard}}"></image>
+  <image src="http://124.70.23.12:8084/gameIcon/image/12.12btn1.png" wx:else></image>
 </view>
 
 <!-- 弹出框 -->

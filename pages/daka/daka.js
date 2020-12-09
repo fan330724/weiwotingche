@@ -8,6 +8,7 @@ Page({
   data: {
     showModal:false, //控制弹窗
     rank:"", //是否是plus会员
+    showCard: true, //控制打卡按钮
   },
 
   /**
@@ -24,8 +25,16 @@ Page({
   },
   //点击打卡
   todaka(){
-    this.setData({
-      showModal:true
+    http.toSignRecord({
+      CELLPHONE: wx.getStorageSync("CELLPHONE")
+    }).then(res => {
+      console.log(res)
+      if(res.data.errcode == 0){
+        this.setData({
+          showModal:true,
+          showCard: false
+        })
+      }
     })
   },
   //关闭弹窗
@@ -51,7 +60,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    http.getSignCount({
+      CELLPHONE: wx.getStorageSync("CELLPHONE")
+    }).then(res => {
+      console.log(res.data.errmsg)
+      if(res.data.errmsg == ' OK'){
+        this.setData({
+          showCard: true
+        })
+      }else{
+        this.setData({
+          showCard: false
+        })
+      }
+    })
   },
 
   /**

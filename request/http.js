@@ -323,4 +323,158 @@ export default {
     })
   },
 
+
+// use页面接口 （卡卷页面）
+   /**
+   * 获取优惠券二维码
+   * 参数 id 优惠券id
+   */
+  qrcode(props) {
+    return request({
+      url: app.data.url + "api/carwash/qrcode.shtml",
+      data: {
+        ...props
+      },
+      responseType: "arraybuffer",
+      method: 'get',
+    }).then((res) => {
+      return res
+    })
+  },
+
+   /**
+   * 获取优惠券兑换码
+   * 参数 CARD_ID 优惠券 id
+   */
+  tlwCoupon(props) {
+    return request({
+      url: app.data.url + "api/parkCoupon/tlwCoupon.shtml",
+      data: {
+        ...props
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+   /**
+   * 获取自营车场列表
+   */
+  wwParkList(props) {
+    return request({
+      url: app.data.url + "api/parkCoupon/wwParkList.shtml",
+      data: {
+        ...props
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+   /**
+   * 使用停车优惠券
+   * 参数 PARK_ID,
+          CARD_ID,
+          PLATE_NUMBER,
+   */
+  wwCoupon(props) {
+    return request({
+      url: app.data.url + "api/parkCoupon/wwCoupon.shtml",
+      data: {
+        ...props
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+
+// mycar页面接口（车辆管理）
+   /**
+   * 删除车辆
+   * 参数 CELLPHONE 手机号,
+          PLATENUMBER  车牌号,
+   */
+  unBindingPlateNumber(props) {
+    return request({
+      url: app.data.url + "api/member/unBindingPlateNumber.shtml",
+      data: {
+        ...props
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+   /**
+   * 获取绑定车辆
+   * 参数 CELLPHONE 手机号,
+   */
+  memberPlateNumber(props) {
+    return request({
+      url: app.data.url + "api/member/memberPlateNumber.shtml",
+      data: {
+        ...props
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+   /**
+   * 绑定车辆
+   * 参数 CELLPHONE 手机号,
+   *      PLATENUMBER: 输入的车牌号
+   */
+  bindingPlateNumber(props) {
+    return request({
+      url: app.data.url + "api/member/bindingPlateNumber.shtml",
+      data: {
+        ...props
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+   /**
+   * 打卡签到
+   * 参数 CELLPHONE 手机号,
+   */
+  toSignRecord(props) {
+    return request({
+      url: app.data.url + "api/channel/toSignRecord.shtml",
+      data: {
+        ...props
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+   /**
+   * 获取是否可签到
+   * 参数 CELLPHONE 手机号,
+   */
+  getSignCount(props) {
+    return request({
+      url: app.data.url + "api/channel/getSignCount.shtml",
+      data: {
+        ...props
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+
+
 }
