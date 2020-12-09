@@ -217,6 +217,7 @@ Page({
     http.getLotteryRecordList({
       CELLPHONE: wx.getStorageSync('CELLPHONE')
     }).then((res) => {
+      console.log(res.data.data)
       var list = res.data.data;
       var arr = []
       var lot = []
