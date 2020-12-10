@@ -65,7 +65,8 @@ Page({
       } else {
         wx.showToast({
           title: res.data.errmsg,
-          icon: "none"
+          icon: "none",
+          mask:true
         })
         setTimeout(()=>{
           this.setData({

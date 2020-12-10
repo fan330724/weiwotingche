@@ -108,6 +108,13 @@
 					"id": -1,
 					"name": "pages/Luckydraw/Luckydraw",
 					"pathName": "pages/Luckydraw/Luckydraw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/sharing/success/success",
+					"pathName": "pages/sharing/success/success",
 					"scene": null
 				}
 			]

@@ -73,9 +73,9 @@
 			<swiper-item bindtap="toyueka">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-yueka.png"></image>
 			</swiper-item>
-			<swiper-item bindtap="toLuckydraw">
+			<!-- <swiper-item bindtap="toLuckydraw">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-Luckydraw.png"></image>
-			</swiper-item>
+			</swiper-item> -->
 			<swiper-item bindtap="toinvita">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-double11.png"></image>
 			</swiper-item>
@@ -131,7 +131,13 @@
 	<view class="pop">
 		<view class="alert-mask" wx:if="{{showModal}}"></view>
 		<view class="modalDlg" wx:if="{{showModal}}">
-			<view class="receive" wx:if="{{num == 0}}">
+			<view class="receive">
+				<image src="http://124.70.23.12:8084/gameIcon/image/daka-pop.png" catchtap="todaka"></image>
+				<!-- <button class="accbtn" hover-class='none' catchtap="toLuckydraw"></button> -->
+				<image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
+			</view>
+
+			<!-- <view class="receive" wx:if="{{num == 0}}">
 				<image src="http://124.70.23.12:8084/gameIcon/jiugongge/pop3.png" catchtap="toLuckydraw"></image>
 				<button class="accbtn" hover-class='none' catchtap="toLuckydraw"></button>
 				<image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
@@ -141,7 +147,7 @@
 				<text class="choujiang">您有 <text>{{num}}</text> 次抽奖机会还未使用~</text>
 				<button class="pop4btn" hover-class='none' catchtap="toLuckydraw"></button>
 				<image src="../../image/home/close.png" class="popclose" catchtap="hideMask"></image>
-			</view>
+			</view> -->
 		</view>
 	</view>
 

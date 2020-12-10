@@ -248,8 +248,8 @@ page{
 
 .pop .receive {
   position: relative;
-  width: 662rpx;
-  height: 661rpx;
+  width: 567rpx;
+  height: 686rpx;
 }
 .pop .accbtn{
   position: absolute;
@@ -298,7 +298,7 @@ button::after {
 .pop .close {
   width: 60rpx;
   height: 60rpx;
-  margin-top: 145rpx;
+  margin-top: 50rpx;
 }
 .pop .pop4 .popclose{
   position: absolute;

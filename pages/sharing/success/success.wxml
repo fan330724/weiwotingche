@@ -7,13 +7,13 @@
     <view class="but">
       <image src="http://124.70.23.12:8084/gameIcon/image/succ2.png" class="img1 mgr" bindtap="toindex"></image>
       <!-- <button class="accbtn" open-type="share" hover-class='none' ></button> -->
-      <image src="http://124.70.23.12:8084/gameIcon/jiugongge/lijichoujiang.png" class="img1" bindtap="toLuckydraw"></image>
+      <!-- <image src="http://124.70.23.12:8084/gameIcon/jiugongge/lijichoujiang.png" class="img1" bindtap="toLuckydraw"></image> -->
     </view>
   </view>
 </view>
 
 <!-- 弹出框 -->
-<view class="pop">
+<!-- <view class="pop">
   <view class="alert-mask" wx:if="{{showModal}}"></view>
   <view class="modalDlg" wx:if="{{showModal}}">
     <view class="receivee" wx:if="{{showOpen == 0||showOpen == 1}}">
@@ -26,9 +26,9 @@
       <view class="price">{{price}}元</view>
       <image src="http://124.70.23.12:8084/gameIcon/image/bt-know.png" class="butt" catchtap="hideMask"></image>
     </view>
-    <!-- <image src="../../../image/home/close.png" class="close" catchtap="hideMask"></image> -->
+    <image src="../../../image/home/close.png" class="close" catchtap="hideMask"></image>
   </view>
-</view>
+</view> -->
    
 
 
