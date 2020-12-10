@@ -30,7 +30,7 @@ Page({
   //点击活动规则
   torule() {
     wx.navigateTo({
-      url: '../rule/rule',
+      url: '../rule/rule?type=1',
     })
   },
   /**
