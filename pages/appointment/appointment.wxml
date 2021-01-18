@@ -1,0 +1,45 @@
+<view>
+  <view class='addDS' bindtap='toAdd'>
+      设备管理
+  </view>
+  <view class='man'>
+    <view class='header' hidden='{{!connect}}'>
+      当前设备：{{RE_NAME}}
+    </view>
+  </view>
+</view>
+<view class='ds'>
+  <image src='{{isstate =="up"?"http://47.93.173.102:8084/wxx/images/ds_up.png":"http://47.93.173.102:8084/wxx/images/ds_down.png"}}'></image>
+</view>
+<view class='connect' hidden='{{connect}}'>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{DSList}}" range-key="{{'RE_NAME'}}">
+    <image src='http://47.93.173.102:8084/wxx/images/connect.png'></image>
+  </picker>
+</view>
+<view>
+  <view class='connect udp' hidden='{{!connect}}' bindtap='changeBtn'>
+    <image src='{{isstate =="up"?"http://47.93.173.102:8084/wxx/images/down.png":"http://47.93.173.102:8084/wxx/images/up.png"}}'></image>
+  </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<view class="demo">
+  <button bindtap="scanTap">开始搜索</button>
+  <button bindtap="connectTap">连接</button>
+  <button bindtap="lockTap">升起</button>
+  <button bindtap="unlockTap">降下</button>
+  <button bindtap="disconnectTap">断开</button>
+</view> -->

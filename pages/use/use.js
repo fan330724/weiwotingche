@@ -278,6 +278,7 @@ Page({
           http.tlwCoupon({
             CARD_ID: this.data.list.ID
           }).then(res => {
+            console.log(res)
             this.setData({
               CODE: res.data.data.CODE
             })

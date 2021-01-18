@@ -120,10 +120,14 @@ Page({
   },
   // 新加点击热点图标跳转事件
   markertap: function (e) {
-    // console.log(e.markerId)
+    console.log(e)
     let markerId = JSON.parse(e.markerId)
     console.log(markerId)
     if (this.data.active == 1) {
+      // this.setData({
+      //   showActive: true,
+      //   showOpen: 0,
+      // })
       if (markerId.MALLNAME) {
         // console.log('红包')
         http.mallMoney({
@@ -167,9 +171,10 @@ Page({
     })
     http.getMallReward({
       ID: this.data.money.ID,
+      // ID: "C2E04600DADF4FE49C843E2FF62F8E72",
       openid: wx.getStorageSync('openid')
     }).then((res) => {
-      console.log(res.data.data)
+      console.log(res)
       this.setData({
         showOpen: 2,
         price: res.data.data
@@ -267,10 +272,15 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success: function (res) {
+        console.log(res)
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude
         })
+        // that.setData({
+        //   latitude: 37.79584743923611,
+        //   longitude: 112.54726128472223
+        // })
 
         //地址逆解析获取cityname
         qqmap.nimap(that.data.latitude, that.data.longitude, function (res) {

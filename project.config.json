@@ -36,7 +36,7 @@
 		"minifyWXSS": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.12.1",
+	"libVersion": "2.14.3",
 	"appid": "wxe101ca388b5572a0",
 	"projectname": "%E5%B8%B7%E5%B9%84%E5%81%9C%E8%BD%A62.2.1",
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -115,6 +115,41 @@
 					"id": -1,
 					"name": "pages/sharing/success/success",
 					"pathName": "pages/sharing/success/success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/scancode/scancode",
+					"pathName": "pages/scancode/scancode",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/couponbefore/couponbefore",
+					"pathName": "pages/couponbefore/couponbefore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/smpay/smpay",
+					"pathName": "pages/smpay/smpay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/scancode/Advancepayment/Advancepayment",
+					"pathName": "pages/scancode/Advancepayment/Advancepayment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/scancode/payment/payment",
+					"pathName": "pages/scancode/payment/payment",
 					"scene": null
 				}
 			]

@@ -1,0 +1,47 @@
+<!--pages/scancode/scancode.wxml-->
+<view>
+   <!-- 支付信息页面 -->
+  <view class='pay' hidden='{{page!="pay"}}'>
+    <view class='p-m'>
+      <view class='total'>
+       <view>{{list.TOTAL}}</view>
+        <span>元</span>
+      </view>
+      <view class='division'>
+        <span></span>
+        <text>本次停车费用</text>
+        <span></span>
+      </view>
+      <view class='parkName'>
+       {{list.PARK_NAME}}
+      </view>
+      <view class='carPay'>
+        {{list.PLATE_NUMBER}}
+      </view>
+      <view class='time'>
+        <view>
+          进场时间: {{list.IN_TIME}}
+        </view>
+        <view>
+          停车时长:{{list.TIME || list.HOUR}}
+        </view>
+      </view>
+    </view>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sercht">确认支付</button>
+    <image src="http://124.70.23.12:8084/gameIcon/image/scancode.png" class="fixedImg"></image>
+  </view>
+</view>
+
+
+<!-- 支付成功  -->
+<view class='sucess' hidden='{{page!="sucess"}}'>
+  <view class='s-title'>支付成功</view>
+  <image src='../../../image/home/cer.png' style='width:460rpx;height:340rpx;margin:0 auto;display:block'></image>
+  <view class='toindex' bindtap='toindex'>确定</view>
+</view>
+<!-- 支付失败  -->
+<view class='err' hidden='{{page!="err"}}'>
+  <view class='s-title'>支付失败</view>
+  <image src='../../../image/home/cerr.png' style='width:490rpx;height:240rpx;margin:0 auto;display:block'></image>
+  <view class='toindex' bindtap='toindex'>确定</view>
+</view>

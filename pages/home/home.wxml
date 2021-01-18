@@ -76,15 +76,15 @@
 			<!-- <swiper-item bindtap="toLuckydraw">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-Luckydraw.png"></image>
 			</swiper-item> -->
-			<swiper-item bindtap="toinvita">
+			<!-- <swiper-item bindtap="toinvita">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-double11.png"></image>
-			</swiper-item>
+			</swiper-item> -->
 			<!-- <swiper-item bindtap="tochina">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-5.png"></image>
 			</swiper-item> -->
-			<swiper-item bindtap="todaka">
+			<!-- <swiper-item bindtap="todaka">
 				<image src="http://124.70.23.12:8084/gameIcon/image/daka.png"></image>
-			</swiper-item>
+			</swiper-item> -->
 			<swiper-item bindtap="todidi">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-didi.png"></image>
 			</swiper-item>
@@ -128,14 +128,14 @@
 		</view>
 	</view>
 	<!-- 弹出框 -->
-	<view class="pop">
+	<!-- <view class="pop">
 		<view class="alert-mask" wx:if="{{showModal}}"></view>
 		<view class="modalDlg" wx:if="{{showModal}}">
 			<view class="receive">
-				<image src="http://124.70.23.12:8084/gameIcon/image/daka-pop.png" catchtap="todaka"></image>
+				<image src="http://124.70.23.12:8084/gameIcon/image/daka-pop.png" catchtap="todaka"></image> -->
 				<!-- <button class="accbtn" hover-class='none' catchtap="toLuckydraw"></button> -->
-				<image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
-			</view>
+				<!-- <image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
+			</view> -->
 
 			<!-- <view class="receive" wx:if="{{num == 0}}">
 				<image src="http://124.70.23.12:8084/gameIcon/jiugongge/pop3.png" catchtap="toLuckydraw"></image>
@@ -148,8 +148,8 @@
 				<button class="pop4btn" hover-class='none' catchtap="toLuckydraw"></button>
 				<image src="../../image/home/close.png" class="popclose" catchtap="hideMask"></image>
 			</view> -->
-		</view>
-	</view>
+		<!-- </view>
+	</view> -->
 
 	<!-- 活动浮窗 -->
 	<!-- <view class="huodong">

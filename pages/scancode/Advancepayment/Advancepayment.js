@@ -1,6 +1,7 @@
 // 获取全局参数
 const app = getApp()
-
+import http from '../scancode.js'
+import request from '../../../request/scancode.js'
 Page({
   /**
    * 
@@ -12,16 +13,14 @@ Page({
     specialBtn: true,
     tapNum: true, //数字键盘是否可以点击
     isFocus: false, //输入框聚焦
-    flag: false, //防止多次点击的阀门
     keyboardNumber: '1234567890',
     keyboardAlph: 'QWERTYUIOPASDFGHJKL巛ZXCVBNM',
     keyboard1: '京津沪冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤川青藏琼宁渝',
     keyboard2: '',
-    keyboard2For: ['查询'],
+    keyboard2For: ['确认'],
     keyboardValue: '',
     textArr: ['晋', 'A'],
     textValue: '晋A', // 车牌号
-    placeholder: '请输入车牌预付停车费用',
     newcar: 7,
     newval: 1, //新能源车切换
     // 支付所需要的数据
@@ -29,7 +28,6 @@ Page({
 
     }
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -37,16 +35,69 @@ Page({
     // 获取URL中的车场id
     if (options.id == 1) {
 
-    }
-    else {
+    } else {
       var scan_url = decodeURIComponent(options.q);
-      var surls = scan_url.split('/appCertificate/smpay/')
-      var vid = surls[1]
-      app.data.parkid = vid;
     }
-    console.log(options)
+    http.resetToken()
   },
+  /**
+   * 特殊键盘事件（删除和完成）
+   */
+  tapSpecBtn: function (e) {
+    var self = this;
+    var btnIndex = e.target.dataset.index;
+    if (btnIndex == 0) {
+      //说明是完成事件
+      if (self.data.textArr.length < self.data.newcar) {
+        wx.showToast({
+          title: '车牌输入错误',
+          icon: "loading",
+          mask: true,
+          duration: 2000
+        })
+        return
+      } else {
+        //开始请求接口
+        self.getOpenid()
+      }
+    }
+  },
+  //获取openid
+  getOpenid() {
+    let that = this;
+    wx.login({
+      success(res) {
+        request.getOpenid({
+          CODE: res.code
+        }, app.data.token).then(res => {
+          console.log(res)
+          that.advancePay(res.data.data)
 
+        })
+      },
+    })
+  },
+  //提前付接口
+  advancePay(openid) {
+    request.advancePay({
+      PARK_ID: "397040718163476480",
+      OPEN_ID: openid,
+      PLATE_NUMBER: this.data.textValue,
+    }, app.data.token).then(res => {
+      console.log(res.data.data)
+      let item = JSON.stringify(res.data.data)
+      if (res.data.data.TOTAL == 0) {
+        wx.showToast({
+          title: '无需支付',
+          mask: true,
+        })
+      } else {
+        wx.navigateTo({
+          url: `../payment/payment?item=${item}`,
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -59,15 +110,12 @@ Page({
     self.setData({
       keyboardValue: self.data.keyboard2
     })
-    console.log(this.data.keyboardValue)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    console.log(app.data)
-  },
+  onShow: function () {},
   /**
    * 输入框显示键盘状态
    */
@@ -182,34 +230,6 @@ Page({
     }
     console.log(self.data.textValue)
   },
-  /**
-   * 特殊键盘事件（删除和完成）
-   */
-  tapSpecBtn: function (e) {
-    var self = this;
-    if (self.data.flag) {
-      return false
-    }
-    var btnIndex = e.target.dataset.index;
-    if (btnIndex == 0) {
-      //说明是完成事件
-      if (self.data.textArr.length < self.data.newcar) {
-        wx.showToast({
-          title: '车牌输入错误',
-          icon: "loading",
-          mask: true,
-          duration: 2000
-        })
-        return
-      } else {
-        self.setData({
-          flag: true,
-        })
-        //开始请求接口
-        self.SerchMoney()
-      }
-    }
-  },
   // 新能源车牌
   switch2Change: function () {
     var _this = this;
@@ -245,104 +265,4 @@ Page({
     }
 
   },
-  // 车辆费用查询
-  SerchMoney: function () {
-    wx.showLoading({
-      title: '正在查询',
-      mask: true
-    })
-    let _this = this;
-    wx.request({
-      url: `${app.data.url}/mer/xcx/search.shtml`,
-      method: 'POST',
-      data: {
-        ParkID: app.data.parkid,
-        PlateNumber: _this.data.textValue
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success: function (res) {
-        console.log(res)
-        wx.hideLoading()
-        if (res.data.errcode != 0) {
-          _this.setData({
-            flag: false
-          })
-          wx.showToast({
-            title: '未找到车辆信息',
-            duration: 3000,
-            mask: true
-          })
-        } else {
-          _this.setData({
-            page: 'pay',
-            play: res.data.data
-          })
-        }
-
-      }
-    })
-  },
-  // 调起微信支付
-  pay: function (res) {
-    var _this = this;
-    wx.showLoading({
-      title: '正在支付',
-      mask: true,
-    })
-    wx.login({
-      success: function (e) {
-        console.log(e.code)
-        wx.request({
-          url: `${app.data.url}/mer/xcx/wxpay.shtml`,
-          data: {
-            ParkID: app.data.parkid,
-            PlateNumber: _this.data.textValue,
-            CODE: e.code,
-          },
-          header: {
-            'content-type': 'application/x-www-form-urlencoded'
-          },
-          method: 'POST',
-          success: function (res1) {
-            console.log("给我返回的值")
-            console.log(res1)
-            wx.hideLoading()
-            wx.requestPayment({
-              timeStamp: res1.data.data.timeStamp,
-              nonceStr: res1.data.data.nonceStr,
-              package: res1.data.data.package,
-              signType: 'MD5',
-              paySign: res1.data.data.paySign,
-              success: function (res2) {
-                wx.reLaunch({
-                  url: '../home/home',
-                })
-              },
-              fail: function (res2) {
-                _this.setData({
-                  page: 'err'
-                })
-              }
-            })
-          }
-        })
-      }
-    })
-  },
-  back: function () {
-    this.setData({
-      page: 'serch',
-      play: '',
-      flag: false,
-      isKeyboard: false,
-    })
-  },
-  // 返回首页
-  toindex: function () {
-    wx.reLaunch({
-      url: '../home/home',
-    })
-  }
 })

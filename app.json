@@ -67,7 +67,10 @@
     "pages/exchangeOrder/exchangeOrder",
     "pages/sharing/agree/agree",
     "pages/Luckydraw/Luckydraw",
-    "pages/daka/daka"
+    "pages/daka/daka",
+    "pages/scancode/payment/payment",
+    "pages/scancode/Advancepayment/Advancepayment",
+    "pages/scancode/entrance/entrance"
   ],
   "tabBar": {
     "color": "#282828",

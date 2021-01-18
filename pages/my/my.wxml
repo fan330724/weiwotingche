@@ -66,7 +66,7 @@
         <text class="iconfont icon-jiantou"></text>
       </view>
     </view>
-    <view class="lis" bindtap="toinvita">
+    <!-- <view class="lis" bindtap="toinvita">
       <view>
         <image src="http://124.70.23.12:8084/gameIcon/image/invitation.png"></image>
         <text>邀请有礼</text>
@@ -74,7 +74,7 @@
       <view class="icon">
         <text class="iconfont icon-jiantou"></text>
       </view>
-    </view>
+    </view> -->
     <view class="lis" bindtap="todidi">
       <view>
         <image src="http://124.70.23.12:8084/gameIcon/image/libao.png"></image>
