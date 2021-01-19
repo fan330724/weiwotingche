@@ -1,0 +1,41 @@
+<view class="main">
+  <view class="title">
+    您好，系统给您分配的临时车牌号为：
+  </view>
+
+  <!-- 车牌号 -->
+  <view class='carID'>
+    <view class="carList addCard">
+      <view>{{list.PLATE_NUMBER[0]}}</view>
+    </view>
+    <view class="carList addCard">
+      <view>{{list.PLATE_NUMBER[1]}}</view>
+    </view>
+    <view class="carList addCard">
+      <view>{{list.PLATE_NUMBER[2]}}</view>
+    </view>
+    <view class="carList addCard">
+      <view>{{list.PLATE_NUMBER[3]}}</view>
+    </view>
+    <view class="carList addCard">
+      <view>{{list.PLATE_NUMBER[4]}}</view>
+    </view>
+    <view class="carList addCard">
+      <view>{{list.PLATE_NUMBER[5]}}</view>
+    </view>
+    <view class="carList addCard">
+      <view>{{list.PLATE_NUMBER[6]}}</view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="name">入场时间：</view>
+    <view class="value">{{list.IN_TIME}}</view>
+  </view>
+  <view class="footer" style="margin-top: 20rpx">
+    <view class="name">停车场：</view>
+    <view class="value">{{list.PARKNAME}}</view>
+  </view>
+
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sercht">确认入场</button>
+</view>

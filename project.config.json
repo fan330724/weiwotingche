@@ -150,6 +150,13 @@
 					"id": -1,
 					"name": "pages/scancode/payment/payment",
 					"pathName": "pages/scancode/payment/payment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/scancode/entrance/entrance",
+					"pathName": "pages/scancode/entrance/entrance",
 					"scene": null
 				}
 			]

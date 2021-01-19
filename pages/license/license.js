@@ -39,10 +39,17 @@ Page({
    */
   showKeyboard: function () {
     var self = this;
-    self.setData({
-      isFocus: true,
-      isKeyboard: true,
-    })
+    if (self.data.isKeyboard) {
+      self.setData({
+        isKeyboard: false,
+        isFocus: false
+      })
+    } else {
+      self.setData({
+        isFocus: true,
+        isKeyboard: true,
+      })
+    }
   },
   /**
    * 点击页面隐藏键盘事件

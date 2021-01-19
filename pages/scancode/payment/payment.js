@@ -36,7 +36,7 @@ Page({
         request.getOpenid({
           CODE: res.code
         },app.data.token).then(res => {
-          // console.log(res.data)
+          console.log(res.data)
           that.setData({
             openid: res.data.data
           })
@@ -60,7 +60,7 @@ Page({
   },
   //点击确认支付按钮
   getPhoneNumber(e) {
-    // console.log(e)
+    let that = this;
     if (e.detail.errMsg == "getPhoneNumber:ok") {
       wx.login({
         success(res) {
@@ -71,12 +71,12 @@ Page({
           }).then(res => {
             let phone = JSON.parse(res.data.data)
             console.log(phone)
+            that.parkingfee()
           })
         }
       })
     } else {
-      this.parkingfee()
-      console.log("点击了拒绝")
+      that.parkingfee()
     }
   },
 

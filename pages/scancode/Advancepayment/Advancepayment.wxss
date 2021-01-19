@@ -1,28 +1,24 @@
-/* pages/scancode/Advancepayment/Advancepayment.wxss */
-
-.conter{
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-size: 100% 100%;
-  background-color: #fff
+/*顶部样式*/
+.title .title-img{
+  width: 320rpx;
+  height: 264rpx;
 }
-.title{
-  margin: 20px 0 20px 0;
+.tishi{
   text-align: center;
-  font-size: 54rpx;
-  color: #333;
-  font-weight: 700;
+  margin: 20rpx 0;
+  color: #3D444D;
+  font-size: 32rpx;
 }
 /*  使用说明  */
 .message p{
   display: block;
   width: 100%;
-  font-size: 14px;
-  color: #866;text-align: center
+  font-size: 28rpx;
+  color: #866;
+  text-align: center;
 }
 .sercht{
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
     height: 90rpx;
     background-color: #30C77E;
@@ -30,32 +26,10 @@
     color: #fff;
     text-align: center;
     line-height: 90rpx;
-    font-size: 16px;
-    margin-top: 120rpx;
+    font-size: 32rpx;
+    margin-top: 10%;
 
 }
-/* 支付页面  */
-.sucess,.err{
-  padding-top:90rpx 
-}
-.s-title{
-  text-align: center;
-  color: #00925d;
-  margin-bottom: 80rpx ;
-  font-size: 44rpx
-}
-.toindex{
-  width: 74%;
-  height: 90rpx;
-  line-height: 90rpx;
-  background: #00925d;
-  border-radius: 18px;
-  text-align: center;
-  margin: 0 auto;
-  color: #fff;
-  margin-top:110rpx 
-}
-
 
 /*车牌样式  */
 

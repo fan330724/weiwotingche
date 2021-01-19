@@ -9,7 +9,7 @@ export default {
     if (!token) {
       this.getToken()
     } else {
-      if (Date.now() - token.time > 3 * 60 * 1000) {
+      if (Date.now() - token.time > 10 * 60 * 1000) {
         this.getToken()
       } else {
         app.data.token = token.access_token

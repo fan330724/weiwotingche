@@ -13,22 +13,27 @@
         <span></span>
       </view>
       <view class='parkName'>
-       {{list.PARK_NAME}}
+        <view class="name">收款方：</view>
+        <view class="value">{{list.PARK_NAME || list.parkName}}</view>
       </view>
-      <view class='carPay'>
-        {{list.PLATE_NUMBER}}
+      <view class='parkName'>
+        <view class="name">车牌号：</view>
+        <view class="value">{{list.PLATE_NUMBER}}</view>
       </view>
-      <view class='time'>
-        <view>
-          进场时间: {{list.IN_TIME}}
-        </view>
-        <view>
-          停车时长:{{list.TIME || list.HOUR}}
-        </view>
+      <view class='parkName'>
+        <view class="name">入场时间：</view>
+        <view class="value">{{list.IN_TIME}}</view>
+      </view>
+      <view class='parkName'>
+        <view class="name">出场时间：</view>
+        <view class="value">{{list.OUT_TIME}}</view>
+      </view>
+      <view class='parkName'>
+        <view class="name">停车时长：</view>
+        <view class="value">{{list.TIME || list.HOUR}}</view>
       </view>
     </view>
-    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sercht">确认支付</button>
-    <image src="http://124.70.23.12:8084/gameIcon/image/scancode.png" class="fixedImg"></image>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sercht">立即支付</button>
   </view>
 </view>
 
