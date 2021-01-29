@@ -8,9 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:"",
-    openid:"",
-    page:"pay"
+    list: "",
+    openid: "",
+    page: "pay",
+    //获取摄像头id  车场id
+    PARKID:"",
+    CAMERAID:"",
   },
   /**
    * 生命周期函数--监听页面加载
@@ -18,24 +21,31 @@ Page({
   onLoad: function (options) {
     console.log(options)
     http.resetToken()
-    if(options.item){
+    if (options.item) {
       let list = JSON.parse(options.item);
       this.setData({
         list
       })
-    }else{
+    } else if (options.q) {
+      var scan_url = decodeURIComponent(options.q);
+      var PARKID = http.getQueryString(scan_url, 'PARKID');
+      var CAMERAID = http.getQueryString(scan_url, 'CAMERAID');
+      this.setData({
+        PARKID,
+        CAMERAID
+      })
       this.getOpenid()
     }
   },
 
   //获取openid
-  getOpenid(){
+  getOpenid() {
     let that = this;
     wx.login({
       success(res) {
         request.getOpenid({
           CODE: res.code
-        },app.data.token).then(res => {
+        }, app.data.token).then(res => {
           console.log(res.data)
           that.setData({
             openid: res.data.data
@@ -46,12 +56,12 @@ Page({
     })
   },
   //获取车辆出场API
-  getfee(openid) { 
+  getfee(openid) {
     request.getfee({
-      PARK_ID: "397040718163476480",
-      CAMERA_ID: "398419227549106176",
+      PARK_ID: this.data.PARKID,
+      CAMERA_ID: this.data.CAMERAID,
       OPENID: openid,
-    },app.data.token).then(res => {
+    }, app.data.token).then(res => {
       console.log(res)
       this.setData({
         list: res.data.data
@@ -108,14 +118,14 @@ Page({
       PAY_TYPE: 'wxxpay',
       OPEN_ID: this.data.openid || this.data.list.OPEN_ID,
       FEE: this.data.list.TOTAL,
-      PARK_ID: "397040718163476480" || this.data.list.PARK_ID
+      PARK_ID: this.data.PARKID || this.data.list.PARK_ID
     }, app.data.token).then(res => {
       console.log(res.data.data)
       this.payment(res.data.data)
     })
   },
 
-  toindex(){
+  toindex() {
     wx.reLaunch({
       url: '../../home/home',
     })
@@ -147,25 +157,4 @@ Page({
   onUnload: function () {
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

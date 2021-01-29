@@ -91,9 +91,9 @@
 			<!-- <swiper-item bindtap="topufa">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-3.png"></image>
 			</swiper-item> -->
-			<swiper-item bindtap="tocrab">
+			<!-- <swiper-item bindtap="tocrab">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-card.png"></image>
-			</swiper-item>
+			</swiper-item> -->
 		</swiper>
 	</view>
 	<!-- 列表 -->

@@ -1,8 +1,13 @@
 import {
   request
 } from './index.js'
+import aes from '../utils/cryptojs/aes.js'
 let app = getApp();
-let url = "http://192.168.1.239:9999";
+let url = "http://192.168.1.214:9999";
+// let url = "https://api.weiwopark.com";
+// let url = "https://gate.weiwopark.com/api";
+
+var password = aes.getDAes("rKu1/348LvKp0rsVC06eCA==");
 export default {
   /**
    * 获取token
@@ -13,12 +18,12 @@ export default {
       url: url + "/auth/oauth/token?grant_type=password",
       data: {
         username: "admin",
-        password: "123456",
+        password: password,
         scope: "server",
       },
       header: {
         "Authorization": "Basic dGVzdDp0ZXN0",
-        "Accept-Language": "zh-CN,zh;"
+        "Accept-Language": "zh-CN,zh;",
       },
     }).then(res => {
       return res

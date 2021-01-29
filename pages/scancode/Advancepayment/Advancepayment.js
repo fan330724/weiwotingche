@@ -23,18 +23,23 @@ Page({
     textValue: '晋A', // 车牌号
     newcar: 7,
     newval: 1, //新能源车切换
+    //车场Id
+    PARKID: "",
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 获取URL中的车场id
-    if (options.id == 1) {
-
-    } else {
-      var scan_url = decodeURIComponent(options.q);
-    }
+    console.log(options);
     http.resetToken()
+    // 获取URL中的车场id
+    if (options.q) {
+      var scan_url = decodeURIComponent(options.q);
+      var PARKID = http.getQueryString(scan_url, 'PARKID');
+      this.setData({
+        PARKID
+      })
+    }
   },
   /**
    * 特殊键盘事件（删除和完成）
@@ -66,9 +71,7 @@ Page({
         request.getOpenid({
           CODE: res.code
         }, app.data.token).then(res => {
-          console.log(res)
           that.advancePay(res.data.data)
-
         })
       },
     })
@@ -76,11 +79,11 @@ Page({
   //提前付接口
   advancePay(openid) {
     request.advancePay({
-      PARK_ID: "397040718163476480",
+      PARK_ID: this.data.PARKID,
       OPEN_ID: openid,
       PLATE_NUMBER: this.data.textValue,
     }, app.data.token).then(res => {
-      console.log(res.data.data)
+      console.log(res.data)
       let item = JSON.stringify(res.data.data)
       if (res.data.data.TOTAL == 0) {
         wx.showToast({
@@ -224,7 +227,6 @@ Page({
         tapNum: true
       })
     }
-    console.log(self.data.textValue)
   },
   // 新能源车牌
   switch2Change: function () {

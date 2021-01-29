@@ -9,7 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: {}
+    list: {},
+    //获取摄像头id  车场id
+    CAMERAID: "",
+    PARKID: "",
   },
 
   /**
@@ -17,7 +20,17 @@ Page({
    */
   onLoad: function (options) {
     http.resetToken()
-    this.scan()
+    // 获取URL中的车场id 摄像头id
+    if (options.q) {
+      var scan_url = decodeURIComponent(options.q);
+      var PARKID = http.getQueryString(scan_url, 'PARKID');
+      var CAMERAID = http.getQueryString(scan_url, 'CAMERAID');
+      this.setData({
+        PARKID,
+        CAMERAID
+      })
+      this.scan(PARKID,CAMERAID)
+    }
   },
   /**
    * 获取openid
@@ -38,10 +51,10 @@ Page({
   /**
    * 扫码入场
    */
-  scan() {
+  scan(PARKID,CAMERAID) {
     request.scan({
-      PARK_ID: "397040718163476480",
-      CAMERA_ID: "398420980638154752",
+      PARK_ID: PARKID,
+      CAMERA_ID: CAMERAID,
     }, app.data.token).then(res => {
       console.log(res.data)
       if (res.data.errcode == 0) {
@@ -73,22 +86,22 @@ Page({
   /**
    * 扫码入场抬杠
    */
-  liftRod(openid){
+  liftRod(openid) {
     request.liftRod({
-      PARK_ID: "397040718163476480",
-      CAMERA_ID: "398420980638154752",
+      PARK_ID: this.data.PARKID,
+      CAMERA_ID: this.data.CAMERAID,
       OPEN_ID: openid,
       PLATE_NUMBER: this.data.list.plate,
       IN_TIME: this.data.list.IN_TIME,
       ORDER_CODE: this.data.list.ORDER_CODE
-    },app.data.token).then(res => {
+    }, app.data.token).then(res => {
       // console.log(res)
-      if(res.data.data == "ok"){
+      if (res.data.data == "ok") {
         wx.showToast({
           title: '入场成功',
           mask: true,
         })
-      }else{
+      } else {
         wx.showToast({
           title: res.data.errmsg,
           mask: true,
