@@ -1,13 +1,11 @@
 import {
   request
 } from './index.js'
-import aes from '../utils/cryptojs/aes.js'
 let app = getApp();
-let url = "http://192.168.1.214:9999";
-// let url = "https://api.weiwopark.com";
-// let url = "https://gate.weiwopark.com/api";
+// let url = "http://192.168.1.214:9999";
+// let url = "http://192.168.1.239:9999";
+let url = "https://api.weiwopark.com";
 
-var password = aes.getDAes("rKu1/348LvKp0rsVC06eCA==");
 export default {
   /**
    * 获取token
@@ -18,13 +16,15 @@ export default {
       url: url + "/auth/oauth/token?grant_type=password",
       data: {
         username: "admin",
-        password: password,
+        password: "rKu1/348LvKp0rsVC06eCA==",
         scope: "server",
       },
       header: {
         "Authorization": "Basic dGVzdDp0ZXN0",
         "Accept-Language": "zh-CN,zh;",
+        "Content-Type": "application/x-www-form-urlencoded" //用于post
       },
+      method: 'post',
     }).then(res => {
       return res
     })
@@ -124,10 +124,10 @@ export default {
   },
 
   /**
-     * 扫码入场
-     * 参数:PARK_ID:车场Id，CAMERA_ID：岗亭出入口Id；OPEN_ID：用户openid
-     */
-  scan(props,token) {
+   * 扫码入场
+   * 参数:PARK_ID:车场Id，CAMERA_ID：岗亭出入口Id；OPEN_ID：用户openid
+   */
+  scan(props, token) {
     return request({
       url: url + "/gate/api/gateIn/scan",
       data: {
@@ -143,10 +143,10 @@ export default {
   },
 
   /**
-     * 扫码入场抬杠
-     * 参数:PARK_ID:车场Id，CAMERA_ID：岗亭出入口Id；OPEN_ID：用户openid;车牌号：PLATE_NUMBER;入场时间IN_TIME；ORDER_CODE：订单编号
-     */
-  liftRod(props,token) {
+   * 扫码入场抬杠
+   * 参数:PARK_ID:车场Id，CAMERA_ID：岗亭出入口Id；OPEN_ID：用户openid;车牌号：PLATE_NUMBER;入场时间IN_TIME；ORDER_CODE：订单编号
+   */
+  liftRod(props, token) {
     return request({
       url: url + "/gate/api/gateIn/liftRod",
       data: {
@@ -156,6 +156,22 @@ export default {
         Authorization: "bearer" + token
       },
       method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+
+  /**
+   * 提前付出场时间
+   * 参数: 车场id
+   */
+  gateparkinfo(id, token) {
+    return request({
+      url: url + "/gate/gateparkinfo/" + id,
+      header: {
+        Authorization: "bearer" + token
+      },
     }).then((res) => {
       return res
     })

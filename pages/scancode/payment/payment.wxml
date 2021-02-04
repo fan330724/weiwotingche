@@ -33,7 +33,8 @@
         <view class="value">{{list.TIME || list.HOUR}}</view>
       </view>
     </view>
-    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sercht">立即支付</button>
+    <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sercht">立即支付</button> -->
+    <button class="sercht" bindtap="getPhoneNumber" wx:if="{{showBtn}}">立即支付</button>
   </view>
 </view>
 

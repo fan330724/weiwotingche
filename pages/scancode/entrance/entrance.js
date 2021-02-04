@@ -1,7 +1,7 @@
 // pages/scancode/entrance/entrance.js
 import http from '../scancode.js'
 import request from '../../../request/scancode.js'
-
+const regeneratorRuntime = require('../../../lib/runtime/runtime.js')
 let app = getApp()
 Page({
 
@@ -13,13 +13,14 @@ Page({
     //获取摄像头id  车场id
     CAMERAID: "",
     PARKID: "",
+    //按钮显隐
+    showBtn: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    http.resetToken()
     // 获取URL中的车场id 摄像头id
     if (options.q) {
       var scan_url = decodeURIComponent(options.q);
@@ -29,8 +30,14 @@ Page({
         PARKID,
         CAMERAID
       })
-      this.scan(PARKID,CAMERAID)
+      this.init()
     }
+  },
+  async init(){
+    await http.resetToken()
+    await setTimeout(() => {
+      this.scan()
+    },500)
   },
   /**
    * 获取openid
@@ -43,7 +50,15 @@ Page({
           CODE: res.code
         }, app.data.token).then(res => {
           // console.log(res.data)
-          that.liftRod(res.data.data)
+          if(res.data.errcode == 0){
+            that.liftRod(res.data.data)
+          }else{
+            wx.showToast({
+              title: res.data.errmsg,
+              mask: true,
+              icon: "none"
+            })
+          }
         })
       },
     })
@@ -51,10 +66,10 @@ Page({
   /**
    * 扫码入场
    */
-  scan(PARKID,CAMERAID) {
+  scan() {
     request.scan({
-      PARK_ID: PARKID,
-      CAMERA_ID: CAMERAID,
+      PARK_ID: this.data.PARKID,
+      CAMERA_ID: this.data.CAMERAID,
     }, app.data.token).then(res => {
       console.log(res.data)
       if (res.data.errcode == 0) {
@@ -73,13 +88,12 @@ Page({
         })
       } else {
         wx.showToast({
-          title: '请求失败，请重新扫码',
+          title: res.data.errmsg,
           mask: true,
           icon: 'none',
           duration: 2000
         })
       }
-
     })
   },
 
@@ -101,10 +115,14 @@ Page({
           title: '入场成功',
           mask: true,
         })
+        this.setData({
+          showBtn: false
+        })
       } else {
         wx.showToast({
           title: res.data.errmsg,
           mask: true,
+          icon:"none"
         })
       }
     })
@@ -115,23 +133,24 @@ Page({
   getPhoneNumber(e) {
     let that = this;
     // console.log(e)
-    if (e.detail.errMsg == "getPhoneNumber:ok") {
-      wx.login({
-        success(res) {
-          request.session_key({
-            iv: e.detail.iv,
-            encryptedData: e.detail.encryptedData,
-            code: res.code
-          }).then(res => {
-            let phone = JSON.parse(res.data.data)
-            console.log(phone)
-            that.getOpenid()
-          })
-        }
-      })
-    } else {
-      that.getOpenid()
-    }
+    // if (e.detail.errMsg == "getPhoneNumber:ok") {
+    //   wx.login({
+    //     success(res) {
+    //       request.session_key({
+    //         iv: e.detail.iv,
+    //         encryptedData: e.detail.encryptedData,
+    //         code: res.code
+    //       }).then(res => {
+    //         let phone = JSON.parse(res.data.data)
+    //         console.log(phone)
+    //         that.getOpenid()
+    //       })
+    //     }
+    //   })
+    // } else {
+    //   that.getOpenid()
+    // }
+    that.getOpenid()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -146,39 +165,4 @@ Page({
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

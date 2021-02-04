@@ -37,5 +37,6 @@
     <view class="value">{{list.PARKNAME}}</view>
   </view>
 
-  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sercht">确认入场</button>
+  <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sercht">确认入场</button> -->
+  <button class="sercht" bindtap="getPhoneNumber" wx:if="{{showBtn}}">确认入场</button>
 </view>

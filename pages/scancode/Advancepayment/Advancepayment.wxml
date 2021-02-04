@@ -84,7 +84,7 @@
       <em>---------</em> 停车场收费说明
       <em>---------</em>
     </p>
-    <p style="margin-bottom:20rpx;">缴费后请在30分钟内离场,超时按时计费</p>
+    <p style="margin-bottom:20rpx;">缴费后请在{{scanOutTime}}分钟内离场,超时按时计费</p>
     <p>查询信息有误或线上缴费失败，请到相关处缴纳现金</p>
     <view class='sercht' bindtap='tapSpecBtn' data-index="0">查询</view>
   </view>

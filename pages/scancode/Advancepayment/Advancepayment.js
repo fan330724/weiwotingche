@@ -2,6 +2,7 @@
 const app = getApp()
 import http from '../scancode.js'
 import request from '../../../request/scancode.js'
+const regeneratorRuntime = require('../../../lib/runtime/runtime.js')
 Page({
   /**
    * 
@@ -25,13 +26,13 @@ Page({
     newval: 1, //新能源车切换
     //车场Id
     PARKID: "",
+    //分钟
+    scanOutTime:"",
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    http.resetToken()
     // 获取URL中的车场id
     if (options.q) {
       var scan_url = decodeURIComponent(options.q);
@@ -39,7 +40,33 @@ Page({
       this.setData({
         PARKID
       })
+      this.init()
     }
+  },
+  async init(){
+    await http.resetToken();
+    await setTimeout(() => {
+      this.gateparkinfo()
+    },500)
+  },
+  /**
+   * 提前付 出场时间
+   */
+  gateparkinfo(){
+    request.gateparkinfo(this.data.PARKID,app.data.token).then(res => {
+      // console.log(res);
+      if(res.data.code == 0){
+        this.setData({
+          scanOutTime: res.data.data.scanOutTime
+        })
+      }else{
+        wx.showToast({
+          title: res.data.msg,
+          mask: true,
+          icon:"none"
+        })
+      }
+    })
   },
   /**
    * 特殊键盘事件（删除和完成）
@@ -56,8 +83,8 @@ Page({
           mask: true,
           duration: 2000
         })
-        return
       } else {
+
         //开始请求接口
         self.getOpenid()
       }
@@ -71,7 +98,15 @@ Page({
         request.getOpenid({
           CODE: res.code
         }, app.data.token).then(res => {
-          that.advancePay(res.data.data)
+          if (res.data.errcode == 0) {
+            that.advancePay(res.data.data)
+          } else {
+            wx.showToast({
+              title: res.data.errmsg,
+              mask: true,
+              icon: "none"
+            })
+          }
         })
       },
     })
@@ -84,17 +119,27 @@ Page({
       PLATE_NUMBER: this.data.textValue,
     }, app.data.token).then(res => {
       console.log(res.data)
-      let item = JSON.stringify(res.data.data)
-      if (res.data.data.TOTAL == 0) {
-        wx.showToast({
-          title: '无需支付',
-          mask: true,
-        })
+      if (res.data.errcode == 0) {
+        let item = JSON.stringify(res.data.data)
+        if (res.data.data.TOTAL == 0) {
+          wx.showToast({
+            title: '无需支付',
+            mask: true,
+          })
+        } else {
+          wx.navigateTo({
+            url: `../payment/payment?item=${item}`,
+          })
+        }
       } else {
-        wx.navigateTo({
-          url: `../payment/payment?item=${item}`,
+        wx.showToast({
+          title: res.data.errmsg,
+          duration: 2000,
+          icon:"none",
+          mask: true
         })
       }
+
     })
   },
   /**
