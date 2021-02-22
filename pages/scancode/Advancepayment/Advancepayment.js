@@ -47,7 +47,7 @@ Page({
     await http.resetToken();
     await setTimeout(() => {
       this.gateparkinfo()
-    },500)
+    },600)
   },
   /**
    * 提前付 出场时间
