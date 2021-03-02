@@ -60,6 +60,7 @@ Page({
       http.qrcode({
         id: this.data.list.ID
       }).then(res => {
+        console.log(res);
         setTimeout(() => {
           var imgUrl = wx.arrayBufferToBase64(res.data)
           this.setData({
@@ -257,33 +258,19 @@ Page({
     switch (cardType) {
       case 'GAS-S':
       case 'WASH-CXJ':
-        switch (cardName) {
-          case '车速洁': {
-            http.tlwCoupon({
-              CARD_ID: this.data.list.ID
-            }).then(res => {
-              this.setData({
-                CODE: res.data.data.CODE
-              })
-            })
-            break;
-          }
-          default: {
-            this.request()
-            break;
-          }
-        }
-        case 'PARK-TLW':
-        case 'PARK-TCL':
-          http.tlwCoupon({
-            CARD_ID: this.data.list.ID
-          }).then(res => {
-            console.log(res)
-            this.setData({
-              CODE: res.data.data.CODE
-            })
+        this.request()
+        break;
+      case 'PARK-TLW':
+      case 'PARK-TCL':
+        http.tlwCoupon({
+          CARD_ID: this.data.list.ID
+        }).then(res => {
+          console.log(res)
+          this.setData({
+            CODE: res.data.data.CODE
           })
-          break;
+        })
+        break;
     }
   },
 

@@ -70,9 +70,9 @@
 			<!-- <swiper-item bindtap="toreceive">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-2.png"></image>
 			</swiper-item> -->
-			<swiper-item bindtap="toyueka">
+			<!-- <swiper-item bindtap="toyueka">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-yueka.png"></image>
-			</swiper-item>
+			</swiper-item> -->
 			<!-- <swiper-item bindtap="toLuckydraw">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-Luckydraw.png"></image>
 			</swiper-item> -->
@@ -118,38 +118,26 @@
 			<image src="../../image/home/dayu.png"></image>
 			<text>大鱼商城</text>
 		</view>
-		<view class="list-item" bindtap="tocrab">
+		<!-- <view class="list-item" bindtap="tocrab">
 			<image src="../../image/home/xie.png"></image>
 			<text>小刚蟹业</text>
-		</view>
+		</view> -->
 		<view class="list-item" bindtap="todidi">
 			<image src="../../image/home/didi.png"></image>
 			<text>滴滴招募</text>
 		</view>
 	</view>
 	<!-- 弹出框 -->
-	<!-- <view class="pop">
+	<view class="pop">
 		<view class="alert-mask" wx:if="{{showModal}}"></view>
 		<view class="modalDlg" wx:if="{{showModal}}">
 			<view class="receive">
-				<image src="http://124.70.23.12:8084/gameIcon/image/daka-pop.png" catchtap="todaka"></image> -->
-				<!-- <button class="accbtn" hover-class='none' catchtap="toLuckydraw"></button> -->
-				<!-- <image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
-			</view> -->
-
-			<!-- <view class="receive" wx:if="{{num == 0}}">
-				<image src="http://124.70.23.12:8084/gameIcon/jiugongge/pop3.png" catchtap="toLuckydraw"></image>
-				<button class="accbtn" hover-class='none' catchtap="toLuckydraw"></button>
+				<image src="http://124.70.23.12:8084/gameIcon/image/tongzhi.png"></image>
+				<button class="accbtn" hover-class='none' catchtap="hideMask"></button>
 				<image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
 			</view>
-			<view class="pop4" wx:if="{{num > 0}}">
-				<image src="http://124.70.23.12:8084/gameIcon/jiugongge/pop4.png"></image>
-				<text class="choujiang">您有 <text>{{num}}</text> 次抽奖机会还未使用~</text>
-				<button class="pop4btn" hover-class='none' catchtap="toLuckydraw"></button>
-				<image src="../../image/home/close.png" class="popclose" catchtap="hideMask"></image>
-			</view> -->
-		<!-- </view>
-	</view> -->
+		</view>
+	</view>
 
 	<!-- 活动浮窗 -->
 	<!-- <view class="huodong">

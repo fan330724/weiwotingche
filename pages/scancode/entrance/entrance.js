@@ -14,7 +14,7 @@ Page({
     CAMERAID: "",
     PARKID: "",
     //按钮显隐
-    showBtn: true,
+    showBtn: false,
   },
 
   /**
@@ -84,9 +84,13 @@ Page({
             IN_TIME: data.IN_TIME,
             ORDER_CODE: data.ORDER_CODE,
             plate: data.PLATE_NUMBER
-          }
+          },
+          showBtn: true
         })
       } else {
+        this.setData({
+          showBtn: false
+        })
         wx.showToast({
           title: res.data.errmsg,
           mask: true,

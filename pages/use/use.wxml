@@ -8,7 +8,7 @@
         有效期：{{list.startDate}}-{{list.endDate}}
       </view>
     </view>
-    <view class="code" wx:if="{{list.CARD_TYPE == 'WASH-CXJ'&& list.CARD_NAME != '车速洁' || list.CARD_TYPE == 'GAS-S'}}">
+    <view class="code" wx:if="{{list.CARD_TYPE == 'WASH-CXJ'&& list.CARD_NAME == '车速洁' || list.CARD_TYPE == 'GAS-S'}}">
       <image class="code-i" src="data:image/png;base64,{{imgUrl}}"></image>
       <view class="code-b">请向网点工作人员展示动态二维码</view>
     </view>
@@ -47,10 +47,10 @@
     <view class="park-btn" bindtap="touse" wx:if="{{list.CARD_TYPE == 'PARKWW'}}">
       去使用
     </view>
-    <view class="card" wx:if="{{list.CARD_TYPE == 'PARK-TLW' || list.CARD_TYPE == 'PARK-TCL' || list.CARD_TYPE == 'WASH-CXJ'&& list.CARD_NAME == '车速洁'}}">
+    <view class="card" wx:if="{{list.CARD_TYPE == 'PARK-TLW' || list.CARD_TYPE == 'PARK-TCL'}}">
       兑换码：{{CODE}}
     </view>
-    <view class="park-btn" bindtap="tocopy" wx:if="{{list.CARD_TYPE == 'PARK-TLW' || list.CARD_TYPE == 'PARK-TCL' || list.CARD_TYPE == 'WASH-CXJ'&& list.CARD_NAME == '车速洁'}}">点击复制</view>
+    <view class="park-btn" bindtap="tocopy" wx:if="{{list.CARD_TYPE == 'PARK-TLW' || list.CARD_TYPE == 'PARK-TCL'}}">点击复制</view>
   </view>
   <view class="plain">
     <view class="plain-t">使用说明</view>
@@ -63,20 +63,21 @@
       <text>6、如二维码显示异常请返回上一页面重新进入</text>
     </view>
     <view class="plain-m" wx:if="{{list.CARD_TYPE == 'WASH-CXJ' && list.CARD_NAME == '车速洁'}}">
-      <text>1、点击“复制”按钮，复制兑换码，前往微信小程序搜索“车速洁”，依次点击“登录”→“提交车牌”→“我的卡券”→输入兑换码兑换→前往洗车。</text>
-      <text>2、洗车券有限期在车速洁“我的卡券”查看，过期失效，不可叠加，不可兑换现金。</text>
-      <text>3、使用过程中遇到问题请联系0351-2526206。</text>
+      <text>1、用户购买洗车券后，洗车时向商户出事券码。</text>
+      <text>2、洗车券仅限单月使用，过期失效，不可叠加，不可兑换现金。</text>
+      <text>3、如需发票或在使用过程中遇到问题请联系0351-2526206。</text>
+      <text>4、如二维码显示异常请返回上一页面重新进入</text>
     </view>
     <view class="plain-m" wx:if="{{list.CARD_TYPE == 'PARKWW'}}">
       <text>1、使用优惠券时请确保车辆已处于对应车场内</text>
       <text>2、输入车场信息和车辆信息点击“去使用”，页面提示成功即表示减免成功，此次停车便可享受2小时减免优惠。</text>
-      <text>3、请在有效期内使用，不可叠加、不可提现、不找零过期作废</text>
-      <text>4、如需发票或在使用过程中遇到问题请联系0351-2526206</text>
+      <text>3、请在有效期内使用，不可叠加、不可提现、不找零过期作废。</text>
+      <text>4、如需发票或在使用过程中遇到问题请联系0351-2526206。</text>
     </view>
     <view class="plain-m" wx:if="{{list.CARD_TYPE == 'PARK-TCL' || list.CARD_TYPE == 'PARK-TLW'}}">
-      <text>1、点击“复制”按钮，复制兑换码。前往微信搜索公众号“铜锣湾国际购物中心”依次点击 湾美服务->停车缴费->我的卡包->输入兑换码兑换->在此公众号缴纳停车费时享受减免</text>
+      <text>1、点击“复制”按钮，复制兑换码。前往微信搜索公众号“铜锣湾国际购物中心”依次点击 湾美服务->停车缴费->我的卡包->输入兑换码兑换->在此公众号缴纳停车费时享受减免。</text>
       <text>2、停车券仅限单月使用，过期失效，不可叠加，不可兑换现金。</text>
-      <text>3、如需发票或在使用过程中遇到问题请联系0351-2526206</text>
+      <text>3、如需发票或在使用过程中遇到问题请联系0351-2526206。</text>
     </view>
   </view>
 
