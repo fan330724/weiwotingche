@@ -134,7 +134,7 @@
 			<view class="receive">
 				<image src="http://124.70.23.12:8084/gameIcon/image/tongzhi.png"></image>
 				<button class="accbtn" hover-class='none' catchtap="hideMask"></button>
-				<image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
+				<!-- <image src="../../image/home/close.png" class="close" catchtap="hideMask"></image> -->
 			</view>
 		</view>
 	</view>

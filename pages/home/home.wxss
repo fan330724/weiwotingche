@@ -228,7 +228,7 @@ page{
   width: 80%;
   /* height: 55%; */
   position: fixed;
-  top: 48%;
+  top: 52%;
   left: -1%;
   z-index: 9999;
   box-sizing: border-box;
@@ -249,11 +249,11 @@ page{
 .pop .receive {
   position: relative;
   width: 537rpx;
-  height: 534rpx;
+  height: 575rpx;
 }
 .pop .accbtn{
   position: absolute;
-  bottom: 55rpx;
+  bottom: 40rpx;
   left: 50%;
   transform: translateX(-50%);
   width: 283rpx;
