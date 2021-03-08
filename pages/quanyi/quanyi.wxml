@@ -1,2 +1,0 @@
-<!--pages/quanyi/quanyi.wxml-->
-<web-view src='{{url}}'></web-view>

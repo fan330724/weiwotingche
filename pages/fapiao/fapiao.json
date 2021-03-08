@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {},
-  "enablePullDownRefresh": false,
-  "disableScroll": true,
-  "navigationBarTitleText": "发票管理"
-}

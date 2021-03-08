@@ -113,7 +113,7 @@
       <view class='phonebant'>您未登录，请先登录再使用</view>
       <view class='box_btn'>
         <!-- <view bindtap='noName'>取消</view> -->
-       <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"><view>一键登录</view></button> 
+       <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindtap="ss"><view bindtap='userName'>一键登录</view></button> 
       </view>
     </view>
 </view>

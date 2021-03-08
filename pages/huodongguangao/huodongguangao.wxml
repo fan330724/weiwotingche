@@ -1,5 +1,0 @@
-<!--pages/huodongguangao/huodongguangao.wxml-->
-<view class="fail">
-  <image src="../../image/home/null.png"></image>
-  <text>目前还没有任何活动</text>
-</view>
