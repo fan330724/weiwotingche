@@ -1,9 +1,0 @@
-
-
-<view class="section">
-  <textarea placeholder="请留下您的宝贵意见或建议，我们将努力改进" auto-focus  maxlength="500" value='{{text}}' bindinput="cons"/>
-  <view class='TL'>{{text.length}}/500</view>
-</view>
-<view class='btn' bindtap='pull'>
-  提交
-</view>

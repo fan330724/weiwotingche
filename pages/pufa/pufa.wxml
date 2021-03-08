@@ -1,4 +1,0 @@
-<!--pages/pufa/pufa.wxml-->
-<view>
-  <image src="http://124.70.23.12:8084/gameIcon/image/pufa.png" mode="aspectFit"></image>
-</view> 
