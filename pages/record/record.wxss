@@ -1,0 +1,110 @@
+/* pages/record/record.wxss */
+.box{
+  padding: 0 30rpx;
+}
+.box .head{
+  padding: 25rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+  width: 85%;
+  position: fixed;
+  top: 0;
+  background: white;
+}
+.box .head .xiala{
+  width: 120rpx;
+  height: 50rpx;
+  box-shadow: 2rpx 4rpx 8rpx rgba(0,0,0,.3);
+  border-radius: 30px;
+  line-height: 50rpx;
+  position: relative;
+}
+.box .head .xiala .month{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+.box .head .xiala image{
+  width: 16rpx;
+  height: 8rpx;
+  margin-left: 10rpx;
+  transform: rotate(0);
+  transition: all 1s;
+}
+.box .head .xiala image.cur{
+  transform: rotate(180deg);
+  transition: all 1s;
+}
+.box .xiala .option{
+  position: absolute;
+  top: 62rpx;
+  font-size: 28rpx;
+  width: 120rpx;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 2rpx 4rpx 8rpx rgba(0,0,0,.3);
+  transition: all .8s;
+}
+.cur{
+  opacity: 1;
+}
+.cur1{
+  opacity: 0;
+}
+.box .xiala .option view{
+  margin-left: 20rpx;
+}
+.box .head .rili{
+  width: 40rpx;
+  height: 40rpx;
+}
+.box .mt{
+  /* margin-top: 100rpx; */
+}
+.box .list{
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
+  padding: 40rpx 20rpx;
+}
+.box .list .fle{
+  display: flex;
+}
+.box .list .img{
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 15rpx;
+}
+.box .list .img image{
+  width: 100%;
+  height: 100%;
+}
+.box .list .tet view{
+  font-size: 32rpx;
+  letter-spacing: 1px;
+  margin-bottom: 15rpx;
+  font-weight: bold;
+}
+.box .list .tet .date{
+  font-size: 32rpx;
+  color: #3D444D;
+}
+.box .list .price{
+  text-align: right;
+}
+.box .list .price .mony{
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+}
+.box .list .price text{
+  color: #999;
+  font-size: 32rpx;
+}
+.nomore {
+  text-align: center;
+  color: #999;
+  margin-top: 140rpx;
+}

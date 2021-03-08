@@ -1,0 +1,386 @@
+/* pages/index/index.wxss */
+page{
+  background: white;
+}
+.background{
+  background: #30C77E;
+  padding: 12rpx 0;
+}
+.search{
+  display: flex;
+  align-items: center;
+  padding: 0 28rpx;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+}
+.search-i{
+  padding: 10rpx 20rpx;
+  background: white;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  flex: 3;
+  margin-right: 35rpx;
+}
+.search-i .search-icon{
+  /* flex: .3; */
+  margin-right: 10rpx;
+}
+.search-i image{
+  width: 100%;
+  height: 100%;
+}
+.search-i .inp{
+  color: #989898;
+  font-size: 28rpx;
+  flex: 4;
+  height:100%;
+}
+
+.search-i .yu{
+  width: 45rpx;
+  height: 45rpx;
+  /* flex: .3; */
+}
+
+.ping{
+  width: 44rpx;
+  height: 44rpx;
+  position: relative;
+}
+.ping image{
+  width: 100%;
+  height: 100%;
+}
+.ping .hongdian{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18rpx;
+  height: 18rpx;
+  background: #FD5747;
+  border-radius: 50%;
+  line-height: 18rpx;
+  text-align: center;
+  font-size: 14rpx;
+  color: white;
+}
+.fujinMap .fujin-dinwei{
+  /* bottom: 39%;
+  position: absolute;
+  left: 20rpx; */
+  width: 80rpx;
+  height: 80rpx;
+}
+.fujinMap .nav{
+  width: 100%;
+  background: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  box-shadow: 2px 2px 2px #c0c0c0;
+}
+.fujinMap .nav cover-view{
+  width: 25%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #9b9b9b;
+  font-size: 14px;
+}
+.fujinMap .nav cover-view.active{
+  color: #30C77E;
+}
+.fujinMap .rightF{
+  position: absolute;
+  right: 35rpx;
+  top: 185rpx;
+  /* width: 100rpx; */
+  height: 160rpx;
+  border-radius: 12rpx;
+  background: white;
+  box-shadow: 6rpx 8rpx 12rpx rgba(0,0,0,.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.fujinMap .rightF .cover_image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.fujinMap .rightF .cover_image image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.fujinMap .rightF .border{
+  width: 100%;
+  height: 2rpx;
+  background: #999;
+  margin: 10rpx 0;
+}
+.fujinMap .notCar{
+  width: 560rpx;
+  height: 70rpx;
+  margin: 20rpx auto;
+}
+.fujinMap .notCar image{
+  width: 100%;
+  height: 100%;
+}
+.fujinMap .mt{
+  height: 335rpx;
+  /* margin-top: -345rpx; */
+}
+.padding{
+  /* padding: 0 20rpx; */
+}
+.list{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: white;
+  width: 95%;
+  border-radius: 10px;
+  z-index: 999;
+}
+.list .top{
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list .top image{
+  width: 70rpx;
+  height: 17rpx;
+}
+.list .top .active{
+  width: 80rpx;
+  height: 8rpx;
+}
+.tab{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20rpx 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,.1);
+}
+.tab .tab-i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tab .tab-i:nth-of-type(2){
+  margin: 0 40rpx;
+}
+.tab .tab-i image{
+  width: 14rpx;
+  height: 14rpx;
+  margin-left: 8rpx;
+  transform: rotate(0);
+  transition: all .5s;
+}
+
+.tab .tab-i .cur{
+  transform: rotate(180deg);
+}
+scroll-view{
+  /* margin-top: 15rpx; */
+}
+.scroll-active{
+  height: 90%;
+}
+.main-height{
+  padding: 0 30rpx;
+}
+
+
+
+/* 弹出框 */
+.alert-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.3;
+}
+
+.pop .modalDlg {
+  width: 80%;
+  /* height: 55%; */
+  position: fixed;
+  top: 45%;
+  left: -1%;
+  z-index: 9999;
+  box-sizing: border-box;
+  padding: 25rpx;
+  margin: -370rpx 85rpx;
+  border-radius: 18rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pop image {
+  width: 100%;
+  height: 100%;
+}
+
+.pop .receive {
+  position: relative;
+  width: 608rpx;
+  height: 800rpx;
+  z-index: 999999;
+}
+.pop .accbtn{
+  position: absolute;
+  bottom: 50rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280rpx;
+  height: 82rpx;
+  background: url('http://124.70.23.12:8084/gameIcon/image/lingqujilu.png') no-repeat;
+  background-size: 100% 100%;
+  padding: 0;
+}
+button::after {
+  border: none;
+}
+.pop .close {
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 30rpx;
+}
+
+.pop .rece {
+  position: absolute;
+  left: 50%;
+  bottom: 25rpx;
+  transform: translateX(-50%);
+  width: 280rpx;
+  height: 80rpx;
+  background: #242329;
+  border-radius: 44rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: white;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+}
+.pop .modalDlg1{
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+}
+.pop .receivee{  
+            
+}
+.pop .receivee image:nth-of-type(1){
+  width: 552rpx;
+  height: 658rpx;
+}
+.pop .receivee image:nth-of-type(2){
+  width: 180rpx;
+  height: 180rpx;
+  position: absolute;
+  top: 460rpx;
+  left: 50%;
+  margin: -90rpx;
+}
+.pop .receivee image.scale{
+  animation: scale 1s infinite;
+  transform-origin: center;
+  transition: all 1s;
+}
+.pop .receivee image.rotate{
+  animation: rotate 2s infinite;
+}
+@keyframes rotate{
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotateY(360deg);
+  }
+}
+@keyframes scale{
+  0%{
+    transform: scale(.8);
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(.8);
+  }
+}
+.pop .receive1{
+  background: url('http://124.70.23.12:8084/gameIcon/image/bt-success.png') no-repeat;
+  background-size: 100% 100%;
+  width: 552rpx;
+  height: 658rpx;
+  position: relative;
+}
+.pop .receive1 .top,.pop .receive1 .price,.pop .receive1 .bottom{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+.pop .receive1 .top{
+  top: 200rpx;
+  font-size: 46rpx;
+}
+.pop .receive1 .price{
+  top: 290rpx;
+  font-size: 85rpx;
+}
+.pop .receive1 .bottom{
+  top: 420rpx;
+  font-size: 24rpx
+}
+.pop .butt{
+  position: absolute;
+  bottom: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340rpx;
+  height: 76rpx;
+}
+
+/* 活动浮窗 */
+.huodong{
+  position: fixed;
+  width: 98rpx;
+  height: 98rpx;
+  right: 0rpx;
+  bottom: 340rpx;
+}
+.huodong-x{
+  width: 96rpx;
+  height: 96rpx;
+}
+.huodong-x image{
+  width: 100%;
+  height: 100%;
+}
+.start{
+  width: 35rpx;
+  height: 115rpx;
+  position: absolute;
+  top: 50%;
+  left: 5rpx;
+  transform: translateY(-50%);
+}

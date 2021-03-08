@@ -1,0 +1,165 @@
+<!--pages/discount-detail/discount-detail.wxml-->
+<view>
+  <view class="banner">
+    <swiper class="bannerswipers" autoplay current="{{currentSwiper}}" bindchange="swiperChange" circular>  
+      <block wx:for="{{imgs}}" wx:key="index">  
+        <swiper-item>  
+            <image src="{{item.url?item.url:'../../image/home/tc.png'}}" lazy-load="true"></image>  
+        </swiper-item>  
+      </block>  
+    </swiper>  
+    <!--重置小圆点的样式  -->
+    <view class='bannerNum'>
+      {{(currentSwiper+1)}}/{{imgs.length}}
+    </view>
+  </view>
+  <view class="main">
+    <view class="main-t">
+      <view class="main-t-t">{{getlist.BIZ_NAME}}</view>
+      <image src="../../image/home/phone.png" class="phone" bindtap="makephone"></image>
+    </view>
+    <view class="main-c">营业时间：{{getlist.BUSINESS_START_TIME}}-{{getlist.BUSINESS_END_TIME}}</view>
+    <view class="main-d">
+      <view class="main-d-l">
+        <view class="iconfont icon-dingwei icon"></view>
+        <text>{{getlist.ADDRESS}}</text>
+      </view>
+      <view class="main-d-r">
+        {{getlist.distance}} km
+        <image src="../../image/home/dao.png" class="dao" bindtap="dh"></image>
+      </view>
+    </view>
+    <!-- <view class="main-f" wx:if="{{title == '停车场'}}">
+      <view class="main-f-l">剩余128/总152463</view>
+      <view class="main-f-c">30分钟免费</view>
+      <view class="main-f-r">3元/小时</view>
+    </view> -->
+  </view>
+  <!-- {{title == '停车场'?'cur':''}} -->
+  <view class="tabbar">
+    <view class="tab">
+      <view class="{{tabindex == 0?'active':''}}" data-index='0' bindtap="toggle">{{tabTitle}}</view>
+      <view class="{{tabindex == 1?'active':''}}" data-index='1' bindtap="toggle" wx:if="{{title == '洗车门店'}}">商品详情</view>
+      <view class="{{tabindex == 2||(title == '停车场'&&tabindex == 1)?'active':''}}" data-index='2' bindtap="toggle">购买须知</view>
+    </view>
+    <swiper current="{{tabindex}}" duration="600" bindchange="bindChange" style="height:{{swiperHeight+'px'}}">
+      <swiper-item>
+        <radio-group>
+          <view class="conten" wx:for="{{list}}" wx:key="index">
+            <view class="conten-t {{item.SG_NAME=='七座及以下'?'bor-b':''}}">
+              <view class="position">
+                <view wx:if="{{item.SG_NAME=='五座及以下'}}">
+                  <text>小车</text>
+                </view>
+                <view wx:if="{{item.SG_NAME=='七座及以下'}}" class="bgcolor">
+                  <text>SUV</text>
+                </view>
+              </view>
+              <text>{{item.SG_NAME}}</text>
+            </view>
+            <view class="conten-m">
+              <label bindtap="isvip" data-index="{{index}}" data-id="{{item.ID}}">
+                <view class="conten-m-p">
+                  <view class="conten-m-p-l">
+                    <view class="conten-m-p-p">￥{{item.VIP_PRICE}}</view>
+                    <view class="conten-m-p-c"> 门市价
+                      <text>￥{{item.BASE_PRICE}}</text>
+                    </view>
+                    <view class="conten-m-i">
+                      <image src="../../image/home/plus.png"></image>
+                    </view>
+                  </view>
+                </view>
+                <radio value="{{item.VIP_PRICE}}" color="#434043" checked="{{item.checked}}">
+                </radio>
+              </label>
+              <label bindtap="isweiwo" data-index="{{index}}" data-id="{{item.ID}}">
+                <view class="conten-m-p">
+                  <view class="conten-m-p-l">
+                    <view class="conten-m-p-p">￥{{item.DISCOUNT}}</view>
+                    <view class="conten-m-p-c"> 门市价
+                      <text>￥{{item.BASE_PRICE}}</text>
+                    </view>
+                    <view class="conten-m-i">
+                      <image src="../../image/home/weiwo.png"></image>
+                    </view>
+                  </view>
+                </view>
+                <radio value="{{item.DISCOUNT}}" color="#434043" checked="{{item.wchecked}}">
+                </radio>
+              </label>
+            </view>
+          </view>
+        </radio-group>
+        <view class="con" wx:if="{{rank == 1&& title=='洗车门店'&&HALF_PRICE==1}}">
+          <label bindtap="tochecked">
+            <radio checked="{{checked}}">使用五折洗车权益</radio>
+          </label>
+          <text>本月还剩{{HALF_PRICE}}次</text>
+        </view>
+      </swiper-item>
+      <swiper-item wx:if="{{title == '洗车门店'}}">
+        <block wx:for="{{list}}" wx:key="index">
+          <view class="notice">
+            <view class="notice-l"></view>
+            <view class="notice-r">
+              <view class="notice-t">{{item.BIZ_NAME}}</view>
+              <view class="notice-x">
+                {{item.INTRODUCTION}}
+              </view>
+            </view>
+          </view>
+        </block>
+      </swiper-item>
+      <swiper-item>
+        <!-- <scroll-view scroll-y> -->
+          <view class="notice">
+            <view class="notice-l"></view>
+            <view class="notice-r">
+              <view class="notice-t">有效期</view>
+              <view class="notice-x" wx:if="{{getlist.CREATE_BY == 'shj'}}">
+                付款成功后两年内有效，过期作废
+              </view>
+              <view class="notice-x" wx:else>
+                付款成功后30天内有效，过期作废
+              </view>
+            </view>
+          </view>
+          <view class="notice">
+            <view class="notice-l"></view>
+            <view class="notice-r">
+              <view class="notice-t">预约信息</view>
+              <view class="notice-x">
+                无需预约，如遇消费高峰时段您可能需要排队
+              </view>
+            </view>
+          </view>
+          <view class="notice">
+            <view class="notice-l"></view>
+            <view class="notice-r">
+              <view class="notice-t">规则提示</view>
+              <view class="notice-x" wx:if="{{title == '洗车门店'&&getlist.CREATE_BY == 'shj'}}">
+                PLUS会员可在会员期限内不限次数购买PLUS会员价格洗车券，不可叠加使用，不可兑换现金。
+              </view>
+              <view class="notice-x" wx:elif="{{title == '洗车门店'&&getlist.CREATE_BY == 'zy'}}">
+                PLUS会员可在会员期限内每月可购买1次半价洗车券，每月仅限1次，不可叠加使用，不可兑换现金。
+              </view>
+              <view class="notice-x" wx:else>
+                PLUS会员可在会员期限内每周可购买1次半价停车券,每周仅限1次，不可叠加使用，不可兑换现金。
+              </view>
+            </view>
+          </view>
+        <!-- </scroll-view> -->
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="foter">
+    <view class="foter-l">
+      共计
+      <text>￥{{num}}</text>
+    </view>
+    <view class="foter-r">
+      <view class="btn" bindtap="wxpay">立即支付</view>
+    </view>
+  </view>
+</view>

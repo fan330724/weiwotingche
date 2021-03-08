@@ -1,0 +1,53 @@
+<!--pages/scancode/scancode.wxml-->
+<view>
+   <!-- 支付信息页面 -->
+  <view class='pay' hidden='{{page!="pay"}}'>
+    <view class='p-m'>
+      <view class='total'>
+       <view>{{list.TOTAL}}</view>
+        <span>元</span>
+      </view>
+      <view class='division'>
+        <span></span>
+        <text>本次停车费用</text>
+        <span></span>
+      </view>
+      <view class='parkName'>
+        <view class="name">收款方：</view>
+        <view class="value">{{list.PARK_NAME || list.parkName}}</view>
+      </view>
+      <view class='parkName'>
+        <view class="name">车牌号：</view>
+        <view class="value">{{list.PLATE_NUMBER}}</view>
+      </view>
+      <view class='parkName'>
+        <view class="name">入场时间：</view>
+        <view class="value">{{list.IN_TIME}}</view>
+      </view>
+      <view class='parkName'>
+        <view class="name">出场时间：</view>
+        <view class="value">{{list.OUT_TIME}}</view>
+      </view>
+      <view class='parkName'>
+        <view class="name">停车时长：</view>
+        <view class="value">{{list.TIME || list.HOUR}}</view>
+      </view>
+    </view>
+    <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sercht">立即支付</button> -->
+    <button class="sercht" bindtap="getPhoneNumber" wx:if="{{showBtn && list}}">立即支付</button>
+  </view>
+</view>
+
+
+<!-- 支付成功  -->
+<view class='sucess' hidden='{{page!="sucess"}}'>
+  <view class='s-title'>支付成功</view>
+  <image src='../../../image/home/cer.png' style='width:460rpx;height:340rpx;margin:0 auto;display:block'></image>
+  <view class='toindex' bindtap='toindex'>确定</view>
+</view>
+<!-- 支付失败  -->
+<view class='err' hidden='{{page!="err"}}'>
+  <view class='s-title'>支付失败</view>
+  <image src='../../../image/home/cerr.png' style='width:490rpx;height:240rpx;margin:0 auto;display:block'></image>
+  <view class='toindex' bindtap='toindex'>确定</view>
+</view>

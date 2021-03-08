@@ -1,0 +1,142 @@
+/* pages/huodong/huodong.wxss */
+image{
+  width: 100%;
+  height: 100%;
+}
+.main{
+  width: 100%;
+  background: url('http://124.70.23.12:8084/gameIcon/image/huodong-bg.png') no-repeat;
+  background-size: 100% 100%;
+}
+.psr{
+  position: relative;
+}
+.guize{
+  position: absolute;
+  right: 0;
+  top: 80rpx;
+  color: white;
+  font-size: 24rpx;
+  z-index: 99;
+}
+.guize .bg{
+  text-align: center;
+  width: 120rpx;
+  height: 50rpx;
+  margin-bottom: 10rpx;  
+  background: url('http://124.70.23.12:8084/gameIcon/image/rule-bg.png') no-repeat;
+  background-size: 100% 100%;
+  width: 110rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;     
+}
+.guize .but{
+  font-size: 24rpx;
+  border: none;
+  color: white;
+}
+.center{
+  width: 100%;
+  height: 660rpx;
+  padding-top: 200rpx;
+}
+.center .accbtn{
+  position: absolute;
+  bottom: 50rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #6C460C;
+  width: 527rpx;
+  height: 100rpx;
+  line-height: 86rpx;
+  text-align: center;
+  font-size: 40rpx;
+  letter-spacing: 1px;
+  background: url('http://124.70.23.12:8084/gameIcon/image/huodong-btn.png') no-repeat;
+  background-size: 100% 100%;
+  border: none;
+}
+
+.cour{
+  background: url('http://124.70.23.12:8084/gameIcon/image/jiangjin.png') no-repeat;
+  background-size: 100% 100%;
+  width: 685rpx;
+  height: 200rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cour .mt{
+  margin-top: 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 65%;
+  font-size: 30rpx;
+  color: #2e2e2e;
+}
+
+.record{
+  background: url('http://124.70.23.12:8084/gameIcon/image/yaoqingjilu.png') no-repeat;
+  background-size: 100% 100%;
+  width: 685rpx;
+  height: 400rpx;
+  margin: 0 auto;
+  margin-top: 40rpx;
+}
+.record .mg{
+  padding-top: 60rpx;
+}
+.record .noyet{
+  width: 236rpx;
+  height: 234rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.record .listarr{
+  height: 300rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.record .listarr swiper{
+  height: 500rpx !important;
+}
+.record .listarr swiper-item{
+  height: 100rpx !important;
+}
+.record .list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100rpx;
+  font-size: 24rpx;
+  color: #2e2e2e;
+}
+
+.record .list image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.record .list .tagger{
+  width: 71rpx;
+  height: 29rpx;
+}
+.record .list .list-r{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  /* margin-right: -130rpx; */
+}
+.futter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24rpx;
+  padding: 30rpx 0;
+}

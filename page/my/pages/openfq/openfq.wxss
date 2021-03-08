@@ -1,0 +1,72 @@
+/* pages/openfq/openfq.wxss */
+.top{
+  background-color: #fff;
+  box-shadow: 5rpx 5rpx 5rpx #c0c0c0;
+  display: flex;
+  justify-content: space-around;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.top view{
+  color: #000;
+  font-size: 16px;
+  padding: 0 26rpx;
+}
+.top view.active{
+  color: #30C77E;
+  border-bottom:2px solid #30C77E;
+  font-weight: 400
+}
+.title{
+  font-size: 16px;
+  color: #595959;
+  height: 90rpx;
+  line-height: 90rpx; 
+  padding-left: 20rpx;
+}
+.tiaomu{
+  background-color: #fff;
+  font-size: 16px;
+  height: 98rpx;
+  line-height: 98rpx; 
+  padding-left: 34rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  margin-bottom: 1px;
+}
+.tiaomu icon{ 
+  font-size: 12px;
+  color: red 
+}
+.tiaomu .white{
+  color: #fff
+}
+.tiaomu .name{
+  margin-left: 20rpx;
+  font-size: 12px;
+}
+.tiaomu input{
+  margin-left: 40rpx;
+  font-size: 16px;
+  width: 360rpx;
+  height: 98rpx;
+  border-bottom: 1rpx solid #c0c0c0
+}
+.btn{
+  width: 80%;
+  height: 80rpx;
+  background-color:#30C77E;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+  line-height: 80rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing:16px
+}
+text{
+  color: red
+}

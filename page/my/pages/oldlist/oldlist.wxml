@@ -1,0 +1,25 @@
+<!--pages/oldlist/oldlist.wxml-->
+<view class="myjourney">
+  <block wx:for-items="{{arr}}" wx:key="{{index}}"  wx:if="{{item.PRICE=='0.0' ?false:true}}">
+    <view class="widgets__item" data-data="{{item.PRICE}}" data-id="{{item.ID}}" data-url="{{item.URL}}" bindtap="nextshow"  wx:if="{{item.PRICE==0?false:true}}" data-parkID="{{item.PARK_ID}}">
+        <view class="time">
+          <text class="left">{{item.OUT_TIME}}</text>
+          <view class="right" wx:if="{{item.STATUS==underfind?false:true}}">已开票</view>
+        </view>
+        <view class="total">
+        <view class='row yellow'></view>
+          <text class=""> 停车费用：{{item.PRICE}}元</text>
+        </view>
+        <view class="total">
+          <view class='left row green'></view>
+          <text class="left"> 停车场：{{item.PARK_NAME}}</text>
+          <view class="show" wx:if="{{item.STATUS==underfind?true:false}}"><view  wx:if="{{item.PRICE==0?false:true}}">去开票  ></view></view> 
+          <view class="show" wx:if="{{item.STATUS!=underfind?true:false}}"><view  wx:if="{{item.PRICE==0?false:true}}"></view></view> 
+        </view>
+    </view>
+  </block>
+</view>
+
+<view hidden='{{!noPrice}}' class='noPrice'> 
+  未查询到需要开票的订单，请稍后再试。
+ </view>

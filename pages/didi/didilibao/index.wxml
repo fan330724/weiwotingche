@@ -1,0 +1,2 @@
+<!--pages/didi/didilibao/index.wxml-->
+<web-view src="https://gsactivity.diditaxi.com.cn/gulfstream/activity/v3/giftpackage/index?g_channel=bbd2b0ef38bc5ed1e21e707f1c63a760&lang=zh-CN"></web-view>

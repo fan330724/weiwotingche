@@ -1,0 +1,10 @@
+/* pages/login/login.wxss */
+.sub{
+  background-color: #30C87F;
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 10rpx 20rpx rgba(48,200,127,.3);
+  margin-top: 200rpx;
+}

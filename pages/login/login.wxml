@@ -1,0 +1,2 @@
+<!--pages/login/login.wxml-->
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sub" hover-class="none">授权登录</button> 

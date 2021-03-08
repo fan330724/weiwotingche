@@ -1,0 +1,91 @@
+/* pages/scancode/entrance/entrance.wxss */
+.main{
+  padding: 30rpx;
+}
+
+.title{
+  color: #3D444D;
+  font-size: 34rpx;
+  margin-top: 20rpx;
+}
+
+.footer{
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #3D444D;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.footer .name{
+  width: 28%;
+}
+.footer .value{
+  
+}
+
+.sercht{
+  width: 80%;
+  height: 90rpx;
+  background-color: #30C77E;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 16px;
+  margin-top: 100rpx;
+}
+.sercht::after{
+  border: none;
+}
+
+/* 车牌样式 */
+.carID {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin: 40rpx 0 50rpx;
+}
+
+.carList {
+  width: 74rpx;
+  height: 70rpx;
+  border: 1px solid #30C77E;
+  border-radius: 12rpx;
+}
+
+
+.carList view {
+  width: 54rpx;
+  height: 50rpx;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 50rpx;
+  margin-top: 8rpx;
+}
+
+.newcar {
+  width: 85%;
+  margin: 0 auto;
+  font-size: 14px;
+  margin-bottom: 40rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.newcar image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.newcar .txt {
+  font-size: 14px;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #30C77E;
+}
+
+.newcar switch {
+  float: right;
+}

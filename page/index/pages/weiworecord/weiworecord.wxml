@@ -1,0 +1,14 @@
+<!--pages/weiworecord/weiworecord.wxml-->
+<view class="fail" wx:if="{{list.length == 0}}">
+  <image src="../../../../image/home/null.png"></image>
+  目前还没有任何记录
+</view>
+<view class="itemBox" wx:else>
+  <view class="item" wx:for="{{list}}" wx:key='index'>
+    <view class="left">
+      <view class="title">停车礼金</view>
+      <view class="date">{{item.CREATE_DATE}}</view>
+    </view>
+    <view class="right">￥{{item.MONEY}}</view>
+  </view>
+</view>

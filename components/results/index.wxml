@@ -1,0 +1,10 @@
+<!--components/results/index.wxml-->
+<view>
+  <view class="box">
+    <image src='../../image/member/fail.png' wx:if="{{cook == 1}}"></image>
+    <image src='../../image/member/success.png' wx:if="{{cook == 0 || cook == 2}}"></image>
+    <text>{{text}}</text>
+    <slot></slot>
+    <view class="btn" bindtap="onclick" data-text="{{btntext}}" wx:if="{{cook!=0}}">{{btntext}}</view>
+  </view>
+</view>

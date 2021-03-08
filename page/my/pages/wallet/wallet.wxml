@@ -1,0 +1,20 @@
+<!--pages/wallet/wallet.wxml-->
+<view class="mymoney">
+  <view class="yue">余额<icon style='font-size:24rpx'>（￥）</icon></view>
+  <view class="show">{{total}}
+    <text style='font-size:18px'>元</text>
+  </view>
+  <view class='mx'>
+    <navigator url="../../../my/pages/bill/bill">
+      <view style='width:180rpx;float:right'> 明细
+        <icon class='iconfont icon-jiantou'></icon>
+      </view>
+    </navigator>
+  </view> 
+</view>
+<view class='cz'>
+  <navigator url="../../../common/pages/recharge/recharge" class='navto' hover-class="none">
+    会员卡购买（充值）
+    <icon class='iconfont icon-jiantou' style='float:right;font-size:22px'></icon>
+  </navigator>
+</view>

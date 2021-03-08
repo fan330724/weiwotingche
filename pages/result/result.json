@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "result":"../../components/result/index",
+    "results":"../../components/results/index"
+  }
+}

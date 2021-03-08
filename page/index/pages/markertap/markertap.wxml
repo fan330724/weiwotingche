@@ -1,0 +1,63 @@
+<!--pages/markertap/markertap.wxml-->
+<view>
+  <view class="por">
+    <swiper circular>
+      <swiper-item wx:for="{{imgList}}" wx:key="index">
+        <image src="{{item}}" data-src="{{item}}" data-list="{{imgList}}" bindtap="previewImage" lazy-load="true" data-index='{{index}}'></image>
+      </swiper-item>
+    </swiper>
+    <view class="mask">
+      {{ops.NAME}}
+    </view>
+  </view>
+  <view class="border">
+    <view class="distance">
+      <view class="disa">
+        <view class="numb">{{ops.distance}}km</view>
+        <text>距离当前</text>
+      </view>
+      <view class="disa">
+        <view class="numb">{{ops.EMPTY_SPACE==''?'--':ops.EMPTY_SPACE+'个'}}</view>
+        <text>剩余车位</text>
+      </view>
+      <view class="disa">
+        <view class="numb">{{ops.SPACE}}个</view>
+        <text>总车位</text>
+      </view>
+    </view>
+  </view>
+  <view class="border mart">
+    <view class="title">
+      收费详情
+    </view>
+    <view class="totle">
+      <view class="xianmian">
+        <view>限免时长</view>
+        <text>30分钟</text>
+      </view>
+      <view class="xianmian">
+        <view>最高封顶</view>
+        <text>{{ops.TOP_PRICE!=underfind?ops.TOP_PRICE+'元':'暂无详情'}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="border boxshow mart">
+    <view class="title">
+      收费标准
+    </view>
+    <view class="totle">
+      <view class="xianmian">
+        <view>30分钟以内</view>
+        <text>{{ops.PRICE==underfind || ops.PRICE==''?'--':ops.PRICE}}</text>
+      </view>
+      <view class="xianmian">
+        <view>超过30分钟</view>
+        <text>{{ops.PRICE==underfind || ops.PRICE==''?'--':ops.PRICE}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="dh" bindtap="dh">
+    <image src="../../../../image/home/daohang.png"></image>
+    <text>导航</text>
+  </view>
+</view>

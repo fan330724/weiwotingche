@@ -1,0 +1,44 @@
+<swiper circular="true" previous-margin="40px" next-margin="40px" bindchange="swiper">
+  <swiper-item class="v1">
+      <view class='item'>
+        <view class='name'>白银卡</view>
+        <view class="show">{{nPay}}
+          <text style='font-size:36rpx'>元</text>
+        </view>
+      </view>
+  </swiper-item>
+  <swiper-item class="v2">
+      <view class='item'>
+        <view class='name'>黄金卡</view>
+        <view class="show">{{nPay}}
+          <text style='font-size:36rpx'>元</text>
+        </view>
+      </view>
+  </swiper-item>
+  <swiper-item class="v3">
+      <view class='item'>
+        <view class='name'>钻石卡</view>
+        <view class="show">{{nPay}}
+          <text style='font-size:36rpx'>元</text>
+        </view>
+      </view>
+  </swiper-item>
+</swiper>
+<view class='chongzhi'>
+  <view class='cz'>
+    <view>充值金额</view>
+    <view>{{nPay}}元</view>
+  </view>
+  <!-- <view class='cz'>
+    <view>实际支付</view> 
+    <view>{{nPay}}元</view>
+  </view> -->
+  <view class='btn' bindtap='wxpay'> 
+    立即充值
+  </view>
+  <view class="xieyi">
+    <image src="../../image/member/careful.png"></image>
+    点击立即充值，即表示您已经同意
+    <text bindtap="toczxy">《充值活动协议》</text>
+  </view>
+</view>

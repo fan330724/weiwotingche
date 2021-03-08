@@ -1,0 +1,119 @@
+<!--pages/use/use.wxml-->
+<view>
+  <view class="main">
+    <image src="../../../../image/home/youhui.png" bindtap="hideKeyboard"></image>
+    <view class="tit">
+      <view class="tit-t">{{list.CARD_NAME}}</view>
+      <view class="tit-date">
+        有效期：{{list.startDate}}-{{list.endDate}}
+      </view>
+    </view>
+    <view class="code" wx:if="{{list.CARD_TYPE == 'WASH-CXJ'&& list.CARD_NAME == '车速洁' || list.CARD_TYPE == 'GAS-S'}}">
+      <image class="code-i" src="data:image/png;base64,{{imgUrl}}"></image>
+      <view class="code-b">请向网点工作人员展示动态二维码</view>
+    </view>
+    <view class="park" wx:if="{{list.CARD_TYPE == 'PARKWW'}}">
+      <view class="park-t">
+        <view class="title">车场名称</view>
+        <view class="xiala">
+          <view class="xiala-in" bindtap="clickshow">
+            <view class="select">
+              <!-- <input placeholder="请选择停车场" value="{{selectlist[index].NAME}}"></input> -->
+              <block wx:if="{{index == -1}}">请选择停车场</block>
+              <block wx:if="{{index != -1}}">{{selectlist[index].NAME}}</block>
+            </view>
+            <image src="../../../../image/member/1.png" class="sanjiao {{show?'cur':''}}"></image>
+          </view>
+          <view class="xiala-ma" wx:if="{{show}}">
+            <view class="xiala-te" wx:for="{{selectlist}}" wx:key="index" bindtap="optionTap" data-id="{{item.PARK_ID}}" data-index="{{index}}">
+              {{item.NAME}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="park-b">
+        <view class="title">车牌号</view>
+        <view bindtap="showKeyboard">
+          <view class="inp" wx:if="{{isShow}}" bindtap="showKeyboard">
+            <view class="place">{{placeholder}}</view>
+          </view>
+          <view class="inp" wx:else='{{!isshow}}'>
+            {{textValue}}
+            <view class="show focus"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="park-btn" bindtap="touse" wx:if="{{list.CARD_TYPE == 'PARKWW'}}">
+      去使用
+    </view>
+    <view class="card" wx:if="{{list.CARD_TYPE == 'PARK-TLW' || list.CARD_TYPE == 'PARK-TCL'}}">
+      兑换码：{{CODE}}
+    </view>
+    <view class="park-btn" bindtap="tocopy" wx:if="{{list.CARD_TYPE == 'PARK-TLW' || list.CARD_TYPE == 'PARK-TCL'}}">点击复制</view>
+  </view>
+  <view class="plain">
+    <view class="plain-t">使用说明</view>
+    <view class="plain-m" wx:if="{{list.CARD_TYPE == 'WASH-CXJ' && list.CARD_NAME != '车速洁' || list.CARD_TYPE == 'GAS-S'}}">
+      <text>1、请到店与网点工作人员核销使用</text>
+      <text>2、请在有效期内使用，不可叠加、不可提现、不找零过期作废</text>
+      <text>3、本产品不支持开发票</text>
+      <text>4、此券不可同其他类型赠券同时叠加使用。</text>
+      <text>5、如在使用过程中遇到问题请联系0351-2526206</text>
+      <text>6、如二维码显示异常请返回上一页面重新进入</text>
+    </view>
+    <view class="plain-m" wx:if="{{list.CARD_TYPE == 'WASH-CXJ' && list.CARD_NAME == '车速洁'}}">
+      <text>1、用户购买洗车券后，洗车时向商户出事券码。</text>
+      <text>2、洗车券仅限单月使用，过期失效，不可叠加，不可兑换现金。</text>
+      <text>3、如需发票或在使用过程中遇到问题请联系0351-2526206。</text>
+      <text>4、如二维码显示异常请返回上一页面重新进入</text>
+    </view>
+    <view class="plain-m" wx:if="{{list.CARD_TYPE == 'PARKWW'}}">
+      <text>1、使用优惠券时请确保车辆已处于对应车场内</text>
+      <text>2、输入车场信息和车辆信息点击“去使用”，页面提示成功即表示减免成功，此次停车便可享受2小时减免优惠。</text>
+      <text>3、请在有效期内使用，不可叠加、不可提现、不找零过期作废。</text>
+      <text>4、如需发票或在使用过程中遇到问题请联系0351-2526206。</text>
+    </view>
+    <view class="plain-m" wx:if="{{list.CARD_TYPE == 'PARK-TCL' || list.CARD_TYPE == 'PARK-TLW'}}">
+      <text>1、点击“复制”按钮，复制兑换码。前往微信搜索公众号“铜锣湾国际购物中心”依次点击 湾美服务->停车缴费->我的卡包->输入兑换码兑换->在此公众号缴纳停车费时享受减免。</text>
+      <text>2、停车券仅限单月使用，过期失效，不可叠加，不可兑换现金。</text>
+      <text>3、如需发票或在使用过程中遇到问题请联系0351-2526206。</text>
+    </view>
+  </view>
+
+    <!--键盘-->
+  <block wx:if="{{isKeyboard}}">
+    <view class="keyboard">
+      <!--省份简写键盘-->
+      <view class="td td_nor" wx:for="{{keyboardValue}}" wx:for-index="idx" wx:for-item="itemName" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}" hover-class="board_bg" hover-start-time="0" hover-stay-time="80" wx:key="idx">
+        {{itemName}}
+      </view>
+
+      <!--数字键盘不可点击-->
+      <view wx:if="{{specialBtn && !tapNum}}" class="td td_num board_bg" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx">
+        {{itemName}}
+      </view>
+
+      <!--数字键盘可点击-->
+      <view wx:if="{{specialBtn && tapNum}}" class="td td_num" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}" hover-class="board_bg" hover-start-time="0" hover-stay-time="80" wx:key="idx">
+        {{itemName}}
+      </view>
+
+      <!--字母键盘-->
+      <view wx:if="{{specialBtn}}" class="td td_num" wx:for="{{keyboardAlph}}" wx:for-index="idx" wx:for-item="itemName" hover-class="board_bg" hover-start-time="0" hover-stay-time="80" wx:key="idx">
+          <view class="del_icon" wx:if="{{idx == 29}}" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}">
+            <!--<image src="/images/icon_del.png" mode="aspectFit" class="del_icon"></image>-->
+          </view>
+          <view wx:elif="{{idx != 29}}"  bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}">
+          {{itemName}}
+          </view>
+      </view>
+
+      <!--完成按钮 start-->
+      <view class="td td_spec_fin" wx:for="{{keyboard2For}}" wx:for-index="idx" wx:for-item="itemName" bindtap="tapSpecBtn" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{specialBtn}}" hover-class="board_bg_spec" hover-start-time="0" hover-stay-time="80" wx:key="idx">
+        {{itemName}}
+      </view>
+      <!--完成按钮 end-->
+    </view>
+  </block>
+</view>     

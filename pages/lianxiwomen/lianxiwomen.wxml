@@ -1,0 +1,15 @@
+<!--pages/lianxiwomen/lianxiwomen.wxml-->
+<view class="bigBox">
+	<view class="list">
+		<text>联系电话：</text>
+    <view class="phone" bindtap="makephone" data-phone="0351-2526206">0351-2526206</view>
+	</view>
+	<view class="list">
+		<text>网址：</text>
+    <view class="phone">www.weiwopark.com</view>
+	</view>
+	<view class="list">
+		<text>地址：</text>
+    <view class="arrect">太原高新区南中环529号清控创新基地D座26层</view>
+	</view>
+</view>

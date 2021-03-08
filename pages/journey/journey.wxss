@@ -1,0 +1,65 @@
+.fail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-60%);
+}
+.fail image{
+  width: 424rpx;
+  height: 240rpx;
+  margin-bottom: 20rpx;
+}
+
+page{
+  background: #F2F7F8;
+}
+.main{
+  padding: 0 30rpx;
+}
+.main .list{
+  background: white;
+  border-radius: 5px;
+  margin: 10rpx 0;
+  padding: 10rpx 20rpx;
+}
+.list .top{
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  padding: 20rpx 10rpx;
+  border-bottom: 1px dashed #999;
+}
+.list .top .between{
+  display: flex;
+  align-items: center;
+}
+.list .top .between .icon{
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-left: 5rpx;
+}
+.list .top .tit{
+  font-weight: bold;
+}
+.list .top .state{
+  color: #999999;
+  font-size: 32rpx;
+}
+.list .top .cur{
+  color: #30C77E;
+  font-size: 32rpx;
+
+}
+.list .center{
+  color: #666;
+  font-size: 30rpx;
+  padding: 0 0 10rpx 0;
+}
+.list .center .data{
+  margin: 10rpx 0;
+}

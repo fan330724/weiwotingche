@@ -1,0 +1,30 @@
+<!--pages/xiaoxizhongxin/xiaoxizhongxin.wxml-->
+<view class="bigBox">
+  <view class="list" bindtap="tohuodong">
+    <view class="photo">
+      <image src="../../../../image/home/active.png"></image>
+    </view>
+    <view class="title">
+      <text>活动广告</text>
+      <view>最新活动温馨提示</view>
+    </view>
+  </view>
+  <view class="list" bindtap="tonotice" data-state="1" data-title="停车通知">
+    <view class="photo">
+      <image src="../../../../image/home/part.png"></image>
+    </view>
+    <view class="title">
+      <text>停车通知</text>
+      <view>车辆出入温馨提示</view>
+    </view>
+  </view>
+  <view class="list" bindtap="tonotice" data-state="2" data-title="支付通知">
+    <view class="photo">
+      <image src="../../../../image/home/zhifu.png"></image>
+    </view>
+    <view class="title">
+      <text>支付通知</text>
+      <view>支付信息温馨提示</view>
+    </view>
+  </view>
+</view>

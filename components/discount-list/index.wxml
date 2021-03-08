@@ -1,0 +1,54 @@
+<!--components/discount-list/index.wxml-->
+<view>
+  <view class="main" bindtap="todetails" data-id="{{list.ID}}" data-title="{{title}}" data-getlist="{{list}}">
+    <view class="img">
+      <image src="http://124.70.23.12:8084/gameIcon/image/tingchechang.png" wx:if="{{title == '停车场'}}"></image>
+      <image src="http://124.70.23.12:8084/gameIcon/image/xichehang.png" wx:if="{{title == '洗车列表'}}"></image>
+    </view>
+    <view class="content">
+      <view class="top">
+        <view class="tit">{{list.BIZ_NAME}}</view>
+        <view class="text">
+          <view class="tet">{{list.ADDRESS}}</view>
+          <view class="sign">
+            <view class="iconfont icon-dingwei dingwei"></view>
+            <view class="mi">{{list.distance}} km</view>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="price" wx:if="{{title == '洗车列表'}}">
+          <view class="price-l">
+            <view class="price-l-t"></view>
+            <view class="price-l-t mt"></view>
+          </view>
+          <view class="price-c">
+            <view class="price-c-b">半价洗车</view>
+            <view class="price-c-t mt">优惠洗车</view>
+          </view>
+          <view class="price-r">
+            <view class="price-r-i">
+              <image src="../../image/home/plus.png"></image>
+            </view>
+            <view class="price-r-i mt">
+              <image src="../../image/home/weiwo.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class="price" wx:if="{{title == '停车场'}}">
+          <view class="price-l">
+            <view class="price-l-t"></view>
+          </view>
+          <view class="price-c">
+            <view class="price-c-t">5折</view>
+          </view>
+          <view class="price-r">
+            <view class="price-r-i pmt">
+              <image src="../../image/home/plus.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

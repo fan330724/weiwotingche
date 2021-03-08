@@ -1,0 +1,21 @@
+<!--pages/openhongbao/index.wxml-->
+
+<!-- 弹出框 -->
+<view class="pop">
+  <view class="alert-mask" wx:if="{{showPrice}}"></view>
+  <view class="modalDlg" wx:if="{{showPrice}}">
+  <view>{{list}}</view>
+    <view class="receivee" wx:if="{{showOpen == 0||showOpen == 1}}">
+      <image src="http://124.70.23.12:8084/gameIcon/image/bt-open.png"></image>
+      <image src="http://124.70.23.12:8084/gameIcon/image/bt-chai.png" class="rotate" wx:if="{{showOpen == 1}}"></image>
+      <image src="http://124.70.23.12:8084/gameIcon/image/bt-chai.png" class="'scale" wx:if="{{showOpen == 0}}" catchtap="toopen"></image>
+    </view>
+    <view class="receive" wx:elif="{{showOpen == 2}}">
+      <view class="top">恭喜您获得</view>
+      <view class="price">{{price}}元</view>
+      <image src="http://124.70.23.12:8084/gameIcon/image/bt-know.png" class="butt" catchtap="hideMask"></image>
+    </view>
+    <!-- <image src="../../../image/home/close.png" class="close" catchtap="hideMask"></image> -->
+  </view>
+</view>
+   

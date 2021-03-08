@@ -1,0 +1,178 @@
+<!--pages/home/home.wxml-->
+<view>
+	<view class="bg">
+		<!-- 搜索框 -->
+		<view class="search">
+			<view class="search-i">
+				<icon type="search" size="16" class="search-icon"></icon>
+				<view class="inp" bindtap="search">
+					请输入您要去的目的地
+				</view>
+				<view class="yu">
+					<image src="../../image/home/yuyin.png"></image>
+				</view>
+			</view>
+			<view class="ping" bindtap="toxiaoxi">
+				<image src="../../image/home/pinlun.png"></image>
+				<!-- <view class="hongdian"></view> -->
+			</view>
+		</view>
+		<!-- 添加车辆 -->
+		<view class="addChe">
+			<swiper next-margin="16px" previous-margin="16px" current="{{current}}" style="height:320rpx">
+				<swiper-item wx:for="{{arr.data}}" wx:key="index">
+					<view class="back">
+						<view class="logo">
+							<view class="logo-bg">
+								<image src="http://124.70.23.12:8084/gameIcon/image/logo2.png"></image>
+							</view>
+							<view class="text">
+							{{item.NUMBER}}
+							</view>
+						</view>
+						<view class="fle">
+							<view class="state">
+								{{state}}
+							</view>
+							<view class="btn1" wx:if="{{state == '车辆代缴费'}}" bindtap="toshow">
+								立即支付
+							</view>
+						</view>
+					</view>
+				</swiper-item>
+				<swiper-item wx:if="{{cellphone != '' && arr.data.length<3 || cellphone == ''}}" bindtap="redirect">
+					<view class="box">
+						<image src="../../image/home/add.png" class="add"></image>
+						<view class="btn">添加车辆</view>
+					</view>
+				</swiper-item>
+				<swiper-item wx:if="{{cellphone != '' && arr.data.length<2 || cellphone == ''}}" bindtap="redirect">
+					<view class="box">
+						<image src="../../image/home/add.png" class="add"></image>
+						<view class="btn">添加车辆</view>
+					</view>
+				</swiper-item>
+				<swiper-item wx:if="{{cellphone != '' &&arr.data.length<1 || cellphone == ''}}" bindtap="redirect">
+					<view class="box">
+						<image src="../../image/home/add.png" class="add"></image>
+						<view class="btn">添加车辆</view>
+					</view>
+				</swiper-item>
+			</swiper>
+		</view>
+	</view>
+	<!-- 轮播图 -->
+	<view class="swiper">
+		<swiper autoplay circular previous-margin="16rpx" next-margin="16px">
+			<!-- <swiper-item bindtap="toinvita">
+				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-4.png"></image>
+			</swiper-item> -->
+			<!-- <swiper-item bindtap="toreceive">
+				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-2.png"></image>
+			</swiper-item> -->
+			<swiper-item bindtap="toyueka">
+				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-yueka.png"></image>
+			</swiper-item>
+			<!-- <swiper-item bindtap="toLuckydraw">
+				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-Luckydraw.png"></image>
+			</swiper-item> -->
+			<swiper-item bindtap="toinvita">
+				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-double11.png"></image>
+			</swiper-item>
+			<!-- <swiper-item bindtap="tochina">
+				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-5.png"></image>
+			</swiper-item> -->
+			<swiper-item bindtap="todaka">
+				<image src="http://124.70.23.12:8084/gameIcon/image/daka.png"></image>
+			</swiper-item>
+			<swiper-item bindtap="todidi">
+				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-didi.png"></image>
+			</swiper-item>
+			<!-- <swiper-item bindtap="topufa">
+				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-3.png"></image>
+			</swiper-item> -->
+			<swiper-item bindtap="tocrab">
+				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-card.png"></image>
+			</swiper-item>
+		</swiper>
+	</view>
+	<!-- 列表 -->
+	<view class="list">
+		<view class="list-item" bindtap="member">
+			<image src="../../image/home/huiyuan.png"></image>
+			<text>会员中心</text>
+		</view>
+		<view class="list-item" bindtap="todiscount" data-title="洗车列表">
+			<image src="../../image/home/che.png"></image>
+			<text>优惠洗车</text>
+		</view>
+		<view class="list-item" bindtap="todiscount" data-title="停车场">
+			<image src="../../image/home/p.png"></image>
+			<text>优惠停车</text>
+		</view>
+		<view class="list-item" bindtap="toposition" data-title="停车场">
+			<image src="../../image/home/hstop.png"></image>
+			<text>停靠位置</text>
+		</view>
+		<view class="list-item" bindtap="tomall">
+			<image src="../../image/home/dayu.png"></image>
+			<text>大鱼商城</text>
+		</view>
+		<view class="list-item" bindtap="tocrab">
+			<image src="../../image/home/xie.png"></image>
+			<text>小刚蟹业</text>
+		</view>
+		<view class="list-item" bindtap="todidi">
+			<image src="../../image/home/didi.png"></image>
+			<text>滴滴招募</text>
+		</view>
+	</view>
+	<!-- 弹出框 -->
+	<view class="pop">
+		<view class="alert-mask" wx:if="{{showModal}}"></view>
+		<view class="modalDlg" wx:if="{{showModal}}">
+			<view class="receive">
+				<image src="http://124.70.23.12:8084/gameIcon/image/daka-pop.png" catchtap="todaka"></image>
+				<!-- <button class="accbtn" hover-class='none' catchtap="toLuckydraw"></button> -->
+				<image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
+			</view>
+
+			<!-- <view class="receive" wx:if="{{num == 0}}">
+				<image src="http://124.70.23.12:8084/gameIcon/jiugongge/pop3.png" catchtap="toLuckydraw"></image>
+				<button class="accbtn" hover-class='none' catchtap="toLuckydraw"></button>
+				<image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
+			</view>
+			<view class="pop4" wx:if="{{num > 0}}">
+				<image src="http://124.70.23.12:8084/gameIcon/jiugongge/pop4.png"></image>
+				<text class="choujiang">您有 <text>{{num}}</text> 次抽奖机会还未使用~</text>
+				<button class="pop4btn" hover-class='none' catchtap="toLuckydraw"></button>
+				<image src="../../image/home/close.png" class="popclose" catchtap="hideMask"></image>
+			</view> -->
+		</view>
+	</view>
+
+	<!-- 活动浮窗 -->
+	<!-- <view class="huodong">
+		<view class="huodong-x" bindtap="tohuodong">
+			<image src="../../image/home/88xun.png"></image>
+		</view>
+	</view> -->
+</view>
+
+
+<!-- 弹出登录框 -->
+<view class='modu' hidden='{{havePhone}}'>
+  <view class="L_box">
+    <view class="l_logo">
+      <image src="../../image/home/logo2.png"></image>
+    </view>
+    <view class="text">
+      <view>您还未登陆</view>
+      <view>该功能需要登陆后使用</view>
+    </view>
+    <view bindtap='userName' class="login" bindtap="tologin">立即登录</view>
+    <view class="clear" bindtap="clear">
+      暂不登录
+    </view>
+  </view>
+</view>

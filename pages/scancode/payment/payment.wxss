@@ -1,0 +1,103 @@
+/* pages/scancode/scancode.wxss */
+view {
+  color: #333;
+}
+
+
+/* 支付页面  */
+.p-m{
+  margin-top: 35px;
+}
+.total {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 70rpx;
+  color: #30C77E;
+}
+.total view{
+  height: 80rpx;
+}
+.total span {
+  font-size: 30rpx;
+  color: #666
+}
+
+
+.division {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 22rpx;
+}
+
+.division span {
+  width: 230rpx;
+  height: 1rpx;
+  background: #D8D8D8;
+}
+
+.division text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.parkName {
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  margin: 24rpx 0 24rpx 50rpx;
+  color: #3D444D;
+}
+
+.parkName .name{
+  width: 28%;
+  text-align: right;
+  font-size: 30rpx;
+  letter-spacing: 2px;
+}
+
+.parkName .value{
+
+}
+
+.sercht{
+  width: 70%;
+  height: 90rpx;
+  background-color: #30C77E;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 16px;
+  margin-top: 100rpx;
+}
+.sercht::after{
+  border: none;
+}
+
+
+.sucess,
+.err {
+  padding-top: 90rpx
+}
+
+.s-title {
+  text-align: center;
+  color: #00925d;
+  margin-bottom: 80rpx;
+  font-size: 44rpx
+}
+
+.toindex {
+  width: 74%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #00925d;
+  border-radius: 18px;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+  margin-top: 110rpx
+}

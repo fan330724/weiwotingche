@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "com-swiper": "../../../../components/swiper-item/index",
+    "com-list" : "../../../../components/index-list/index"
+  },
+  "navigationBarTitleText": "搜索详情"
+}

@@ -1,0 +1,51 @@
+<!--pages/addposition/addposition.wxml-->
+<!-- <view class='uploader-img  flex justify-content-start' wx:if="{{pics}}">
+  <view class='uploader-list' wx:for="{{pics}}" wx:key="item.length">
+      <image src='{{item}}' data-index="{{index}}" mode="scaleToFill" bindtap='previewImg1'/>
+      <image class='delete' data-index="{{index}}" src='../../image/home/close.png' mode="widthFix" bindtap='deleteImg'/>
+  </view>
+</view>
+<view class='upAdd' bindtap='chooseImg'>
+  <image src='http://124.70.23.12:8084/gameIcon/image/errortupian.png' mode="widthFix"/>
+</view> -->
+
+<view>
+  <view class="main">
+    <form bindsubmit="toSubmit">
+      <view class="list" bindtap="togetUserLocation">
+        <icon class="iconfont icon-dingwei"></icon>
+        <text>{{LOCATION?LOCATION:text}}</text>
+      </view>
+      <view class="border-bottom"></view>
+      <view class="list">
+        <view class="address">
+          <text>*</text>
+          地址
+        </view>
+        <textarea placeholder="备注您的车位信息" auto-height placeholder-style="color:#999" name="textarea"></textarea>
+      </view>
+      <view class="border-bottom"></view>
+      <view class="list">
+        <view class="address">
+          <text>*</text>
+          拍摄车位照片
+        </view>
+      </view>
+      <view class="uploader">
+        <view class="uploader-list" wx:for="{{pics}}" wx:key="*this">
+          <image src='http://124.70.23.12:8084/{{item}}' data-index="{{index}}" mode="scaleToFill"/>
+          <view class='delete' data-index="{{index}}" bindtap='deleteImg'>
+            <image src="../../image/home/deleteBg.png"></image>
+          </view>
+        </view>
+        <view class="upadd" bindtap='chooseImage' wx:if="{{pics.length < 3 }}">
+          <view>+</view>
+          <text>添加照片</text>
+        </view>
+      </view>
+      <button class="sub" hover-class="none" formType="submit">提交</button>
+    </form>
+  </view>
+</view>
+
+ 

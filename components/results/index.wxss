@@ -1,0 +1,31 @@
+/* components/results/index.wxss */
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90rpx;
+}
+.box image{
+  width: 132rpx;
+  height: 132rpx;
+}
+.box text{
+  margin-top: 24rpx;
+  color: #666;
+  font-size: 32rpx;
+  letter-spacing: 2px;
+}
+.box .btn{
+  width: 600rpx;
+  height: 80rpx;
+  border-radius: 30px;
+  text-align: center;
+  line-height: 80rpx;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 32rpx;
+  background: #30C77E;
+  box-shadow: 0 16rpx 30rpx rgba(113, 231, 174,.5);
+  margin-top: 80rpx;
+}

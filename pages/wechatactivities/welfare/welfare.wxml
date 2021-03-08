@@ -1,0 +1,17 @@
+<!--pages/wechatactivities/welfare/welfare.wxml-->
+<view class="bg">
+  <image src="http://124.70.23.12:8084/gameIcon/image/wxshuoming.png" class="bg"></image>
+  <view class="butt">
+    <image src="http://124.70.23.12:8084/gameIcon/image/wxcord.png" mode="aspectFit" bindtap="tocord"></image>
+    <image src="http://124.70.23.12:8084/gameIcon/image/wxjieshou.png" mode="aspectFit" bindtap="tosucc"></image>
+    <image src="http://124.70.23.12:8084/gameIcon/image/wxlingqu.png" mode="aspectFit" bindtap="todetail"></image>
+  </view>
+</view>
+
+<view wx:if="{{ show }}" class="pop">
+  <canvas style="width: {{ windowW }}px; height: {{ windowH }}px;" canvas-id="firstCanvas" bindlongtap="daochu"></canvas>
+  <view class="l11"></view>
+  <view class="close" catchtap="toclose">
+    <image src="../../../image/home/close.png"></image>
+  </view>
+</view>  

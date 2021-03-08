@@ -1,0 +1,7 @@
+<!--pages/receive/receive.wxml-->
+<view class="contin">
+  <image src="http://124.70.23.12:8084/gameIcon/image/active1.png" mode="aspectFit"></image>
+  <view class="succ" bindtap="tosucce">
+    <image src="http://124.70.23.12:8084/gameIcon/image/kai1.png"></image>
+  </view>
+</view>

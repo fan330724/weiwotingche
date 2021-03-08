@@ -1,0 +1,16 @@
+<!--pages/sharing/success/success.wxml-->
+<view class="mt">
+  <view class="main">
+    <view class="plus">
+      <image src="http://124.70.23.12:8084/gameIcon/image/succ1.png"></image>
+    </view>
+    <view class="but">
+      <image src="http://124.70.23.12:8084/gameIcon/image/succ2.png" class="img1 mgr" bindtap="toindex"></image>
+    </view>
+  </view>
+</view>
+   
+
+
+
+

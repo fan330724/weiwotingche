@@ -1,0 +1,21 @@
+<!--pages/notice/notice.wxml-->
+<view wx:if="{{show}}" class="fail">
+  <image src="../../../../image/home/null.png"></image>
+  <text>目前没有{{title}}</text>
+</view>
+<view wx:else class="bg">
+  <view class="list" wx:for="{{listarr}}" wx:key='index'>
+    <view class="title">{{item.TITLE}}</view>
+    <view class="price">
+      <view class="circular"></view>
+      {{item.CONTENT.plateNumber || item.CONTENT.content}}
+    </view>
+    <view class="park">
+      <view>
+        <view class="circular"></view>
+        <view class="mode">{{item.CONTENT.parkName || item.CONTENT.payType}}</view>
+      </view>
+      <view class="date">{{item.CREATE_DATE}}</view>
+    </view>
+  </view>
+</view>

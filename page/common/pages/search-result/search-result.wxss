@@ -1,0 +1,2 @@
+/* pages/search-result/search-result.wxss */
+@import "../../../tabBar/index/index.wxss"

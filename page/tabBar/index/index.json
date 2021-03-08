@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "search": "../../../components/search/index",
+    "com-swiper": "../../../components/swiper-item/index",
+    "com-list" : "../../../components/index-list/index"
+  }
+}
