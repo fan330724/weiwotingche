@@ -1,0 +1,28 @@
+<!--pages/position/position.wxml-->
+
+<view class="none" wx:if="{{items.length == 0}}">
+  <view class="non">
+    <image src="../../image/home/tnone.png"></image>
+    <text>暂无历史车位记录</text>
+  </view>
+  <view class="btn" bindtap="toaddposition">
+    添加位置
+  </view>
+</view>
+
+
+<view class="container" wx:else>
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="index">
+    <view class="content" catchtap="to" data-item="{{item}}">
+      <view class="title">{{item.LOCATION}}</view>
+      <text>{{item.ADDRESS}}</text>
+    </view>
+    <view class="del" catchtap="del" data-index="{{index}}" data-id="{{item.ID}}" wx:if="{{item.isTouchMove}}">删除</view>
+    <icon class="iconfont icon-jiantou" wx:else></icon>
+  </view>
+  <view class="flex">
+    <view class="btn btnn" bindtap="toaddposition">
+      添加位置
+    </view>
+  </view>
+</view>

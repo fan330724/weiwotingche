@@ -16,6 +16,9 @@ App({
     parkid: '46',
     // 弹窗控件
     showModal: true,
+    //存储token
+    token:"",
+    openid:"",
   },
   onLaunch: function () {
     //wx.getSetting是获取用户授权的信息的，除了应用在位置信息授权还能应用在用户信息授权等等
@@ -83,7 +86,7 @@ App({
             },
             method: "post",
             success: (res) => {
-              // console.log(res.data.data)
+              console.log(res.data.data)
               wx.setStorageSync('openid', res.data.data)
             }
           })

@@ -1,0 +1,31 @@
+<!--pages/positiondetail/positiondetail.wxml-->
+<view>
+  <view class="content">
+    <view class="list">
+      <view class="t-l">
+        <view class="left">
+          <icon class="iconfont icon-dingwei"></icon>
+        </view>
+        <view class="center">
+          {{list.LOCATION}}
+        </view>
+      </view>
+      <!-- <view class="right" bindtap="dh" data-address="府东街100号" data-lat="37.878684" data-lon="112.570032" data-name="山西省眼科医院">
+        <image src="http://124.70.23.12:8084/gameIcon/image/t-dao.png"></image>
+      </view> -->
+    </view>
+    <view class="list">
+      <view class="t-l">
+        <view class="left">
+          <image src="http://124.70.23.12:8084/gameIcon/image/t-jilu.png"></image>
+        </view>
+        <view class="center">
+          {{list.ADDRESS}}
+        </view>
+      </view>
+    </view>
+    <view class="img">
+      <image src="{{item}}" data-index="{{index}}" mode="scaleToFill" bindtap='previewImg' binderror="imageOnloadError" lazy-load="true" wx:for="{{pics}}" wx:key="index"></image>
+    </view>
+  </view>
+</view>

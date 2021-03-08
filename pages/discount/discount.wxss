@@ -1,0 +1,36 @@
+/* pages/discount/discount.wxss */
+page{
+  background: #e6e6e6 !important;
+}
+.tab{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  padding: 20rpx 30rpx;
+  background: white;
+  width: 100%;
+  box-shadow: 0 3px 6px rgba(0,0,0,.2);
+}
+.tab .tab-i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tab .tab-i:nth-of-type(2){
+  margin: 0 40rpx;
+}
+.tab .tab-i image{
+  width: 14rpx;
+  height: 14rpx;
+  margin-left: 8rpx;
+  transform: rotate(0);
+  transition: all .5s;
+}
+
+.tab .tab-i .cur{
+  transform: rotate(180deg);
+}
+.mt{
+  /* margin-top: 80rpx; */
+}

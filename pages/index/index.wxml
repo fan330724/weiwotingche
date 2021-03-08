@@ -1,0 +1,149 @@
+<!--pages/index/index.wxml-->
+<view class="background" wx:if="{{havePhone == 1}}">
+	<!-- 搜索框 -->
+	<view class="search">
+		<view class="search-i">
+			<icon type="search" size="16" class="search-icon"></icon>
+			<view class="inp" bindtap="search">
+				请输入您要去的目的地
+			</view>
+			<view class="yu">
+				<image src="../../image/home/yuyin.png"></image>
+			</view>
+		</view>
+		<view class="ping" bindtap="toxiaoxi">
+			<image src="../../image/home/pinlun.png"></image>
+			<!-- <view class="hongdian">1</view> -->
+		</view>
+	</view>
+</view>
+<!-- 地图 -->
+<view class="blockMap fujinMap">
+	<view style="height:{{MAPH}}">
+		<map id="myMap" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}" markers="{{markers}}" bindcontroltap="controltap" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" enable-traffic="{{enable}}" show-location style="width:100%;height:100%">
+			<!-- <cover-view>
+          <com-swiper dataList="{{dataList}}"></com-swiper>
+        </cover-view> -->
+			<cover-view class="nav">
+				<cover-view class='{{active==1?"active":""}}' bindtap='select' data-id='1'>
+					帷幄停车
+				</cover-view>
+				<cover-view class='{{active==2?"active":""}}' bindtap='weikaifang' data-id='2'>
+					充电停车
+				</cover-view>
+				<cover-view class='{{active==3?"active":""}}' bindtap='select' data-id='3'>
+					中石化
+				</cover-view>
+				<!-- <cover-view class='{{active==3?"active":""}}' bindtap='weikaifang' data-id='3'>
+            夜间停车
+          </cover-view>
+          <cover-view class='{{active==4?"active":""}}' bindtap='weikaifang' data-id='4'>
+            共享停车
+          </cover-view> -->
+			</cover-view>
+			<view class="rightF">
+				<view class="cover_image">
+					<image src="../../image/home/traffic.png" bindtap="enable"></image>
+				</view>
+				<view class="border"></view>
+				<view class="cover_image">
+					<image src="../../image/home/dingwei.png" bindtap='controltap' class="fujin-dinwei"></image>
+				</view>
+			</view>
+			<view class='notCar' bindtap='toAddcar' wx:if="{{show}}">
+				<image src='http://124.70.23.12:8084/wxx/images/aCar.png'></image>
+			</view>
+		</map>
+	</view>
+	<view class="padding">
+		<view class="list" animation="{{animationData}}">
+			<view class="top" bindtap="toani">
+				<image src="http://124.70.23.12:8084/gameIcon/image/xianshi.png" wx:if="{{translate}}" mode="widthFix" class="active"></image>
+				<image src="http://124.70.23.12:8084/gameIcon/image/hengxian.png" mode="widthFix" wx:else></image>
+			</view>
+			<!-- <view class="tab">
+          <view class="tab-i" bindtap="toanimation">
+            <picker mode="region" bindchange="getchange" value="{{cityname}}" bindcancel="toanimation">
+              <view >
+              地区选择
+                <image src="../../image/member/1.png" mode="aspectFit" class="{{selectShow?'cur':''}}"></image>
+              </view>
+            </picker>
+          </view>
+          <view class="tab-i">
+            <view>
+            距离最近
+            <image src="../../image/member/1.png" mode="aspectFit"></image>
+            </view>
+          </view>
+          <view class="tab-i">近期前往</view>
+        </view> -->
+			<scroll-view scroll-y class="{{scrollactive?'scroll-active':''}}" enable-back-to-top='{{true}}'>
+				<view class="main-height">
+					<com-list dataList="{{dataList}}" bind:markertap="onmarkertap" active="{{active}}"></com-list>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+	<!-- <view>
+		<image src="http://124.70.23.12:8084/gameIcon/image/fujin-huodong.png"></image>
+	</view>	 -->
+	<!-- <view class="mt">
+      <com-swiper dataList="{{dataList}}" bind:markertap="onmarkertap" idx="{{idx}}"></com-swiper>
+    </view> -->
+</view>
+<!-- 弹出框 -->
+<view class="pop">
+	<view class="alert-mask" wx:if="{{showModal}}"></view>
+	<view class="modalDlg" wx:if="{{showModal}}">
+		<view class="receive">
+			<image src="http://124.70.23.12:8084/gameIcon/image/huodongxize.png" catchtap="toreceive"></image>
+			<button class="accbtn" hover-class='none' catchtap="tomember"></button>
+		</view>
+		<image src="../../image/home/close.png" class="close" catchtap="hideMask"></image>
+	</view>
+</view>
+
+<!-- 弹出框 -->
+<view class="pop">
+  <view class="alert-mask" wx:if="{{showActive}}"></view>
+  <view class="modalDlg1" wx:if="{{showActive}}">
+    <view class="receivee" wx:if="{{showOpen == 0||showOpen == 1}}">
+      <image src="http://124.70.23.12:8084/gameIcon/image/bt-open.png" catchtap="toopen"></image>
+      <image src="http://124.70.23.12:8084/gameIcon/image/bt-chai.png" class="rotate" wx:if="{{showOpen == 1}}"></image>
+      <image src="http://124.70.23.12:8084/gameIcon/image/bt-chai.png" class="'scale" wx:if="{{showOpen == 0}}" catchtap="toopen"></image>
+    </view>
+    <view class="receive1" wx:elif="{{showOpen == 2}}">
+      <view class="top">恭喜您获得</view>
+      <view class="price">{{price}}元</view>
+			<view class="bottom">红包已经放置您的微信钱包</view>
+      <image src="http://124.70.23.12:8084/gameIcon/image/bt-know.png" class="butt" catchtap="hideMask1"></image>
+    </view>
+    <!-- <image src="../../../image/home/close.png" class="close" catchtap="hideMask"></image> -->
+  </view>
+</view>
+
+<!-- 活动浮窗 -->
+<view class="huodong" wx:if="{{showCur}}">
+  <view class="huodong-x" bindtap="tohuodong">
+    <image src="http://124.70.23.12:8084/gameIcon/image/fujin-huodong.png"></image>
+  </view>
+</view>
+
+
+<!-- 弹出登录框 -->
+<view class='modu' hidden='{{havePhone}}'>
+	<view class="L_box">
+		<view class="l_logo">
+			<image src="../../image/home/logo2.png"></image>
+		</view>
+		<view class="text">
+			<view>您还未登陆</view>
+			<view>该功能需要登陆后使用</view>
+		</view>
+		<view bindtap='userName' class="login" bindtap="tologin">立即登录</view>
+		<view class="clear" bindtap="clear">
+			暂不登录
+		</view>
+	</view>
+</view>

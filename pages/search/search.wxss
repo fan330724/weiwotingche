@@ -1,0 +1,153 @@
+/* pages/search/search.wxss */
+.search {
+  display: flex;
+  padding: 10rpx 30rpx;
+  align-items: center;
+}
+
+.search search {
+  flex: 6;
+}
+
+.sousuo {
+  width: 64rpx;
+  height: 44rpx;
+  font-size: 32rpx;
+  color: black;
+  font-weight: 400;
+  margin-left: 10px;
+  flex: .8;
+  letter-spacing: 2px;
+}
+
+.list {}
+
+.list .listItem {
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #ccc;
+}
+.list .listItem view:nth-of-type(1) {
+  font-size: 28rpx;
+}
+
+.list .listItem view:nth-of-type(2) {
+  font-size: 24rpx;
+  color: #999;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin-top: 10rpx;
+}
+
+.list .listItem {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.listfail{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #999;
+  width: 100%;
+  text-align: center;
+}
+
+.pop{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ccc;
+  z-index: 99;
+  opacity: 0.3;
+}
+.pop .mask{
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 10px;
+  background: #000;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom:0;
+  top: 0;
+  margin:auto;
+  z-index: 999;
+  /* opacity: .6; */
+  text-align: center;
+}
+.pop .mask .icon{
+  color: white;
+  font-size: 80rpx;
+  margin-top: -100rpx;
+}
+.pop .mask .mask-a{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 180rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.arc{
+  border-top: 5px solid white;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  height: 120rpx;
+  margin-top: -100rpx;
+}
+.arc,.arc::after{
+  border-radius: 50%;
+}
+.one{
+  width: 160rpx;
+}
+.two{
+  width: 120rpx;
+}
+.three{
+  width: 80rpx;
+}
+.cur .one{
+  width: 160rpx;
+  animation: opacity 1s ease .8s infinite;
+}
+.cur .two{
+  width: 120rpx;
+  animation: opacity 1s ease .6s infinite;
+}
+.cur .three{
+  width: 80rpx;
+  animation: opacity 1s ease .4s infinite;
+}
+@keyframes opacity{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.btten{
+  color: white;
+  letter-spacing: 1px;
+  width: 60%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 1px solid #ccc;
+  position: absolute;
+  bottom: 30rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: none;
+}

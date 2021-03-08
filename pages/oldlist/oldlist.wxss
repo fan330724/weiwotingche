@@ -1,0 +1,57 @@
+page{font-size: 14px}
+.widgets__item{
+  margin: 20rpx 20rpx;
+  background-color: #ffffff;
+  padding: 22rpx 32rpx;
+  border-bottom: 1px solid #c0c0c0
+}
+.total{
+  margin-top: 14rpx;
+  color: #333333;
+  font-family: "微软雅黑";
+  height: 44rpx;
+  line-height: 44rpx;
+  display: flex;
+  align-items:center;
+  position: relative
+}
+.show{
+  color: #999;
+  position: absolute;
+  right: 0rpx;
+  bottom: 0rpx;
+}
+.pay{
+  margin-top: 14rpx;
+  color: #333333;
+  font-family: "微软雅黑";
+  height: 44rpx;
+}
+.time{
+  margin-top: 14rpx;
+  color: #333333;
+  font-family: "微软雅黑";
+  height: 44rpx;
+  font-size: 14px
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+  padding: 6rpx;
+  /* width: 70rpx;
+  height: 34rpx; */
+  background-color:  #30C77E;
+  font-size: 12px;
+  color:#fff;
+}
+.row{display: inline-block;width: 14rpx;height: 14rpx;border-radius: 14rpx;margin-right: 20rpx}
+.yellow{background-color: orange}
+.green{background-color: green}   
+
+.noPrice{
+  text-align: center;
+  margin-top: 405rpx;
+  color: #999999
+}

@@ -1,0 +1,79 @@
+/* 新版样式 */
+
+page {
+  background: #fff;
+}
+
+.top {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 20rpx 0 rgba(147, 149, 148, 0.40);
+  position: fixed;
+  top: 0;
+}
+/* .mybill{
+  margin-top: 100rpx;
+} */
+.top view{ padding: 24rpx 0;font-size: 16px;color:#3F3F3F }
+.top .active{
+  color: #30C77E;
+  font-size: 16px;
+  border-bottom: 4rpx solid  #30C77E;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 旧版样式 */
+
+.widgets {
+  margin-left: 32rpx;
+  margin-top: 32rpx;
+  margin-right: 32rpx;
+  height: 156rpx;
+  padding-top: 32rpx;
+  font-size: 14px;
+}
+
+.left {
+  float: left;
+  font-size: 36rpx;
+  font-family: "微软雅黑";
+}
+
+.right {
+  float: right;
+  padding-top: 16rpx;
+  color: #00925d;
+  font-size: 46rpx;
+  font-family: "微软雅黑";
+}
+
+.time {
+  font-size: 30rpx;
+  font-family: "微软雅黑";
+  color: #959595;
+}
+
+.widgets__item {
+  background-color: #fff;
+  width: 720rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #c0c0c0 
+}
+
+.subsText {
+  height: 72rpx;
+  font-size: 30rpx;
+}

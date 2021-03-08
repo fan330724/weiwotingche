@@ -1,0 +1,8 @@
+<!--pages/china/china.wxml-->
+<!-- <view class="main">
+  <image src="http://124.70.23.12:8084/gameIcon/image/10.1start.png" bindtap="tomember"></image>
+</view> -->
+
+<view class="main">
+  <image src="http://124.70.23.12:8084/gameIcon/image/yueka-button.png" bindtap="tomember"></image>
+</view>

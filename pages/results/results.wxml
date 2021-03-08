@@ -1,0 +1,2 @@
+<!--pages/results/results.wxml-->
+<v-results cook="{{cook}}" btntext="{{btntext}}" text="{{text}}"></v-results>

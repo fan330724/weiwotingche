@@ -1,0 +1,18 @@
+<!--pages/czxy/czxy.wxml-->
+
+<view class="nav" wx:if="{{xy == 'PLUS会员协议'}}">
+  <view class="plus">
+      <image src="http://124.70.23.12:8084/wxx/images/money/img/PLUS用户协议.jpg"  mode="aspectFit"></image>
+  </view>
+  <image src="http://124.70.23.12:8084/wxx/images/money/img/tbg.png" class="right"></image>
+  <image src="http://124.70.23.12:8084/wxx/images/money/img/bbg.png" class="left"></image>
+</view>
+
+
+<view class="nav"  wx:if="{{xy == '充值协议'}}">
+  <view class="chuzhi">
+    <image src="http://124.70.23.12:8084/wxx/images/money/img/gb.png" mode="aspectFit"></image>
+  </view>
+  <image src="http://124.70.23.12:8084/wxx/images/money/img/tbg.png" class="right"></image>
+  <image src="http://124.70.23.12:8084/wxx/images/money/img/bbg.png" class="left"></image>
+</view>
