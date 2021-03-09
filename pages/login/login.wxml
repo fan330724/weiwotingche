@@ -1,2 +1,20 @@
 <!--pages/login/login.wxml-->
-<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sub" hover-class="none">授权登录</button> 
+<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="sub" hover-class="none">授权登录</button>  -->
+
+<!--pages/login/login.wxml-->
+<view class="logining">
+  <view class="registClass">手机号登录</view>
+  <view class='mes'>输入手机号，确认即可验证登录或注册</view>
+  <view class='ph'>
+    <view>+86</view>
+    <input class="number" type="number" maxlength="11" placeholder="输入电话号码" bindinput="registInput" style='padding-left:10rpx'/>
+  </view>
+</view>
+
+<view class="btnLogin">
+  <button               
+    bindtap='getCode'
+    hover-class="none"
+    >确认
+  </button>
+</view>

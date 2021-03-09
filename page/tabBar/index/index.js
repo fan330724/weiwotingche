@@ -130,7 +130,7 @@ Page({
       // })
       if (markerId.MALLNAME) {
         // console.log('红包')
-        http.mallMoney({
+        request.mallMoney({
           CELLPHONE: wx.getStorageSync('CELLPHONE'),
           LON: this.data.longitude,
           LAT: this.data.latitude,
@@ -169,7 +169,7 @@ Page({
     this.setData({
       showOpen: 1
     })
-    http.getMallReward({
+    request.getMallReward({
       ID: this.data.money.ID,
       // ID: "C2E04600DADF4FE49C843E2FF62F8E72",
       openid: wx.getStorageSync('openid')

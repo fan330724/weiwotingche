@@ -189,6 +189,36 @@ export default {
   },
 
   /**
+   * 登录
+   */
+  loginApp(params) {
+    return request({
+      url: app.data.url + "api/member/loginApp.shtml",
+      data: {
+        ...params
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+  /**
+   * 登录
+   */
+  login(params) {
+    return request({
+      url: app.data.url + "api/member/login.shtml",
+      data: {
+        ...params
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
+
+  /**
    * 获取个人信息
    * 参数 CELLPHONE  手机号
    */

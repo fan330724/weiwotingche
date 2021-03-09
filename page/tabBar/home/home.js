@@ -22,7 +22,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   //获取订单信息
@@ -355,7 +354,7 @@ Page({
   onShow: function () {
     this.isphone()
   },
-  async isphone(){
+  async isphone() {
     if (phone.isPhone() == 'success') {
       await this.getLocation()
       await this.getChe()
