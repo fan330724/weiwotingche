@@ -215,6 +215,7 @@ Page({
               })
             },
             fail(err) {
+              console.log(err);
               //用户已授权，但是获取地理位置失败，提示用户去系统设置中打开定位
               wx.showModal({
                 title: '',
@@ -356,6 +357,7 @@ Page({
   },
   async isphone() {
     if (phone.isPhone() == 'success') {
+      console.log('++++++++++++++++++++++++++++++++++++++');
       await this.getLocation()
       await this.getChe()
       await this.getorder()

@@ -76,7 +76,7 @@ Page({
     }).then((res) => {
       if (res.data.errcode == '0') {
         wx.navigateTo({
-          url: '../yzm/yzm?phone=' + that.data.cellphone + '&code=' + res.data.data.data.VERIFICATION_CODE,
+          url: '../yzm/yzm?phone=' + this.data.cellphone + '&code=' + res.data.data.data.VERIFICATION_CODE,
         })
       } else {
         wx.showModal({
