@@ -224,12 +224,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取手机配置
     this.getSystemInfo()
-    // 获取手机配置结束
-    //返回可以用于wx.openLocation的经纬度
-    //调用逆解析地址
-    this.getLocation();
     this.getChe()
     this.toani()
   },
@@ -257,35 +252,25 @@ Page({
   },
   //获取解析地址
   getLocation() {
-    var that = this;
-    //逆解析地址
-    wx.getLocation({
-      type: 'gcj02',
-      success: function (res) {
-        console.log(res)
+    let that = this;
+    qqmap.getUserLocation(function (res) {
+      let latitude = res.latitude
+      let longitude = res.longitude
+      that.setData({
+        latitude,
+        longitude
+      })
+      qqmap.nimap(latitude, longitude, function (res) {
+        var {
+          city,
+          district,
+          province
+        } = res.result.address_component
         that.setData({
-          latitude: res.latitude,
-          longitude: res.longitude
+          city,
+          cityname: [province, city, district]
         })
-        // that.setData({
-        //   latitude: 37.79584743923611,
-        //   longitude: 112.54726128472223
-        // })
-
-        //地址逆解析获取cityname
-        qqmap.nimap(that.data.latitude, that.data.longitude, function (res) {
-          console.log(res)
-          var {
-            city,
-            district,
-            province
-          } = res.result.address_component
-          that.setData({
-            city,
-            cityname: [province, city, district]
-          })
-        })
-      }
+      })
     })
   },
   //获取图标
@@ -838,15 +823,6 @@ Page({
       })
     }, 200)
   },
-
-  //扫码
-  scanCode() {
-    wx.scanCode({
-      success(res) {
-        console.log(res)
-      }
-    })
-  },
   //开启实时路况
   enable() {
     this.setData({
@@ -868,5 +844,7 @@ Page({
    */
   onShow: function () {
     this.mapCtx = wx.createMapContext('myMap')
+    //调用逆解析地址
+    this.getLocation();
   },
 })

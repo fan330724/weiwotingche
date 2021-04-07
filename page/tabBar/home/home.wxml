@@ -64,35 +64,11 @@
 	<!-- 轮播图 -->
 	<view class="swiper">
 		<swiper autoplay circular previous-margin="16rpx" next-margin="16px">
-			<!-- <swiper-item bindtap="toinvita">
-				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-4.png"></image>
-			</swiper-item> -->
-			<!-- <swiper-item bindtap="toreceive">
-				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-2.png"></image>
-			</swiper-item> -->
-			<!-- <swiper-item bindtap="toyueka">
-				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-yueka.png"></image>
-			</swiper-item> -->
-			<!-- <swiper-item bindtap="toLuckydraw">
-				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-Luckydraw.png"></image>
-			</swiper-item> -->
-			<!-- <swiper-item bindtap="toinvita">
-				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-double11.png"></image>
-			</swiper-item> -->
-			<!-- <swiper-item bindtap="tochina">
-				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-5.png"></image>
-			</swiper-item> -->
-			<!-- <swiper-item bindtap="todaka">
-				<image src="http://124.70.23.12:8084/gameIcon/image/daka.png"></image>
-			</swiper-item> -->
 			<swiper-item bindtap="todidi">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-didi.png"></image>
 			</swiper-item>
 			<!-- <swiper-item bindtap="topufa">
 				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-3.png"></image>
-			</swiper-item> -->
-			<!-- <swiper-item bindtap="tocrab">
-				<image src="http://124.70.23.12:8084/gameIcon/image/swiper-card.png"></image>
 			</swiper-item> -->
 		</swiper>
 	</view>

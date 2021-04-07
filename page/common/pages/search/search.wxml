@@ -13,18 +13,17 @@
   <view wx:if="{{listshow}}" class="listfail">很抱歉，未找到结果，您可以换个词试试！</view>
 </view>
 
-<view class="pop" wx:if="{{show}}" catchtap="clearshow">
-  <view class="mask" catchtap="toyu">
-    <view class="mask-a {{recordState?'cur':''}}">
-        <view class="arc one"></view>
-        <view class="arc two"></view>
-        <view class="arc three"></view>
-        <view class="iconfont icon-yuyin icon"></view>
+<view class="pop" wx:if="{{show}}" >
+  <view class="popmask" catchtap="clearshow"></view>
+  <view class="main_voice">
+    <view class="voice_ico shadow" bindtouchstart="touchStart" bindtouchend="touchEnd">
+      <text class="iconfont icon-yuyin icon"></text>
+      <view class="pulse {{recordState == true ? 'p1' : ''}}"></view>
+      <view class="pulse {{recordState == true ? 'p2' : ''}}"></view>
     </view>
-    <button class="btten" 
-    catchtouchstart="touchStart" catchtouchend="touchEnd" >
-      <text wx:if="{{recordState == false}}">按住 说话</text>
-      <text wx:else>松开 结束</text>
-    </button>
+    <view class="tips">
+      <text wx:if="{{recordState == false}}">按住说话</text>
+      <text wx:else>{{tips}}</text>
+    </view>
   </view>
 </view>

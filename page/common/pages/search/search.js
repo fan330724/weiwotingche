@@ -5,7 +5,13 @@ const app = getApp();
 const plugin = requirePlugin('WechatSI');
 //获取全局唯一的语音识别管理器recordRecoManager
 const manager = plugin.getRecordRecognitionManager();
-
+// 设置采集声音参数
+const options = {
+  sampleRate: 44100,
+  numberOfChannels: 1,
+  encodeBitRate: 192000,
+  format: 'aac'
+}
 Page({
 
   /**
@@ -19,8 +25,8 @@ Page({
     //输入的内容
     p: "",
     recordState: false, //录音状态
-    show:false, //弹窗状态
-    listshow:'' //搜索状态
+    show: false, //弹窗状态
+    listshow: '' //搜索状态
   },
 
   /**
@@ -38,7 +44,7 @@ Page({
     var that = this;
     var city = that.data.city;
     that.setData({
-      p:e.detail
+      p: e.detail
     })
     if (e.detail == "") {
       that.setData({
@@ -46,13 +52,13 @@ Page({
       })
     } else {
       let texts = function (res) {
-        if(res.data.length == 0){
+        if (res.data.length == 0) {
           that.setData({
-            listshow:true
+            listshow: true
           })
-        }else{
+        } else {
           that.setData({
-            listshow:false,
+            listshow: false,
             listarr: res.data
           })
         }
@@ -61,17 +67,17 @@ Page({
       qqmap.input(e.detail, city, texts)
     }
   },
-  onConfirm1(){
+  onConfirm1() {
     var that = this
     var city = that.data.city;
     let texts = function (res) {
-      if(res.data.length == 0){
+      if (res.data.length == 0) {
         that.setData({
-          listshow:true
+          listshow: true
         })
-      }else{
+      } else {
         that.setData({
-          listshow:false,
+          listshow: false,
           listarr: res.data
         })
       }
@@ -82,12 +88,12 @@ Page({
     this.setData({
       p: "",
       listarr: "",
-      listshow:false
+      listshow: false
     })
   },
-  onfail(){
+  onfail() {
     wx.switchTab({
-      url: '../../tabBar/home/home',
+      url: '../../../tabBar/home/home',
     })
   },
   markertap(e) {
@@ -100,7 +106,7 @@ Page({
   },
   toyu() {
     this.setData({
-      show:true
+      show: true
     })
   },
   //识别语音 -- 初始化
@@ -131,7 +137,7 @@ Page({
       console.log('录音总时长 -->' + res.duration + 'ms');
       console.log('文件大小 --> ' + res.fileSize + 'B');
       console.log('语音内容 --> ' + res.result);
-      var result = res.result.replace('。', '').replace('，','');
+      var result = res.result.replace('。', '').replace('，', '');
       if (result == '') {
         wx.showModal({
           title: '提示',
@@ -150,26 +156,27 @@ Page({
   },
   //语音  --按住说话
   touchStart: function (e) {
+    wx.vibrateShort() //按键震动效果（15ms）
+    manager.start(options)
     this.setData({
-      recordState: true //录音状态
+      recordState: true, //录音状态为真
+      tips: '松开结束',
     })
-    // 语音开始识别
-    manager.start({
-      lang: 'zh_CN', // 识别的语言，目前支持zh_CN en_US zh_HK sichuanhua
-    })
+
   },
   //语音  --松开结束
   touchEnd: function (e) {
-    this.setData({
-      recordState: false,
-      show:false
-    })
     // 语音结束识别
     manager.stop();
-  },
-  clearshow(){
     this.setData({
-      show:false
+      recordState: false,
+      show: false
+    })
+  },
+
+  clearshow() {
+    this.setData({
+      show: false
     })
   },
 })
