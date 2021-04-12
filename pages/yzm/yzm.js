@@ -8,9 +8,10 @@ Page({
    */
   data: {
     text: '',
-    cellphone: "",
-    code: "",
+    cellphone: "", //手机号
+    code: "", //验证码
     focusIndex: '',
+    status: "", //状态
   },
 
   /**
@@ -21,10 +22,12 @@ Page({
     let {
       phone,
       code,
+      status
     } = options
     this.setData({
       cellphone: phone,
       code,
+      status
     })
     this.goGetCode()
   },
@@ -110,9 +113,15 @@ Page({
     }).then(res => {
       if (res.data.data.loginType == 'success') {
         wx.setStorageSync('CELLPHONE', this.data.cellphone)
-        wx.reLaunch({
-          url: '../../page/tabBar/home/home',
-        })
+        if (this.data.status == 'Advancepayment') {
+          wx.reLaunch({
+            url: '../scancode/Advancepayment/Advancepayment',
+          })
+        } else {
+          wx.reLaunch({
+            url: '../../page/tabBar/home/home',
+          })
+        }
       } else {
         wx.showToast({
           title: '账号或验证码不对',

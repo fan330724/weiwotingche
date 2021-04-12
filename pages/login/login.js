@@ -11,13 +11,19 @@ Page({
    */
   data: {
     cellphone: "", //手机号
+    status: "", //状态
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options);
+    if (options.status) {
+      this.setData({
+        status: options.status
+      })
+    }
   },
 
   getPhoneNumber(e) {
@@ -51,11 +57,23 @@ Page({
   //获取验证码
   getCode: function () {
     var that = this
-    if (that.data.cellphone == '18735751439') {
+    // if (that.data.cellphone == '18735751439') {
+    //   if(that.data.status == 'Advancepayment'){
+    //     wx.reLaunch({
+    //       url: '../scancode/Advancepayment/Advancepayment',
+    //     })
+    //   }else{
+    //     wx.reLaunch({
+    //       url: '../../page/tabBar/home/home',
+    //     })
+    //   }
+    //   wx.setStorageSync('CELLPHONE', '18735751439')
+    // } 
+    if (that.data.cellphone == '13333333333') {
       wx.reLaunch({
         url: '../../page/tabBar/home/home',
       })
-      wx.setStorageSync('CELLPHONE', '18735751439')
+      wx.setStorageSync('CELLPHONE', '13333333333')
     } else {
       //验证手机号正则
       var pattern = /^[1][3,4,5,6,7,8,9]\d{9}$/;
@@ -76,7 +94,7 @@ Page({
     }).then((res) => {
       if (res.data.errcode == '0') {
         wx.navigateTo({
-          url: '../yzm/yzm?phone=' + this.data.cellphone + '&code=' + res.data.data.data.VERIFICATION_CODE,
+          url: '../yzm/yzm?phone=' + this.data.cellphone + '&code=' + res.data.data.data.VERIFICATION_CODE + '&status=' + this.data.status,
         })
       } else {
         wx.showModal({

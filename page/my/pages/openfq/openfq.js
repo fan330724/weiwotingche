@@ -93,7 +93,7 @@ Page({
   // 提交发票信息
   pull: function() {
     let _this = this
-    var pattern = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+    var pattern = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
     if (_this.data.index == 1 || _this.data.index == 3) {
       if (_this.data.NAME !== '' || _this.data.CELLPHONE !== '' || _this.data.MALL !== ''){
         if (pattern.test(_this.data.CELLPHONE)){

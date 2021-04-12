@@ -16,28 +16,11 @@ App({
     parkid: '46',
     // 弹窗控件
     showModal: true,
+
+    //提前付 扫码参数
+    PARKID:"",
   },
   onLaunch: function () {
-    //wx.getSetting是获取用户授权的信息的，除了应用在位置信息授权还能应用在用户信息授权等等
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // console.log(res)
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
     if (wx.canIUse('getUpdateManager')) {
       const updateManager = wx.getUpdateManager()
       updateManager.onCheckForUpdate(function (res) {
@@ -71,9 +54,7 @@ App({
     }
     // 获取openid
     var openid = wx.getStorageSync('openid')
-    if (openid) {
-      return
-    } else {
+    if (!openid) {
       wx.login({
         success: (res) => {
           wx.request({

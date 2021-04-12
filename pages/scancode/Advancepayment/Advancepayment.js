@@ -1,6 +1,7 @@
 // 获取全局参数
 import http from '../../../request/scancode/scancode.js'
 const regeneratorRuntime = require('../../../lib/runtime/runtime.js')
+let app = getApp()
 Page({
   /**
    * 
@@ -25,7 +26,11 @@ Page({
     //车场Id
     PARKID: "",
     //分钟
-    scanOutTime:"",
+    scanOutTime: "",
+  },
+  status:{
+    state: 'Advancepayment',
+    PARKID: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -35,17 +40,16 @@ Page({
     if (options.q) {
       var scan_url = decodeURIComponent(options.q);
       var PARKID = http.getQueryString(scan_url, 'PARKID');
-      this.setData({
-        PARKID
-      })
+      app.data.PARKID = PARKID
     }
+    console.log(app.data.PARKID);
   },
-  async init(){
+  async init() {
     let sign = http.resetToken()
-    if(sign) {
+    if (sign) {
       await http.getOpenid();
       this.gateparkinfo()
-    }else{
+    } else {
       await http.getToken();
       await http.getOpenid();
       this.gateparkinfo()
@@ -54,17 +58,17 @@ Page({
   /**
    * 提前付 出场时间
    */
-  gateparkinfo(){
-    http.gateparkinfo(this.data.PARKID).then(res => {
-      if(res.data.code == 0){
+  gateparkinfo() {
+    http.gateparkinfo(app.data.PARKID).then(res => {
+      if (res.data.code == 0) {
         this.setData({
           scanOutTime: res.data.data.scanOutTime
         })
-      }else{
+      } else {
         wx.showToast({
           title: res.data.msg,
           mask: true,
-          icon:"none"
+          icon: "none"
         })
       }
     })
@@ -93,7 +97,7 @@ Page({
   //提前付接口
   advancePay() {
     http.advancePay({
-      PARK_ID: this.data.PARKID,
+      PARK_ID: app.data.PARKID,
       OPEN_ID: wx.getStorageSync('sconCodeOpenid'),
       PLATE_NUMBER: this.data.textValue,
     }).then(res => {
@@ -114,7 +118,7 @@ Page({
         wx.showToast({
           title: res.data.errmsg,
           duration: 2000,
-          icon:"none",
+          icon: "none",
           mask: true
         })
       }
@@ -139,8 +143,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.init()
-
+    let phone = wx.getStorageSync('CELLPHONE');
+    if (phone) {
+      this.init()
+    } else {
+      wx.reLaunch({
+        url: '../../login/login?status=Advancepayment',
+      })
+    }
   },
   /**
    * 输入框显示键盘状态
