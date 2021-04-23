@@ -21,6 +21,30 @@
         {
           "name": "pages/scancode/Advancepayment/Advancepayment",
           "pathName": "pages/scancode/Advancepayment/Advancepayment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page/my/pages/openfq/openfq",
+          "pathName": "page/my/pages/openfq/openfq",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page/common/pages/huodongguangao/huodongguangao",
+          "pathName": "page/common/pages/huodongguangao/huodongguangao",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/scancode/payment/payment",
+          "pathName": "pages/scancode/payment/payment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/scancode/Advancepayment/Advancepayment",
+          "pathName": "pages/scancode/Advancepayment/Advancepayment",
           "scene": null
         }
       ]

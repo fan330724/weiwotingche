@@ -261,19 +261,20 @@ page {
 
 .pop .receive {
   position: relative;
-  width: 537rpx;
-  height: 575rpx;
+  width: 544rpx;
+  height: 572rpx;
 }
 
 .pop .accbtn {
   position: absolute;
-  bottom: 40rpx;
+  bottom: 9rpx;
   left: 50%;
   transform: translateX(-50%);
   width: 283rpx;
   height: 80rpx;
-  background: url('http://124.70.23.12:8084/gameIcon/image/anow.png') no-repeat;
-  background-size: 100% 100%;
+  /* background: url('http://124.70.23.12:8084/gameIcon/image/anow.png') no-repeat; */
+  /* background-size: 100% 100%; */
+  background: transparent;
   padding: 0;
 }
 

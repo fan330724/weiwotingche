@@ -1,5 +1,16 @@
 <!--pages/huodongguangao/huodongguangao.wxml-->
-<view class="fail">
+<!-- <view class="fail">
   <image src="../../../../image/home/null.png"></image>
   <text>目前还没有任何活动</text>
+</view> -->
+
+<view>
+  <view class="title">说明</view>
+  <view class="main">由于帷幄进行系统升级，导致系统加油券延迟发放，加油券延迟发放与联联无关。</view>
+  <view class="main">经沟通，帷幄承诺客户所购买plus年卡权益会全数发放，当月未能如期发放的加油券会在系统升级完毕后进行补发，为此给大家带来的不便深表歉意。</view>
+  <view class="main">特此说明。</view>
+  <view class="bottom">
+    <view>山西帷幄智能停车有限公司</view>
+    <view>二〇二一年四月</view>
+  </view>
 </view>

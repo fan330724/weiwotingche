@@ -107,7 +107,7 @@ Page({
   parkingfee() {
     http.parkingfee({
       PAY_TYPE: 'wxxpay',
-      OPEN_ID: this.data.openid || this.data.list.OPEN_ID,
+      OPEN_ID: wx.getStorageSync('sconCodeOpenid'),
       FEE: this.data.list.TOTAL,
       ORDER_CODE: this.data.list.ORDER_CODE,
       PARK_ID: this.data.PARKID || this.data.list.PARK_ID

@@ -101,10 +101,10 @@
 	</view>
 	<!-- 弹出框 -->
 	<view class="pop">
-		<view class="alert-mask" wx:if="{{showModal}}"></view>
+		<view class="alert-mask" wx:if="{{showModal}}" catchtap="hideMask"></view>
 		<view class="modalDlg" wx:if="{{showModal}}">
 			<view class="receive">
-				<image src="http://124.70.23.12:8084/gameIcon/image/tongzhi.png"></image>
+				<image src="../../../image/pop/pop.png"></image>
 				<button class="accbtn" hover-class='none' catchtap="hideMask"></button>
 				<!-- <image src="../../image/home/close.png" class="close" catchtap="hideMask"></image> -->
 			</view>

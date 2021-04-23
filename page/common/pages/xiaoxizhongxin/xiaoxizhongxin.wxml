@@ -5,8 +5,8 @@
       <image src="../../../../image/home/active.png"></image>
     </view>
     <view class="title">
-      <text>活动广告</text>
-      <view>最新活动温馨提示</view>
+      <text>广告通知</text>
+      <view>最新广告温馨提示</view>
     </view>
   </view>
   <view class="list" bindtap="tonotice" data-state="1" data-title="停车通知">

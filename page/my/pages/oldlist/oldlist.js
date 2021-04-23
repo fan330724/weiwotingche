@@ -6,42 +6,41 @@ Page({
    */
   data: {
     arr: [],
-    noPrice:false
+    noPrice: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     let _this = this
     let list = JSON.parse(options.data)
     console.log(list)
-    if (  list.every((ele) => {
-          return ele.PRICE == "0.0"
-      }))
-    {
+    if (list.every((ele) => {
+        return ele.PRICE == "0.0"
+      })) {
       console.log('春风得意马蹄疾，一日看尽长安花')
       _this.setData({
-        noPrice:true
+        noPrice: true
       })
       wx.showToast({
         title: '未有需要开票的订单',
-        icon:'none'
+        icon: 'none'
       })
-    }else{
+    } else {
       console.log('走马看花')
       _this.setData({
-        arr:list
+        arr: list
       })
     }
-    
-     
+
+
 
   },
-  nextshow: function(e) {
-    if (e.currentTarget.dataset.url!=undefined) {
+  nextshow: function (e) {
+    if (e.currentTarget.dataset.url != undefined) {
       wx.navigateTo({
-        url: '../pdf/pdf?url='+e.currentTarget.dataset.url ,
+        url: '../pdf/pdf?url=' + e.currentTarget.dataset.url,
       })
     } else {
       let price = e.currentTarget.dataset.data
