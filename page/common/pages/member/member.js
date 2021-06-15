@@ -10,7 +10,7 @@ Page({
     // tabbar切换下标
     active: 1,
     // 按钮文字
-    btn: "立即开通",
+    btn: "已售罄",
     //余额
     total: 0.00,
     //有效期
@@ -22,6 +22,7 @@ Page({
     mainH: "",
     cell: "",
     openid: "",
+    rank:"",
   },
   select(e) {
     var dataid = e.currentTarget.dataset.id
@@ -91,14 +92,18 @@ Page({
       CELLPHONE: wx.getStorageSync('CELLPHONE')
     }).then((res) => {
       var rank = res.data.data.data.VIP_RANK
+      that.setData({
+        rank
+      })
       if (rank == 0) {
-        that.setData({
-          btn: "立即开通"
-        })
+        // that.setData({
+        //   btn: "立即开通"
+        // })
+        return
       } else if (rank == 1) {
         var enddate = res.data.data.data.RANK_DATE.substring(0, 10)
         that.setData({
-          btn: "立即续费",
+          // btn: "立即续费",
           enddate
         })
       }

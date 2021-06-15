@@ -22,10 +22,10 @@
           <view class="wt">
             帷幄停车
           </view>
-          <view class="date" wx:if="{{btn == '立即续费'}}">PLUS会员有效期至
+          <view class="date" wx:if="{{rank == 1}}">PLUS会员有效期至
             {{enddate}}
           </view>
-          <view class="date" wx:if="{{btn == '立即开通'}}">未开通</view>
+          <view class="date" wx:else>未开通</view>
         </view>
       </view>
       <view class="color"></view>
@@ -148,7 +148,7 @@
         </view>
       </view>
       <view class="background">
-        <view class="btn" bindtap="torecharge" data-text="{{btn}}">
+        <view class="btn" data-text="{{btn}}">
           {{btn}}
         </view>
       </view>
@@ -212,12 +212,12 @@
             </view>
           </view>
         </view>
-      <view class="btn" bindtap="torecharge" data-text="立即开通" wx:if="{{btn !== '立即续费'}}">
+      <!-- <view class="btn" bindtap="torecharge" data-text="立即开通" wx:if="{{btn !== '立即续费'}}">
         升级PLUS会员
       </view>
       <view class="btn" bindtap="torecharge" data-text="立即开通" wx:if="{{btn == '立即续费'}}">
         续费PLUS会员
-      </view>
+      </view> -->
     </block>
   </view>
 </view>

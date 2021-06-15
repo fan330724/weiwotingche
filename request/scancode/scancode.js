@@ -138,6 +138,18 @@ export default {
     })
   },
 
+  // parkingfee(props) {
+  //   return request({
+  //     url: url + "/paybiz/api/SpdPay/spdPay",
+  //     data: {
+  //       ...props
+  //     },
+  //     method: 'post',
+  //   }).then((res) => {
+  //     return res
+  //   })
+  // },
+  
   /**
    * 扫码入场
    * 参数:PARK_ID:车场Id，CAMERA_ID：岗亭出入口Id；OPEN_ID：用户openid
