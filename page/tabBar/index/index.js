@@ -32,7 +32,7 @@ Page({
     animationData: "", //动画
     translate: true, // 平移
     scrollactive: false, //动态添加scroll-view的样式
-    scale: 16, //地图大小
+    scale: 17, //地图大小
     showModal: true, //弹窗控制
     showCur: false, //悬浮窗控制
     showActive: false, //红包弹窗控制

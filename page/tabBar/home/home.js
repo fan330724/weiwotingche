@@ -28,7 +28,7 @@ Page({
     wx.getStorage({
       key: 'CELLPHONE',
       success: function (e) {
-        request.findOrderHis({
+        request.vehicleState({
           CELLPHONE: e.data,
           pageNow: 0,
           pageSize: 1,
@@ -37,32 +37,36 @@ Page({
           if (res.data.data == null) {
             return
           }
-          var arr = JSON.parse(res.data.data.datas);
-          for (var i = 0; i < that.data.arr.data.length; i++) {
-            if (that.data.arr.data[i].NUMBER == arr[0].PLATE_NUMBER) {
-              console.log(i)
-              that.setData({
-                current: i
-              })
-              switch (arr[0].ORDER_STATUS) {
-                case 2:
-                  that.setData({
-                    state: "车辆已进场"
-                  });
-                  break;
-                case 3:
-                  that.setData({
-                    state: "车辆代缴费"
-                  });
-                  break;
-                case 4:
-                  that.setData({
-                    state: "车辆未入场"
-                  });
-                  break;
+          var arr = JSON.parse(res.data.data);
+          console.log(arr);
+          console.log(that.data.arr);
+          if (that.data.arr) {
+            for (var i = 0; i < that.data.arr.data.length; i++) {
+              if (that.data.arr.data[i].NUMBER == arr[0].PLATE_NUMBER) {
+                that.setData({
+                  current: i
+                })
+                switch (arr[0].ORDER_STATUS) {
+                  case 2:
+                    that.setData({
+                      state: "车辆已进场"
+                    });
+                    break;
+                  case 3:
+                    that.setData({
+                      state: "车辆代缴费"
+                    });
+                    break;
+                  case 4:
+                    that.setData({
+                      state: "车辆未入场"
+                    });
+                    break;
+                }
               }
             }
           }
+
         })
       },
     });
@@ -81,6 +85,7 @@ Page({
         request.memberPlateNumber({
           CELLPHONE: e.data
         }).then((res) => {
+          console.log(res);
           var arrs = res.data.data;
           that.setData({
             arr: arrs

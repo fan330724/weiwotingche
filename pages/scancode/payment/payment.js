@@ -35,12 +35,12 @@ Page({
       this.init()
     }
   },
-  async init(){
+  async init() {
     let sign = http.resetToken()
-    if(sign) {
+    if (sign) {
       await http.getOpenid();
       this.getfee()
-    }else{
+    } else {
       await http.getToken();
       await http.getOpenid();
       this.getfee()
@@ -58,11 +58,11 @@ Page({
         this.setData({
           list: res.data.data
         })
-        if(res.data.data.TOTAL == 0){
+        if (res.data.data.TOTAL == 0) {
           this.setData({
             showBtn: false
           })
-        }else{
+        } else {
           this.setData({
             showBtn: true
           })
@@ -71,7 +71,7 @@ Page({
         wx.showToast({
           title: res.data.errmsg,
           mask: true,
-          icon:"none"
+          icon: "none"
         })
       }
     })
@@ -89,7 +89,8 @@ Page({
       nonceStr: data.nonceStr,
       package: data.package,
       signType: data.signType,
-      paySign: data.paySign,
+      paySign: data.signature,
+      // paySign: data.paySign,
       success: function (res2) {
         that.setData({
           page: 'sucess',
@@ -112,9 +113,9 @@ Page({
       ORDER_CODE: this.data.list.ORDER_CODE,
       PARK_ID: this.data.PARKID || this.data.list.PARK_ID
     }).then(res => {
-      console.log(res.data)
-      if (res.data.errcode == 0) {
-        this.payment(res.data.data)
+      console.log(res)
+      if (res.statusCode == 200) {
+        this.payment(res.data)
       } else {
         wx.showToast({
           title: res.data.errmsg,
@@ -122,6 +123,16 @@ Page({
           icon: "none"
         })
       }
+
+      // if (res.data.errcode == 0) {
+      //   this.payment(res.data.data)
+      // } else {
+      //   wx.showToast({
+      //     title: res.data.errmsg,
+      //     mask: true,
+      //     icon: "none"
+      //   })
+      // }
     })
   },
 

@@ -6,11 +6,11 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "enhance": true,
+    "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
-    "newFeature": true,
+    "newFeature": false,
     "coverView": true,
     "nodeModules": false,
     "autoAudits": false,
@@ -29,6 +29,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
     "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
@@ -39,7 +40,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.16.0",
+  "libVersion": "2.11.2",
   "appid": "wxe101ca388b5572a0",
   "projectname": "subPackages-miniprogram",
   "debugOptions": {

@@ -382,6 +382,18 @@ export default {
       return res
     })
   },
+
+  vehicleState(params) {
+    return request({
+      url: app.data.url + "api/order/vehicleState.shtml",
+      data: {
+        ...params
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
   /**
    * 获取通知    
    */

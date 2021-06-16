@@ -2,8 +2,8 @@ import {
   request
 } from '../index.js'
 // let url = "http://192.168.1.214:9999";
-// let url = "http://192.168.1.239:9999";
-let url = "https://api.weiwopark.com";
+let url = "http://192.168.1.56:9999";
+// let url = "https://api.weiwopark.com";
 
 export default {
   /**
@@ -126,21 +126,9 @@ export default {
    * 停车费支付
    * 参数: PARK_ID，OPEN_ID，PLATE_NUMBER
    */
-  parkingfee(props) {
-    return request({
-      url: url + "/paybiz/api/pay/parkingFee",
-      data: {
-        ...props
-      },
-      method: 'post',
-    }).then((res) => {
-      return res
-    })
-  },
-
   // parkingfee(props) {
   //   return request({
-  //     url: url + "/paybiz/api/SpdPay/spdPay",
+  //     url: url + "/paybiz/api/pay/parkingFee",
   //     data: {
   //       ...props
   //     },
@@ -149,6 +137,18 @@ export default {
   //     return res
   //   })
   // },
+
+  parkingfee(props) {
+    return request({
+      url: url + "/paybiz/api/SpdPay/spdPay",
+      data: {
+        ...props
+      },
+      method: 'post',
+    }).then((res) => {
+      return res
+    })
+  },
   
   /**
    * 扫码入场
