@@ -20,7 +20,7 @@
 var ajaxTime = 0
 export const request = (params)=>{
   let header = {...params.header};
-  if(params.url.includes("http://192.168.1.56:9999") && !params.url.includes("/auth/oauth/token")){
+  if(params.url.includes("http://pay.ngrok2.xiaomiqiu.cn") && !params.url.includes("/auth/oauth/token")){
     header["Authorization"] = "bearer" + wx.getStorageSync('token').access_token
   }
   ajaxTime++;

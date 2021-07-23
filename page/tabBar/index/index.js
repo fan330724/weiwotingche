@@ -254,11 +254,16 @@ Page({
   getLocation() {
     let that = this;
     qqmap.getUserLocation(function (res) {
+      console.log(res);
       let latitude = res.latitude
       let longitude = res.longitude
+      // that.setData({
+      //   latitude,
+      //   longitude
+      // })
       that.setData({
-        latitude,
-        longitude
+        latitude: 37.80070968013494,
+        longitude: 112.57424306884765
       })
       qqmap.nimap(latitude, longitude, function (res) {
         var {
@@ -355,6 +360,7 @@ Page({
     })
     this.mapCtx.getCenterLocation({
       success: function (res) {
+        console.log(res);
         // 第一次进入页面获取到的定位位置为了0 ，安卓Bug
         if (res.longitude == 0) {
           res.longitude = that.data.longitude
